@@ -1,0 +1,81 @@
+Table 1->	Users : (CRUD) -> 
+	UID,
+	FirstName,
+	LastName,
+	DOB,
+	Address,
+	Email,
+	Phone,
+	Role (Admin/User)	[Def: User]
+	DateCreated,
+	DateUpdated
+
+Table 2->	Admins : (CRUD) -> 
+	UID,
+	FirstName,
+	LastName,
+	DOB,
+	Address,
+	Email,
+	Phone,
+	Aadhar/Voter/PanCard
+	DateCreated,
+	DateUpdated
+
+Table 3->	Medicines : (CRUD) -> 
+	UID,
+	Name,
+	Chem,
+	Exp,
+	Qty,
+	Power,
+	Category (Antibiotics, Antifungal, Anti)
+	type (Tablet, Liquid, injection, Gel, Sprays)
+	Desc,
+	Seller,
+	brandName
+
+Table 4->	Categories : (CRUD) ->
+	Thyroid,
+	General,
+	Oil,
+	Creams,
+	Cancer,
+	HIV,
+	Covid Kit,
+	Bone,
+	Heart,
+	Diabetes,
+	Skin
+
+Table 5->	Orders : (CRUD) ->
+	OrderId(GUID),
+	UserId,
+	ProductId
+	FirstName,
+	lastName,
+	Contact,
+	Street/HouseNo.,
+	Area/Locality,
+	City,
+	State,
+	Zip
+	ProductName,
+	Quantity,
+	Total,
+	OrderDate,
+	OrderStatus(Can/Act/Del),
+	PaymentStatus(Paid/COD),
+	PaymentMode(UPI/CC/DC/COD)
+
+Table 6->ProductIds, Quantities
+	1234,125,145	4,5,7
+
+
+
+Doctor Related Vectors => https://www.vecteezy.com/members/alwi-chabib887487?utf8=%E2%9C%93&search=doctor&sort_by=popular
+Medicine Types => https://www.fda.gov/drugs/investigational-new-drug-ind-application/general-drug-categories
+			https://www.sehat.com/common-types-of-medications-and-their-side-effects
+
+
+
