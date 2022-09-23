@@ -1,0 +1,71 @@
+.hero-section{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/LandingPage/Hero_Bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.hero-title{
+    margin-left: 2rem;
+}
+.hero-title-text{
+    font-weight: bold;
+    font-family: 'Karla', sans-serif;
+    font-size: 4rem;
+    line-height: 3.5rem;
+    color: #808CFF;
+    letter-spacing: -0.25rem;
+}
+.hero-subtitle-text{
+    margin-top: 1rem;
+    font-weight: bold;
+    font-family: 'Karla', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    color: #90C324;
+    margin-left: 0.25rem;
+}
+.hero-description{
+    margin-top: 1rem;
+    margin-left: 2.5rem;
+}
+.desc{
+    color: rgb(163, 163, 163);
+    list-style: none;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+.check-icon{
+    color: #90C324;
+    margin-right: 0.75rem;
+}
+/* ================== Searhc Bar =================== */
+.search-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2rem 0 0 2rem;
+    padding: 0.5rem;
+}
+.search-text{
+    width: 20rem;
+    background-color: rgb(240, 240, 240);
+    padding: 1rem 0 1rem 1rem;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.search-text:focus{
+    outline: none;
+}
+.search-logo{
+    background-color: rgb(240, 240, 240);
+    padding: 1.25rem 1.25rem 1rem 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
