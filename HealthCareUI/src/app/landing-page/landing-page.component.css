@@ -92,7 +92,7 @@
     font-size: 1.1rem;
     font-weight: 500;
     color: gray;
-    margin: 1rem 0;
+    margin-bottom: 2rem;
 }
 .product-container{
     display: grid;
@@ -226,64 +226,42 @@
 }
 
 /* ==============================  Categories ==========================  */
-
+.categories-section{
+    background-color: rgba(0, 0, 0, 0.02);
+}
 .category-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     width: 90%;
     margin: 0 auto;
     gap: 1rem;
+    padding: 1rem;
+    background-color: #edefff;
+    border-radius: 12px;
 }
 .category-card{
     display: flex;
-    justify-content: space-between;
+    width: 13rem;
+    flex-direction: column;
+    justify-content:  center;
+    align-items: center;
     background-color: white;
     padding: 0.5rem;
     border-radius: 8px;
-    border: 2px solid rgba(0, 0, 0, 0.25);
-    align-items: center;
+    cursor: pointer;
+    border: none;
 }
 .category-card:hover{
-    border: none;
-    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
+    background-color: rgb(250, 250, 250);
 }
-.category-header{
-    display: flex;
-    flex-direction: column;
-}
-.category-title{
-    display: flex;
-    align-items: center;
-}
-.category-title h4{
-    font-size: 1.25rem;
-    font-weight: 500;
-}
-.category-title i{
+.category-card h4{
+    text-align: center;
     font-size: 1rem;
-    margin-right: 0.5rem;
-}
-
-.category-description{
-    font-size: 0.95rem;
     font-weight: 500;
-    color: gray;   
+    margin-top: 1rem;
 }
-.category-btn{
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    color: white;
-    background-color: #3a609a;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: all 300ms ease-out;
-}
-.category-btn:hover{
-    background-color: #808CFF;
-}
-.category-btn:active{
-    background-color: #ccd1ff;
-    color: black;   
+.category-card i{
+    font-size: 4rem;
 }
