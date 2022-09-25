@@ -51,6 +51,15 @@
     margin: 2rem 0 0 2rem;
     padding: 0.5rem;
 }
+.search-bar button{
+    outline: none;
+    border: none;
+    padding: 1.25rem 1.25rem 1rem 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+}
 .search-text{
     width: 20rem;
     background-color: rgb(240, 240, 240);
@@ -63,9 +72,218 @@
 .search-text:focus{
     outline: none;
 }
-.search-logo{
-    background-color: rgb(240, 240, 240);
-    padding: 1.25rem 1.25rem 1rem 0;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+
+
+/* ==================== Frequent Product Section ==================== */
+.sub-sections{
+    padding: 1rem 5rem;
+}
+.freq-prod{
+    background-color: rgba(0, 0, 0, 0.02);
+}
+.section-title{
+    text-align: center;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+.section-subtitle{
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: gray;
+    margin: 1rem 0;
+}
+.product-container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+}
+.product-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    background-color: white;
+}
+.product-img{
+    margin-bottom: 1rem;
+    width: 100%;
+    border-radius: 5px;
+}
+.product-name{
+    font-weight: 400;
+    font-size: 0.95rem;
+}
+.product-price{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+.product-price span{
+    font-size: 1rem;
+}
+.product-mrp{
+    text-decoration: line-through;
+    color: gray;
+    font-size: 0.85rem;
+    font-weight: 200;
+}
+.product-mrp span{
+    color: rgb(69, 69, 69);
+    font-weight: 400;
+}
+.buy-btn{
+    background-color: #3a609a;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+.buy-btn:hover{
+    background-color: #808CFF;
+}
+.buy-btn:active{
+    background-color: #ccd1ff;
+    color: black;   
+}
+.buy-now-icon{
+    margin-right: 0.5rem;
+}
+
+/* ====================== Services Section ================== */
+.service-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    margin: 0 auto;
+    row-gap: 2rem;
+    column-gap: 4rem;
+}
+.service-card{
+    background-color: white;
+    height: 16rem;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.serv-card-1{
+    background-image: url('../../assets/LandingPage/Services/prescription.jpg');
+}
+.serv-card-2{
+    background-image: url('../../assets/LandingPage/Services/consultation.jpg');
+}
+.serv-card-3{
+    background-image: url('../../assets/LandingPage/Services/delivery.jpg');
+}
+.serv-card-4{
+    background-image: url('../../assets/LandingPage/Services/chat.jpg');
+}
+
+.service-title{
+    font-size: 1.75rem;
+    text-align: end;
+    color: #3a609a;
+}
+.service-desc{
+    font-size: 1rem;
+    color: #808CFF;
+    font-weight: 500;
+    text-align: end;
+}
+.service-btn{
+    padding: 0.75rem 1.5rem;
+    color: white;
+    background-color: #3a609a;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 300ms ease-out;
+}
+.service-btn:hover{
+    background-color: #808CFF;
+}
+.service-btn:active{
+    background-color: #ccd1ff;
+    color: black;   
+}
+.right-arrow-icon-btn{
+    margin-left: 0.5rem;
+}
+
+/* ==============================  Categories ==========================  */
+
+.category-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin: 0 auto;
+    gap: 1rem;
+}
+.category-card{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    align-items: center;
+}
+.category-card:hover{
+    border: none;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.25);
+}
+.category-header{
+    display: flex;
+    flex-direction: column;
+}
+.category-title{
+    display: flex;
+    align-items: center;
+}
+.category-title h4{
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+.category-title i{
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
+.category-description{
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: gray;   
+}
+.category-btn{
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #3a609a;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 300ms ease-out;
+}
+.category-btn:hover{
+    background-color: #808CFF;
+}
+.category-btn:active{
+    background-color: #ccd1ff;
+    color: black;   
 }
