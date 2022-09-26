@@ -1,0 +1,267 @@
+.hero-section{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/LandingPage/Hero_Bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.hero-title{
+    margin-left: 2rem;
+}
+.hero-title-text{
+    font-weight: bold;
+    font-family: 'Karla', sans-serif;
+    font-size: 4rem;
+    line-height: 3.5rem;
+    color: #808CFF;
+    letter-spacing: -0.25rem;
+}
+.hero-subtitle-text{
+    margin-top: 1rem;
+    font-weight: bold;
+    font-family: 'Karla', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    color: #90C324;
+    margin-left: 0.25rem;
+}
+.hero-description{
+    margin-top: 1rem;
+    margin-left: 2.5rem;
+}
+.desc{
+    color: rgb(163, 163, 163);
+    list-style: none;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+.check-icon{
+    color: #90C324;
+    margin-right: 0.75rem;
+}
+/* ================== Searhc Bar =================== */
+.search-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2rem 0 0 2rem;
+    padding: 0.5rem;
+}
+.search-bar button{
+    outline: none;
+    border: none;
+    padding: 1.25rem 1.25rem 1rem 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+}
+.search-text{
+    width: 20rem;
+    background-color: rgb(240, 240, 240);
+    padding: 1rem 0 1rem 1rem;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.search-text:focus{
+    outline: none;
+}
+
+
+/* ==================== Frequent Product Section ==================== */
+.sub-sections{
+    padding: 1rem 5rem;
+}
+.freq-prod{
+    background-color: rgba(0, 0, 0, 0.02);
+}
+.section-title{
+    text-align: center;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+.section-subtitle{
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: gray;
+    margin-bottom: 2rem;
+}
+.product-container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+}
+.product-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    background-color: white;
+}
+.product-img{
+    margin-bottom: 1rem;
+    width: 100%;
+    border-radius: 5px;
+}
+.product-name{
+    font-weight: 400;
+    font-size: 0.95rem;
+}
+.product-price{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+.product-price span{
+    font-size: 1rem;
+}
+.product-mrp{
+    text-decoration: line-through;
+    color: gray;
+    font-size: 0.85rem;
+    font-weight: 200;
+}
+.product-mrp span{
+    color: rgb(69, 69, 69);
+    font-weight: 400;
+}
+.buy-btn{
+    background-color: #3a609a;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+.buy-btn:hover{
+    background-color: #808CFF;
+}
+.buy-btn:active{
+    background-color: #ccd1ff;
+    color: black;   
+}
+.buy-now-icon{
+    margin-right: 0.5rem;
+}
+
+/* ====================== Services Section ================== */
+.service-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    margin: 0 auto;
+    row-gap: 2rem;
+    column-gap: 4rem;
+}
+.service-card{
+    background-color: white;
+    height: 16rem;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.serv-card-1{
+    background-image: url('../../assets/LandingPage/Services/prescription.jpg');
+}
+.serv-card-2{
+    background-image: url('../../assets/LandingPage/Services/consultation.jpg');
+}
+.serv-card-3{
+    background-image: url('../../assets/LandingPage/Services/delivery.jpg');
+}
+.serv-card-4{
+    background-image: url('../../assets/LandingPage/Services/chat.jpg');
+}
+
+.service-title{
+    font-size: 1.75rem;
+    text-align: end;
+    color: #3a609a;
+}
+.service-desc{
+    font-size: 1rem;
+    color: #808CFF;
+    font-weight: 500;
+    text-align: end;
+}
+.service-btn{
+    padding: 0.75rem 1.5rem;
+    color: white;
+    background-color: #3a609a;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 300ms ease-out;
+}
+.service-btn:hover{
+    background-color: #808CFF;
+}
+.service-btn:active{
+    background-color: #ccd1ff;
+    color: black;   
+}
+.right-arrow-icon-btn{
+    margin-left: 0.5rem;
+}
+
+/* ==============================  Categories ==========================  */
+.categories-section{
+    background-color: rgba(0, 0, 0, 0.02);
+}
+.category-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 0 auto;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #edefff;
+    border-radius: 12px;
+}
+.category-card{
+    display: flex;
+    width: 13rem;
+    flex-direction: column;
+    justify-content:  center;
+    align-items: center;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+}
+.category-card:hover{
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
+    background-color: rgb(250, 250, 250);
+}
+.category-card h4{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+.category-card i{
+    font-size: 4rem;
+}

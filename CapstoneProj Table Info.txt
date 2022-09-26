@@ -1,81 +1,163 @@
 Table 1->	Users : (CRUD) -> 
-	UID,
-	FirstName,
-	LastName,
-	DOB,
-	Address,
-	Email,
-	Phone,
-	Role (Admin/User)	[Def: User]
-	DateCreated,
-	DateUpdated
 
-Table 2->	Admins : (CRUD) -> 
-	UID,
-	FirstName,
-	LastName,
-	DOB,
-	Address,
-	Email,
-	Phone,
-	Aadhar/Voter/PanCard
-	DateCreated,
-	DateUpdated
+	UID	|  FirstName  |  LastName  |  DOB  |  Email  |  Phone  |  Role  |  DateCreated  |  DateUpdated
+	---------------------------------------------------------------------------------------------------------------
+	GUID	varchar		varchar		  date	 varchar	int		  Admin		DateTime		DateTime
+																  User
 
-Table 3->	Medicines : (CRUD) -> 
-	UID,
-	Name,
-	Chem,
-	Exp,
-	Qty,
-	Power,
-	Category (Antibiotics, Antifungal, Anti)
-	type (Tablet, Liquid, injection, Gel, Sprays)
-	Desc,
-	Seller,
-	brandName
+Table 2->	Product : (CRUD) ->
+
+	UID  |  Name  |  Chem  |  Exp  |  Qty  |  Power  |  CategoryId  |  type   |  Description  |  Seller  |  brandName  | Price  |
+	-----------------------------------------------------------------------------------------------------------------------------
+	guid   varchar  varchar   date    int      int        int 		  Tablet	 varchar(max)	 varchar	varchar		  int
+																	  Syrup
+																	  injection
+																	  Gel
+																	  Sprays
 
 Table 4->	Categories : (CRUD) ->
-	Thyroid,
-	General,
-	Oil,
-	Creams,
-	Cancer,
-	HIV,
-	Covid Kit,
-	Bone,
-	Heart,
-	Diabetes,
-	Skin
+
+	CateId  |  CategoryName  |  CategoryIconClass
+	------------------------------------------------------
+	int(auto)	varchar			"fa fa-arrow fa-regular"
+
 
 Table 5->	Orders : (CRUD) ->
-	OrderId(GUID),
-	UserId,
-	ProductId
-	FirstName,
-	lastName,
-	Contact,
-	Street/HouseNo.,
-	Area/Locality,
-	City,
-	State,
-	Zip
-	ProductName,
-	Quantity,
-	Total,
-	OrderDate,
-	OrderStatus(Can/Act/Del),
-	PaymentStatus(Paid/COD),
-	PaymentMode(UPI/CC/DC/COD)
 
-Table 6->ProductIds, Quantities
-	1234,125,145	4,5,7
+	OrderId  |  UserId  |  ProductId  |  FirstName  |  lastName  |  Contact  |  Street/HouseNo.  |  Area/Locality  |  City  |  State  |  Zip  |  ProductName  |  Quantity  |  Total  |  OrderDate  |  OrderStatus  |  PaymentStatus  |  PaymentMode
+	----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	GUID		GUID		guid		varchar	   varchar	   int		varchar		varchar		varchar   varchar	int		varchar	   int	  int		dateTime	  Cancel		Paid				UPI
+																																	  Active		Unpaid			CreditCard
 
 
+											_________________________
+
+													C#
+											_________________________
+
+================================================================================================================================================================
+Controllers				Necessity			Method	User			Route							Input			Output
+================================================================================================================================================================
+1. user ->
+	a. Login	 	[Check Email and Password]	post		Any			/login						UserData		Token
+	b. Register 	[Authentication on Email ]	post		Any			/register						userData		Token
+	c. getSingleUser						get		Any			/user/userId					userId		User/Token
+	d. UpdateUser						get		Any			/user/account/update				ID/UserData		---Message---
+	e. RemoveUser				[Auth]	delete	Admin			/admin/user/userId				UserId		---Message---
+	f. ChangeRole				[Auth]	put		Admin			/admin/user/userId				UserId		---Message---
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Products	->
+	a. CreateProduct				[Auth]	post		Admin			/admin/addProduct					productData		---Message---
+	b. UpdateProduct				[Auth]	put		Admin			/admin/product/prodId				Id/productData	---Message---
+	c. DeleteProduct				[Auth]	delete	Admin			/admin/product/prodId				UserId		---Message---
+	d. getSingleProduct					get		Any			/product/prodId					ProdId		Product
+	e. getProductByName					post		Any			/product?name={productName}			ProductName		ProductList
+	f. getProdList						get		Any			/products						--Nothing--		ProductList
+	g. getTop6Products					get		Any			/products/top6					--Nothing--		ProductList
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Categories ->
+	a. CreateCategories			[Auth]	post		Admin			/admin/addCategory				CategoryData	---Message---
+	b. Updatecategories			[Auth]	put		Admin			/admin/categories					CategoryData/Id	---Message---
+	c. DeleteCategoreis			[Auth]	delete	Admin			/admin/categories					CategoryId		---Message---
+	d. GetCategory						get		Any			/category/catId					CategoryId		Category
+	e. GetAllCategories					get		Any			/categories						--Nothing--		CategoriesList
+	e. GetProducsByCategoreis				get		Any			/products?categoryId={id}			CategoryId		ProductList
+	f. Filters							get		Any			/products?categoryId={id}&type={type}	catId/Type		ProductList
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. Orders	->
+	a. ViewSpecificOrders					get		Any			/user/account/userId				UserId		OrdersList
+	b. CancelOrders						delete	Any			/user/account/orderId				OrderId		---Message---
+	c. ViewAllOrders						get		Admin			/admin/orders					--Nothing--		OrdersList
+	d. EditOrders						post		Admin			/admin/orders/orderId				Id/Order		---Message---
+================================================================================================================================================================
+
+
+
+
+
+											_________________________
+
+												  Angular
+											_________________________
+
+================================================================================================================================================================
+Services				Necessity			Method	User			Route							Input			Output
+================================================================================================================================================================
+1. user ->
+	a. Login	 	[Check Email and Password]	post		Any			/login						UserData		Token
+	b. Register 	[Authentication on Email ]	post		Any			/register						userData		Token
+	c. getSingleUser						get		Any			/user/userId					userId		User/Token
+	d. UpdateUser						get		Any			/user/account/update				ID/UserData		---Message---
+	e. RemoveUser				[Auth]	delete	Admin			/admin/user/userId				UserId		---Message---
+	f. ChangeRole				[Auth]	put		Admin			/admin/user/userId				UserId		---Message---
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Products	->
+	a. CreateProduct				[Auth]	post		Admin			/admin/addProduct					productData		---Message---
+	b. UpdateProduct				[Auth]	put		Admin			/admin/product/prodId				Id/productData	---Message---
+	c. DeleteProduct				[Auth]	delete	Admin			/admin/product/prodId				UserId		---Message---
+	d. getProductById						get		Any			/product/prodId					ProdId		Product
+	e. getProductByName					post		Any			/product?name={productName}			ProductName		ProductList
+	f. getProdList						get		Any			/products						--Nothing--		ProductList
+	g. getTop6Products					get		Any			/products/top6					--Nothing--		ProductList
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Categories ->
+	a. CreateCategories			[Auth]	post		Admin			/admin/addCategory				CategoryData	---Message---
+	b. Updatecategories			[Auth]	put		Admin			/admin/categories					CategoryData/Id	---Message---
+	c. DeleteCategoreis			[Auth]	delete	Admin			/admin/categories					CategoryId		---Message---
+	d. GetCategory						get		Any			/category/catId					CategoryId		Category
+	e. GetAllCategories					get		Any			/categories						--Nothing--		CategoriesList
+	e. GetProducsByCategoreis				get		Any			/products?categoryId={id}			CategoryId		ProductList
+	f. Filters							get		Any			/products?categoryId={id}&type={type}	catId/Type		ProductList
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. Orders	->
+	a. ViewSpecificOrders					get		Any			/user/account/userId				UserId		OrdersList
+	b. CancelOrders						delete	Any			/user/account/orderId				OrderId		---Message---
+	c. ViewAllOrders						get		Admin			/admin/orders					--Nothing--		OrdersList
+	d. EditOrders						post		Admin			/admin/orders/orderId				Id/Order		---Message---
+================================================================================================================================================================
+
+
+
+
+
+
+
+
+HomePage				Link					Data				Redirect to		done
+------------------------------------------------------------------------------------------------------------
+front =>  	http://localhost:4200/?medicine=citrazene		MedicineName(IN)		List Page		NO
+back	=>	https://localhost:7501/?medicine={name}		MedicineObjList(OUT)		API		NO
+
+
+Popular Products
+------------------------------------------------------------------------------------------------------------
+front => 	http://localhost:4200/buy/ProdId=abc1234fv	MedicideId			Product Page	NO
+back	=> 	https://localhost:7501/buy/ProdId=abc1234fv	MedicineObj()			API		NO
+
+
+Categories
+------------------------------------------------------------------------------------------------------------
+front => 	http://localhost:4200/category/CateId=abc1234fv	MedicideId			Product Page	NO
+back	=> 	https://localhost:7501/category/Id=abc1234fv		MedicineObj()		API		NO
+
+																																	  Delivered		DebitCard
+																																																	  										COD
 
 Doctor Related Vectors => https://www.vecteezy.com/members/alwi-chabib887487?utf8=%E2%9C%93&search=doctor&sort_by=popular
 Medicine Types => https://www.fda.gov/drugs/investigational-new-drug-ind-application/general-drug-categories
 			https://www.sehat.com/common-types-of-medications-and-their-side-effects
+
+
+
+
+
+
 
 
 
