@@ -12,4 +12,7 @@ export class ListPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToProduct(prodId : number){
+    console.log(prodId);
+  }
 }
