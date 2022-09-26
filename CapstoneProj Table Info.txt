@@ -2,27 +2,27 @@ Table 1->	Users : (CRUD) ->
 
 	UID	|  FirstName  |  LastName  |  DOB  |  Email  |  Phone  |  Role  |  DateCreated  |  DateUpdated
 	---------------------------------------------------------------------------------------------------------------
-	GUID	varchar		varchar		  date	 varchar	int		  Admin		DateTime		DateTime
-																  User
+	GUID	varchar		varchar    date	 varchar	int	   Admin	 DateTime		DateTime
+								 			   User
 
 Table 2->	Product : (CRUD) ->
 
-	UID  |  Name  |  Chem  |  Exp  |  Qty  |  Power  |  CategoryId  |  type   |  Description  |  Seller  |  brandName  | Price  |
-	-----------------------------------------------------------------------------------------------------------------------------
-	guid   varchar  varchar   date    int      int        int 		  Tablet	 varchar(max)	 varchar	varchar		  int
-																	  Syrup
-																	  injection
-																	  Gel
-																	  Sprays
+	UID  |  Name  |  Chem  |  Exp  |  Qty  |  Power  |  CategoryId  |  type   |  Description  |  Seller  |  brandName  | Price  |  DateCreated  |  DateUpdated
+	-------------------------------------------------------------------------------------------------------------------------------------------------------------
+	guid   varchar  varchar   date    int      int        int 		 Tablet   varchar(max)	   varchar	  varchar	   int	nullable		nullable
+												 Syrup
+												 injection
+												 Gel
+												 Sprays
 
-Table 4->	Categories : (CRUD) ->
+Table 3->	Categories : (CRUD) ->
 
-	CateId  |  CategoryName  |  CategoryIconClass
-	------------------------------------------------------
-	int(auto)	varchar			"fa fa-arrow fa-regular"
+	CateId  |  CategoryName  |  CategoryIconClass  |  DateCreated  |  DateUpdated
+	---------------------------------------------------------------------------------
+	int(auto)	varchar	  "fa fa-arrow fa-regular"	nullable	nullable
 
 
-Table 5->	Orders : (CRUD) ->
+Table 4->	Orders : (CRUD) ->
 
 	OrderId  |  UserId  |  ProductId  |  FirstName  |  lastName  |  Contact  |  Street/HouseNo.  |  Area/Locality  |  City  |  State  |  Zip  |  ProductName  |  Quantity  |  Total  |  OrderDate  |  OrderStatus  |  PaymentStatus  |  PaymentMode
 	----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
