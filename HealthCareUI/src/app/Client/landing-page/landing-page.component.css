@@ -14,7 +14,7 @@
 }
 .hero-title-text{
     font-weight: bold;
-    font-family: 'Karla', sans-serif;
+    font-family: var(--secondary-font);
     font-size: 4rem;
     line-height: 3.5rem;
     color: var(--secondary-color);
@@ -23,7 +23,7 @@
 .hero-subtitle-text{
     margin-top: 1rem;
     font-weight: bold;
-    font-family: 'Karla', sans-serif;
+    font-family: var(--secondary-font);
     font-size: 1.5rem;
     letter-spacing: 0;
     color: var(--ternery-color);
@@ -65,7 +65,7 @@
     background-color: rgb(240, 240, 240);
     padding: 1rem 0 1rem 1rem;
     border: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--primary-font);
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
@@ -139,7 +139,7 @@
     background-color: var(--primary-color);
     padding: 0.5rem 1rem;
     margin-top: 1rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--primary-font);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -211,7 +211,7 @@
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--primary-font);
     transition: all 300ms ease-out;
 }
 .service-btn:hover{

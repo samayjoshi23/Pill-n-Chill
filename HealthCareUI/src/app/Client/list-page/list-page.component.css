@@ -1,0 +1,196 @@
+main{
+    margin-top: 10vh;
+    position: relative;
+    border-top: 2px solid rgba(0,0,0,0.25);
+}
+
+/* ================= Sidebar ==================== */
+.sidebar{
+    position: fixed;
+    width: var(--sidebar-width);
+    top: 10vh;
+    left: 0;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    z-index: 99;
+    border-right: 2px solid rgba(0,0,0,0.25);
+}
+.sidebar-header{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-title{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    font-family: var(--secondary-font);
+}
+.sidebar-items form{
+    margin-top: 1.5rem;
+    background-color: rgba(0,0,0,0.1);
+    padding: 0.5rem;
+    border-radius: 7px;
+}
+.side-item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.item-input{
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 2px solid rgba(0,0,0,0.25);
+    font-family: var(--primary-font);
+    border-radius: 8px;
+}
+.go-btn{
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--primary-font);
+    background-color: #5a7e0d;
+}
+.go-btn:hover{
+    background-color: var(--ternery-color);
+    color: black;
+}
+
+
+
+/* ============================= product secion ========================= */
+.product-list-container{
+    margin-left: var(--sidebar-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section-header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1rem 0;
+}
+.section-header i{
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+.section-title{
+    font-family: var(--secondary-font);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.product-container{
+    display: grid;
+    width: 100%;
+    padding: 1rem 2rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+.product-card{
+    background-color: rgb(248,248,248);
+    border-radius: 10px;
+    display: flex;
+    height: 12rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border: none;
+    justify-content: space-between;
+}
+.product-card:hover{
+    box-shadow: var(--card-box-shadow);
+}
+.product-data{
+    display: flex;
+    height: 100%;
+}
+.product-details{
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.product-img{
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 7px;
+}
+.product-name{
+    font-size: 1.75rem;
+    font-weight: 500;
+    font-family: var(--primary-font);
+}
+.product-detail{
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--primary-font);
+    color: rgb(75, 75, 75);
+}
+.product-quantity{
+    color: red;
+    font-family: var(--secondary-font);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 2rem;
+}
+.product-detail span{
+    font-size: 1rem;
+    font-weight: 800;
+    font-family: var(--primary-font)
+}
+.product-price-info{
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    height: 100%;
+}
+.product-price{
+    font-family: var(--secondary-font);
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: var(--ternery-color);
+}
+.product-price span{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.product-mrp{
+    font-family: var(--secondary-font);
+    text-decoration: line-through;
+    font-size: 1.25rem;
+    color: rgb(75, 75, 75);
+    font-weight: 500;
+}
+.discount{
+    font-family: var(--secondary-font);
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+.discount i{
+    color: var(--ternery-color);
+}
+/* ============== optional =================== */
+/* .buy-btn{
+    background-color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    font-family: var(--primary-font);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+.buy-btn:hover{
+    background-color: var(--secondary-color);
+}
+.buy-btn:active{
+    background-color: var(--button-pressed-color);
+    color: black;
+} */
