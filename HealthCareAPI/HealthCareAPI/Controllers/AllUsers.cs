@@ -9,12 +9,12 @@ namespace HealthCareAPI.Controllers
     [ApiController]
     public class AllUsers : ControllerBase
     {
-       private static List<demoUser> users = new List<demoUser>(){
-        new demoUser(){Username="Nikhil",role="Admin",age=22},
-        new demoUser(){Username="Samay",role="User",age=21},
-        new demoUser(){Username="Piyush",role="Admin",age=21},
-        new demoUser(){Username="Abhinav",role="User",age=22}
-            };
+        private static List<demoUser> users = new(){
+            new demoUser(){Username="Nikhil", role="Admin",age=22 },
+            new demoUser(){Username="Samay", role="User",age=21 },
+            new demoUser(){Username="Piyush", role="Admin",age=21 },
+            new demoUser(){Username="Abhinav", role="User",age=22 }
+        };
 
 
         [HttpGet]
