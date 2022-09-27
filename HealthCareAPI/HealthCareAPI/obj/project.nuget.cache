@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "3qtGyG5xcTRktdLtBsTAAfD6YzLWDrZAPAHzQQdRIK4BAjMSKy5IxW8xdYaMdR7MrVU7nIcDk8NyySj9gHzpdw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
+=======
+  "dgSpecHash": "dV0gtWnxHGzFxOh7BNyRWqwWzhbV9b4HqRNyVHjyIcoVM5FZ1s5TZHDw/ih8HPqGS+j+4ejjP3hxM4D9mZbqLA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\samsc\\OneDrive\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
+>>>>>>> 3892eb79862249d99f43d69690af2cf78c51dda5
   "expectedPackageFiles": [
     "C:\\Users\\Nikhil\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.9\\microsoft.aspnetcore.authentication.jwtbearer.6.0.9.nupkg.sha512",
     "C:\\Users\\Nikhil\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

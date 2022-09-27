@@ -1,7 +1,7 @@
 .hero-section{
     width: 100vw;
     height: 100vh;
-    background-image: url('../../assets/LandingPage/Hero_Bg.jpg');
+    background-image: url('../../../assets/LandingPage/Hero_Bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,19 +14,19 @@
 }
 .hero-title-text{
     font-weight: bold;
-    font-family: 'Karla', sans-serif;
+    font-family: var(--secondary-font);
     font-size: 4rem;
     line-height: 3.5rem;
-    color: #808CFF;
+    color: var(--secondary-color);
     letter-spacing: -0.25rem;
 }
 .hero-subtitle-text{
     margin-top: 1rem;
     font-weight: bold;
-    font-family: 'Karla', sans-serif;
+    font-family: var(--secondary-font);
     font-size: 1.5rem;
     letter-spacing: 0;
-    color: #90C324;
+    color: var(--ternery-color);
     margin-left: 0.25rem;
 }
 .hero-description{
@@ -40,7 +40,7 @@
     font-size: 1rem;
 }
 .check-icon{
-    color: #90C324;
+    color: var(--ternery-color);
     margin-right: 0.75rem;
 }
 /* ================== Searhc Bar =================== */
@@ -65,7 +65,7 @@
     background-color: rgb(240, 240, 240);
     padding: 1rem 0 1rem 1rem;
     border: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--primary-font);
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
@@ -105,7 +105,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 0.5rem;
-    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--card-box-shadow);
     border-radius: 8px;
     background-color: white;
 }
@@ -136,10 +136,10 @@
     font-weight: 400;
 }
 .buy-btn{
-    background-color: #3a609a;
+    background-color: var(--primary-color);
     padding: 0.5rem 1rem;
     margin-top: 1rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--primary-font);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -147,11 +147,11 @@
     text-decoration: none;
 }
 .buy-btn:hover{
-    background-color: #808CFF;
+    background-color: var(--secondary-color);
 }
 .buy-btn:active{
-    background-color: #ccd1ff;
-    color: black;   
+    background-color: var(--button-pressed-color);
+    color: black;
 }
 .buy-now-icon{
     margin-right: 0.5rem;
@@ -170,7 +170,7 @@
     background-color: white;
     height: 16rem;
     border-radius: 8px;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--card-box-shadow);
     padding: 1rem;
     background-position: bottom;
     background-size: cover;
@@ -181,44 +181,44 @@
     justify-content: space-between;
 }
 .serv-card-1{
-    background-image: url('../../assets/LandingPage/Services/prescription.jpg');
+    background-image: url('../../../assets/LandingPage/Services/prescription.jpg');
 }
 .serv-card-2{
-    background-image: url('../../assets/LandingPage/Services/consultation.jpg');
+    background-image: url('../../../assets/LandingPage/Services/consultation.jpg');
 }
 .serv-card-3{
-    background-image: url('../../assets/LandingPage/Services/delivery.jpg');
+    background-image: url('../../../assets/LandingPage/Services/delivery.jpg');
 }
 .serv-card-4{
-    background-image: url('../../assets/LandingPage/Services/chat.jpg');
+    background-image: url('../../../assets/LandingPage/Services/chat.jpg');
 }
 
 .service-title{
     font-size: 1.75rem;
     text-align: end;
-    color: #3a609a;
+    color: var(--primary-color);
 }
 .service-desc{
     font-size: 1rem;
-    color: #808CFF;
+    color: var(--secondary-color);
     font-weight: 500;
     text-align: end;
 }
 .service-btn{
     padding: 0.75rem 1.5rem;
     color: white;
-    background-color: #3a609a;
+    background-color: var(--primary-color);
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--primary-font);
     transition: all 300ms ease-out;
 }
 .service-btn:hover{
-    background-color: #808CFF;
+    background-color: var(--secondary-color);
 }
 .service-btn:active{
-    background-color: #ccd1ff;
+    background-color: var(--button-pressed-color);
     color: black;   
 }
 .right-arrow-icon-btn{
@@ -253,7 +253,7 @@
     border: none;
 }
 .category-card:hover{
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--card-box-shadow);
     background-color: rgb(250, 250, 250);
 }
 .category-card h4{

@@ -2,27 +2,27 @@ Table 1->	Users : (CRUD) ->
 
 	UID	|  FirstName  |  LastName  |  DOB  |  Email  |  Phone  |  Role  |  DateCreated  |  DateUpdated
 	---------------------------------------------------------------------------------------------------------------
-	GUID	varchar		varchar		  date	 varchar	int		  Admin		DateTime		DateTime
-																  User
+	GUID	varchar		varchar    date	 varchar	int	   Admin	 DateTime		DateTime
+								 			   User
 
 Table 2->	Product : (CRUD) ->
 
-	UID  |  Name  |  Chem  |  Exp  |  Qty  |  Power  |  CategoryId  |  type   |  Description  |  Seller  |  brandName  | Price  |
-	-----------------------------------------------------------------------------------------------------------------------------
-	guid   varchar  varchar   date    int      int        int 		  Tablet	 varchar(max)	 varchar	varchar		  int
-																	  Syrup
-																	  injection
-																	  Gel
-																	  Sprays
+	UID  |  Name  |  Chem  |  Exp  |  Qty  |  Power  |  CategoryId  |  type   |  Description  |  Seller  |  brandName  | Price  |  DateCreated  |  DateUpdated
+	-------------------------------------------------------------------------------------------------------------------------------------------------------------
+	guid   varchar  varchar   date    int      int        int 		 Tablet   varchar(max)	   varchar	  varchar	   int	nullable		nullable
+												 Syrup
+												 injection
+												 Gel
+												 Sprays
 
-Table 4->	Categories : (CRUD) ->
+Table 3->	Categories : (CRUD) ->
 
-	CateId  |  CategoryName  |  CategoryIconClass
-	------------------------------------------------------
-	int(auto)	varchar			"fa fa-arrow fa-regular"
+	CateId  |  CategoryName  |  CategoryIconClass  |  DateCreated  |  DateUpdated
+	---------------------------------------------------------------------------------
+	int(auto)	varchar	  "fa fa-arrow fa-regular"	nullable	nullable
 
 
-Table 5->	Orders : (CRUD) ->
+Table 4->	Orders : (CRUD) ->
 
 	OrderId  |  UserId  |  ProductId  |  FirstName  |  lastName  |  Contact  |  Street/HouseNo.  |  Area/Locality  |  City  |  State  |  Zip  |  ProductName  |  Quantity  |  Total  |  OrderDate  |  OrderStatus  |  PaymentStatus  |  PaymentMode
 	----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -63,15 +63,17 @@ Controllers				Necessity			Method	User			Route							Input			Output
 	c. DeleteCategoreis			[Auth]	delete	Admin			/admin/categories					CategoryId		---Message---
 	d. GetCategory						get		Any			/category/catId					CategoryId		Category
 	e. GetAllCategories					get		Any			/categories						--Nothing--		CategoriesList
-	e. GetProducsByCategoreis				get		Any			/products?categoryId={id}			CategoryId		ProductList
-	f. Filters							get		Any			/products?categoryId={id}&type={type}	catId/Type		ProductList
+	f. GetProducsByCategoreis				get		Any			/products/categories/categoryId		CategoryId		ProductList
+	g. GetProducsByTypes					get		Any			/products/types/type				CategoryId		ProductList
+	h. Filters							get		Any			/products?categoryId={id}&type={type}	catId/Type		ProductList
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 4. Orders	->
-	a. ViewSpecificOrders					get		Any			/user/account/userId				UserId		OrdersList
-	b. CancelOrders						delete	Any			/user/account/orderId				OrderId		---Message---
-	c. ViewAllOrders						get		Admin			/admin/orders					--Nothing--		OrdersList
-	d. EditOrders						post		Admin			/admin/orders/orderId				Id/Order		---Message---
+	a. CreateOrder						post		Any			/user/order						OrderOnject		---Message---
+	b. ViewSpecificOrders					get		Any			/user/account/userId				UserId		OrdersList
+	c. CancelOrders						delete	Any			/user/account/orderId				OrderId		---Message---
+	d. ViewAllOrders						get		Admin			/admin/orders					--Nothing--		OrdersList
+	e. EditOrders						post		Admin			/admin/orders/orderId				Id/Order		---Message---
 ================================================================================================================================================================
 
 
@@ -111,15 +113,17 @@ Services				Necessity			Method	User			Route							Input			Output
 	c. DeleteCategoreis			[Auth]	delete	Admin			/admin/categories					CategoryId		---Message---
 	d. GetCategory						get		Any			/category/catId					CategoryId		Category
 	e. GetAllCategories					get		Any			/categories						--Nothing--		CategoriesList
-	e. GetProducsByCategoreis				get		Any			/products?categoryId={id}			CategoryId		ProductList
-	f. Filters							get		Any			/products?categoryId={id}&type={type}	catId/Type		ProductList
+	f. GetProducsByCategoreis				get		Any			/products?categoryId={id}			CategoryId		ProductList
+	g. GetProducsByTypes					get		Any			/products?type={id}				CategoryId		ProductList
+	h. Filters							get		Any			/products?categoryId={id}&type={type}	catId/Type		ProductList
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 4. Orders	->
-	a. ViewSpecificOrders					get		Any			/user/account/userId				UserId		OrdersList
-	b. CancelOrders						delete	Any			/user/account/orderId				OrderId		---Message---
-	c. ViewAllOrders						get		Admin			/admin/orders					--Nothing--		OrdersList
-	d. EditOrders						post		Admin			/admin/orders/orderId				Id/Order		---Message---
+	a. CreateOrder						post		Any			/user/order						OrderOnject		---Message---
+	b. ViewSpecificOrders					get		Any			/user/account/userId				UserId		OrdersList
+	c. CancelOrders						delete	Any			/user/account/orderId				OrderId		---Message---
+	d. ViewAllOrders						get		Admin			/admin/orders					--Nothing--		OrdersList
+	e. EditOrders						post		Admin			/admin/orders/orderId				Id/Order		---Message---
 ================================================================================================================================================================
 
 
@@ -152,12 +156,5 @@ back	=> 	https://localhost:7501/category/Id=abc1234fv		MedicineObj()		API		NO
 Doctor Related Vectors => https://www.vecteezy.com/members/alwi-chabib887487?utf8=%E2%9C%93&search=doctor&sort_by=popular
 Medicine Types => https://www.fda.gov/drugs/investigational-new-drug-ind-application/general-drug-categories
 			https://www.sehat.com/common-types-of-medications-and-their-side-effects
-
-
-
-
-
-
-
 
 

@@ -1137,11 +1137,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
       "projectName": "HealthCareAPI",
       "projectPath": "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
       "packagesPath": "C:\\Users\\Nikhil\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\samsc\\OneDrive\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
+      "projectName": "HealthCareAPI",
+      "projectPath": "C:\\Users\\samsc\\OneDrive\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
+      "packagesPath": "C:\\Users\\samsc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\samsc\\OneDrive\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\obj\\",
+>>>>>>> 3892eb79862249d99f43d69690af2cf78c51dda5
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
