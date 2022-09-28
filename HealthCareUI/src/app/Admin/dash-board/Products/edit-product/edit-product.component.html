@@ -1,0 +1,74 @@
+<div class="from-section">
+    <div class="section-header">
+        <i class="fa fa-duotone fa-pen-to-square"></i>
+        <h1 class="section-title">Product Details are Here [Edit / View]</h1>
+    </div>
+    
+    <form class="MedicineFrom">
+        <div class="input-sections">
+            <label for="" class="input-labels">Medicine ID : </label>
+            <input type="text" class="inputs" placeholder="125ca-8965Ac-12vlcvf-k0cka" readonly>
+        </div>
+        <div class="input-sections">
+            <label for="" class="input-labels">Medicine Name</label>
+            <input type="text" class="inputs" placeholder="Medicine Name">
+        </div>
+        <div class="input-sections">
+            <label for="" class="input-labels">Chemical Name</label>
+            <input type="text" class="inputs" placeholder="Chemical Name">
+        </div>
+        <div class="input-sections">
+            <label for="" class="input-labels">Brand Name</label>
+            <input type="text" class="inputs" placeholder="Brand Name">
+        </div>
+        <div class="input-sections">
+            <label for="category" class="input-labels">Category</label>
+            <select name="category" class="inputs" id="category">
+                <option value="bone">Bone</option>
+                <option value="thyroid">Thyroid</option>
+                <option value="cold&flu">Cold and Flu</option>
+                <option value="anti-allergic">Anti-Allergic</option>
+                <option value="anti-biotics">Anti-Biotics</option>
+                <option value="anti-depressants">Anti-Depressants</option>
+            </select>
+        </div>
+        <div class="input-sections">
+            <label for="type" class="input-labels">Type</label>
+            <select name="type" class="inputs" id="type">
+                <option value="tablets">Tablets</option>
+                <option value="syrups">Syrups</option>
+                <option value="injections">Injections</option>
+                <option value="sprays">Sprays</option>
+            </select>
+        </div>
+        <div class="input-sections">
+            <label for="" class="input-labels">MFG Date</label>
+            <input type="date" class="inputs">
+        </div>
+        <div class="input-sections">
+            <label for="" class="input-labels">EXP Date</label>
+            <input type="date" class="inputs">
+        </div>
+        <div class="input-sections">
+            <label for="" class="input-labels">Photo</label>
+            <input type="file" class="inputs">
+        </div>
+        <div class="input-sections">
+            <label for="" class="input-labels">Price</label>
+            <input type="number" class="inputs" placeholder="Price">
+        </div>
+        <div class="input-sections">
+            <label for="" class="input-labels">Seller Name</label>
+            <input type="text" class="inputs" placeholder="Seller Name">
+        </div>
+
+        <div class="form-footer">
+            <button type="button" class="cancel-btn" routerLink="/admin/products">
+                <i class="fa fa-duotone fa-arrow-left"></i> Cancel
+            </button>
+            <button type="submit" class="update-btn">
+                <i class="fa fa-duotone fa-pen"></i> Update
+            </button>
+        </div>
+    </form>
+</div>
