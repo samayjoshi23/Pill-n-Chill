@@ -12,9 +12,20 @@
     --card-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
     --sidebar-width: 20rem;
 
-
     --primary-font : 'Poppins', sans-serif;
     --secondary-font: 'Karla', sans-serif;
+
+    --primary-submit-color: #5BB318;    /* Noraml state*/
+    --secondary-submit-color: #2B7A0B;  /* Hover state*/
+    --ternery-submit-color: #7DCE13;    /* Pressed state*/
+
+    --primary-update-color: rgb(255, 230, 0);       /* Noraml state*/
+    --secondary-update-color: rgb(227, 209, 46);     /* Hover state*/
+    --ternery-update-color: rgb(255, 245, 150);     /* Pressed state*/
+
+    --primary-delete-color: rgb(255, 69, 52);       /* Noraml state*/
+    --secondary-delete-color: rgb(177, 30, 17);     /* Hover state*/
+    --ternery-delete-color: rgb(255, 126, 114);     /* Pressed state*/
 }
 body{
     font-size: 16px;
