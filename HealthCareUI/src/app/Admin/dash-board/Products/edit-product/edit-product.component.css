@@ -1,0 +1,79 @@
+.from-section{
+    margin: 0.5rem 0 2rem 2.5rem;
+}
+.section-header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+.section-header i{
+    font-weight: 800;
+    color: var(--ternery-color);
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+.section-title{
+    font-family: var(--secondary-font);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+form {
+    width: 38rem;
+    padding: 1.25rem 1.75rem;
+    background: #f4f7f8;
+    border-radius: 12px;
+}
+.input-sections{
+    display: flex;
+    flex-direction: column;
+}
+.inputs{
+    border-radius: 10px;
+    font-family: var(--secondary-font);
+    font-size: 1rem;
+    border: none;
+    margin: 0.5rem 0 0 1rem;
+    outline: 0;
+    padding: 0.5rem;
+    background-color: #e8eeef;
+    margin-bottom: 30px;
+}
+.form-footer{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+.form-footer button i{
+    margin: 0 0.25rem;
+}
+.cancel-btn, .update-btn{
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    font-family: var(--primary-font);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+.cancel-btn{
+    background-color: var(--primary-color);
+}
+.cancel-btn:hover{
+    background-color: var(--secondary-color);
+}
+.cancel-btn:active{
+    background-color: var(--button-pressed-color);
+    color: black;
+}
+.update-btn{
+    background-color: var(--primary-update-color);
+    color: black;
+}
+.update-btn:hover{
+    background-color: var(--secondary-update-color);
+}
+.update-btn:active{
+    background-color: var(--ternery-update-color);
+}

@@ -1,27 +1,70 @@
-/* ================ Form Styling =============== */
-form {
-    max-width: 31rem;
-    margin: 10px auto;
-    padding: 10px 20px;
-    background: #f4f7f8;
-    border-radius: 8px;
+main{
+    margin-top: 10vh;
+    position: relative;
+    border-top: 2px solid rgba(0,0,0,0.25);
 }
 
-input[type="text"],
-input[type="number"],
-input[type="Date"],
-select {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    border: none;
-    font-size: 16px;
-    height: auto;
-    margin: 0;
-    outline: 0;
-    padding: 15px;
+/* ================= Sidebar ==================== */
+.sidebar{
+    position: fixed;
+    width: var(--sidebar-width);
+    top: 10vh;
+    left: 0;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    z-index: 99;
+    border-right: 2px solid rgba(0,0,0,0.25);
+}
+.sidebar-header{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-title{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    font-family: var(--secondary-font);
+}
+.sidebar-items{
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.side-item{
+    display: flex;
+    align-items: center;
     width: 100%;
-    background-color: #e8eeef;
-    color: #8a97a0;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-    margin-bottom: 30px;
+    margin: 0.5rem 0;
+    padding: 0.75rem 0.5rem;
+    border: none;
+    font-family: var(--primary-font);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 350ms ease-out;
+    position: relative;
+}
+.side-item .arrow{
+    position: absolute;
+    transition: all 350ms ease-out;
+    margin-left: 0.5rem;
+    opacity: 0;
+    right: 30%;
+}
+.side-item .icon{
+    margin-right: 0.5rem;
+}
+.side-item:hover{
+    box-shadow: var(--card-box-shadow);
+}
+.side-item:hover i{
+    opacity: 1;
+    right: 2%;
+}
+.product-list-container{
+    margin-left: var(--sidebar-width);
 }

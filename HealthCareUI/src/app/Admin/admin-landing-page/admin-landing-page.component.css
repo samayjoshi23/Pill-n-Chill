@@ -1,6 +1,5 @@
 .hero-section{
-    width: 100vw;
-    height: 100vh;
+    height: 89vh;
     background-image: url('../../../assets/LandingPage/Admin_Bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -10,7 +9,7 @@
     flex-direction: column;
 }
 .hero-title{
-    margin-left: 2rem;
+    margin-left: 1.5rem;
 }
 .hero-title-text{
     font-weight: bold;
@@ -29,33 +28,17 @@
     color: var(--ternery-color);
     margin-left: 0.25rem;
 }
-.category-container{
-    margin-top: 2rem;
+.hero-description{
+    margin-top: 1rem;
     margin-left: 2.5rem;
-    display: grid;
-    grid-template-columns: 12rem 12rem;
-    gap: 2rem;
-    font-family: 'Poppins',sans-serif;
 }
-.category-card{
-    width: 12rem;
-    height: 9rem;
-    background-color: white;
-    box-shadow: var(--card-box-shadow);
-    border-radius: 8px;
-    cursor: pointer;
-    border: none;
-    padding: 1rem;
+.desc{
+    color: rgb(163, 163, 163);
+    list-style: none;
+    margin: 0.5rem 0;
+    font-size: 1rem;
 }
-.category-card:hover{
-    background-color: rgb(245, 245, 245)
-}
-.category-card h3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 500;
+.check-icon{
     color: var(--ternery-color);
+    margin-right: 0.75rem;
 }
