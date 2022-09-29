@@ -1,0 +1,144 @@
+#header-container{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../../assets/Logo/topography.svg'),
+                linear-gradient(to right, 
+                rgba(9, 221, 90, 0.25),
+                rgba(30, 30, 205, 0.25)
+    );
+    background-size: cover;
+    text-transform: uppercase;
+}
+#main-heading{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 0.5rem;
+    font-family: var(--secondary-font);
+}
+#main-description{
+    letter-spacing: 0.5rem;
+    word-spacing: 0.75rem;
+    font-weight: 500;
+}
+
+/* Input Contianers */
+#input-container{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 1rem auto;
+}
+
+/* ---- Iput Sections ------- */
+.data-type-sections{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid rgb(180, 180, 180);
+}
+.section-header{
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: rgb(100, 100, 100);
+    padding: 0;
+}
+.section-count{
+    font-weight: 500;
+    margin-left: 1rem;
+}
+.section-data{
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    gap: 1rem;
+}
+.section-name{
+    margin-top: 1rem;
+    font-family: var(--secondary-font);
+    font-size: 1.75rem;
+    font-weight: 800;
+}
+.section-inputs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.5rem;
+    row-gap: 1.5rem;
+}
+.input-divs{
+    display: flex;
+    flex-direction: column;
+}
+.input-labels{
+    font-size: 0.9rem;
+}
+.input-fields{
+    padding: 0.75rem;
+    margin: 0.5rem 0 0 1rem;
+    outline: none;
+    border:none;
+    background-color: rgb(225, 225, 255);
+    border-radius: 8px;
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+/* ================== payment cards ====================== */
+.card-options{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+.full-line{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.payment-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid rgb(225, 225, 255);
+}
+.payment-card label{
+    border-radius: 8px;
+    padding: 1rem 0;
+    font-family: var(--primary-font);
+    font-size: 1rem;
+}
+.payment-card input{
+    width: 1rem;
+    height: 1rem;
+    margin: 0;
+}
+.payment-card:hover{
+    background-color: rgb(225, 225, 255);
+}
+.place-order-btn{
+    padding: 1rem 4rem;
+    align-self: center;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-family: var(--primary-font);
+    font-size: 1.25rem;
+    background-color: var(--primary-update-color);
+}
+.place-order-btn i{
+    margin-right: 1rem;
+}
+.place-order-btn:hover{
+    background-color: var(--secondary-update-color);
+}
+.place-order-btn:active{
+    background-color: var(--ternery-update-color);
+}

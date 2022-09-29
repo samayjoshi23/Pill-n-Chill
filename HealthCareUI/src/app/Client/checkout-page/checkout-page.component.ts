@@ -7,6 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutPageComponent implements OnInit {
 
+  deliveryData : any = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: 0,
+    street: '',
+    zip: 0,
+    city: '',
+    state: '',
+    country: '',
+    cardType: ''
+  }
+
   constructor() { }
 
   ngOnInit(): void {

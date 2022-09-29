@@ -1,1 +1,123 @@
-<p>product-page works!</p>
+<main>
+    <nav id="filter-section">
+        <div id="nav-header">
+            <h2 id="nav-title">Filters</h2>
+        </div>
+        <form class="nav-items">
+            <input type="text" name="name" id="name" class="inputs" placeholder="Enter Medicine Name">
+            <select name="category" class="inputs">
+                <option value="">Category - All</option>
+                <option value="bone">Bone</option>
+                <option value="thyroid">Thyroid</option>
+                <option value="cold&flu">Cold and Flu</option>
+                <option value="anti-allergic">Anti-Allergic</option>
+                <option value="anti-biotics">Anti-Biotics</option>
+                <option value="anti-depressants">Anti-Depressants</option>
+            </select>
+            <select name="type" class="inputs">
+                <option value="">Type - All</option>
+                <option value="tablets">Tablets</option>
+                <option value="syrups">Syrups</option>
+                <option value="injections">Injections</option>
+                <option value="sprays">Sprays</option>
+            </select>
+            <input type="text" name="disease" class="inputs" placeholder="Enter Disease">
+            <button type="submit" class="inputs filter-btn"> Search </button>
+        </form>
+    </nav>
+    <section class="product-section">
+        <div id="main-product">
+            <div id="product-data-header">
+                <div class="product-img">
+                    <img src="assets/LandingPage/demoMedicineImages/ctz.jpg" alt="product-image">
+                </div>
+                <div class="product-data">
+                    <div>
+                        <h2 class="procuct-name">Product Name Goes Here</h2>
+                        <h4 class="product-power">(500mg)</h4>
+                        <h3 class="product-chemical">Here is the name of the chemical</h3>
+                    </div>
+                    <div>
+                        <h4 class="product-price"><span>&#x20B9; </span> 499.50</h4>
+                        <p class="product-mrp"><span>MRP : </span>&#x20B9;  550.00</p>
+                        <div class="product-quantity-selector">
+                            <p>Select Qualtity : </p>
+                            <div class="counter-buttons">
+                                <button class="counters" (click)="decreaseCount()">-</button>
+                                <button class="counters" type="text">{{quantity}}</button>
+                                <button class="counters" (click)="increaseCount()">+</button>
+                            </div>
+                        </div>
+                        <p class="product-quantity">Hurry Up... Only <strong>8</strong> are left in stock.</p>
+                    </div>
+                    <button class="buy-btn" routerLink="/products/checkout/abcd1234">Place Order</button>
+                </div>
+            </div>
+            <div class="product-description-data">
+                <div class="production-description">
+                    <h2 class="description-header">Medicine Description</h2>
+                    <p class="description-data"><span>Name : </span>Mox Tablets</p>
+                    <p class="description-data"><span>Chemical Name : </span>Amoxycillin</p>
+                    <p class="description-data"><span>Medicine Type: </span>Tablet</p>
+                    <p class="description-data"><span>Category: </span>Anti-Allergic / Anti-fungal</p>
+                    <p class="description-data"><span>Power/Weight/Volume : </span>500mg</p>
+                    <p class="description-data"><span>Brand : </span>Cipla</p>
+                    <p class="description-data"><span>MFG Date : </span>10/10/2022</p>
+                    <p class="description-data"><span>Exp Date : </span>28/06/2024</p>
+                    <p class="description-data"><span>Price : </span>Rs. 42.59</p>
+                    <p class="description-data"><span>Seller : </span>Paplu Medicose</p>
+                </div>
+                <div class="product-qr">
+                    <img src="assets/Logo/qr_code_barcode.jpg" alt="">
+                    <p class="qr-desc">Scan this QR-Code <br> for the verification<br> of the medicine.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right side panel -->
+        <div id="popular-products">
+            <h2 class="partition-header">Popular Products</h2>
+            <div class="card-container">
+                <button class="prod-card">
+                    <img src="assets/LandingPage/demoMedicineImages/ctz.jpg" alt="" class="side-card-img">
+                    <div class="side-card-desc">
+                        <h4 class="side-prod-name">Product Name</h4>
+                        <h4 class="side-prod-price">&#x20B9; 523.45</h4>
+                    </div>
+                </button>
+                <button class="prod-card">
+                    <img src="assets/LandingPage/demoMedicineImages/ctz.jpg" alt="" class="side-card-img">
+                    <div class="side-card-desc">
+                        <h4 class="side-prod-name">Product Name</h4>
+                        <h4 class="side-prod-price">&#x20B9; 523.45</h4>
+                    </div>
+                </button>
+                <button class="prod-card">
+                    <img src="assets/LandingPage/demoMedicineImages/ctz.jpg" alt="" class="side-card-img">
+                    <div class="side-card-desc">
+                        <h4 class="side-prod-name">Product Name</h4>
+                        <h4 class="side-prod-price">&#x20B9; 523.45</h4>
+                    </div>
+                </button>
+                <button class="prod-card">
+                    <img src="assets/LandingPage/demoMedicineImages/ctz.jpg" alt="" class="side-card-img">
+                    <div class="side-card-desc">
+                        <h4 class="side-prod-name">Product Name</h4>
+                        <h4 class="side-prod-price">&#x20B9; 523.45</h4>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Comment Section -->
+    <section class="comment-section">
+        <h1 class="comment-section-header">User reviews and comments</h1>
+        <div class="comments-container">
+            <div class="comment-card">
+                To be commented...
+            </div>
+        </div>
+    </section>
+</main>
