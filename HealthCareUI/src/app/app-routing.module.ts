@@ -10,6 +10,8 @@ import { AddProductComponent } from './Admin/dash-board/Products/add-product/add
 import { EditProductComponent } from './Admin/dash-board/Products/edit-product/edit-product.component';
 import { ProductListComponent } from './Admin/dash-board/Products/product-list/product-list.component';
 import { UserListComponent } from './Admin/dash-board/Users/user-list/user-list.component';
+import { BillingPageComponent } from './Client/billing-page/billing-page.component';
+import { CheckoutPageComponent } from './Client/checkout-page/checkout-page.component';
 import { LandingPageComponent } from './Client/landing-page/landing-page.component';
 import { ListPageComponent } from './Client/list-page/list-page.component';
 import { ProductPageComponent } from './Client/product-page/product-page.component';
@@ -17,12 +19,37 @@ import { ErrorPageComponent } from './Utility/error-page/error-page.component';
 
 const routes: Routes = [
   {
+    title: "Pill 'n Chill - Home",
     path: '',
     component: LandingPageComponent,
   },
   {
+    title: "Pill 'n Chill - Products",
     path: 'products',
     component: ListPageComponent,
+  },
+  {
+    path: 'products',
+    children: [
+      {
+        path: ':id',
+        component: ProductPageComponent
+      },
+      {
+        path: 'category/:id',
+        component: ListPageComponent
+      },
+      {
+        title: "Pill 'n Chill - Checkout",
+        path: 'checkout/:id',
+        component: CheckoutPageComponent
+      },
+      {
+        title: "Pill 'n Chill - Billing",
+        path: 'billing/:cardType',
+        component: BillingPageComponent
+      },
+    ]
   },
 
   // Admin Paths
