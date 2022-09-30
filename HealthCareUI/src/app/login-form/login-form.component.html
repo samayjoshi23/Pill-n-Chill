@@ -1,33 +1,43 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<div class="container">
-    <div class="row m-5 no-gutters shadow-lg">
-        <div class="col-md-6 d-none d-md-block">
-            <img src="https://media.istockphoto.com/photos/3d-render-doctor-cartoon-character-shows-smart-phone-device-with-picture-id1312283392?b=1&k=20&m=1312283392&s=170667a&w=0&h=U3Z5X1-7287Is2-7Hx7PPZurs0da-RFGahEXU8VJjus=" class="img-fluid" style="min-height:100%;"/>
+<main>
+    <section>
+        <div class="login-bg">
+            <img src="assets/login-signup/login.jpg" alt="login-img">
         </div>
-        <div class="col-md-6 bg-white p-5">
-            <h3 class="pb-3 text-center">LOGIN</h3>
-            <div class="form-style">
-                <form>
-                    <div class="form-group pb-3">
+        <div class="login-container">
+            <h2 class="login-header">Login</h2>
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+                <div class="input-div">
+                    <div>
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Username"class="form-control" id="exampleInputEmail1">
+                        <label for="email" class="input-label">User Email</label>
+                        <span class="error-message" *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched">
+                            [Please Enter a valid Email address]
+                        </span>
                     </div>
-                    <div class="form-group pb-3">
-                        <i class="fa-solid fa-key"></i>
-                        <input type="password" placeholder="Password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center"><input name="" type="checkbox" value="" /> <span class="pl-2 font-weight-bold">Remember Me</span></div>
-                        <div><a href="#">Forget Password?</a></div>
-                    </div>
-                    <div class="pb-2">
-                        <button type="submit" class="btn w-100 mt-2">Submit</button>
-                    </div>
-                </form>
-                <div class="pt-4 text-center">
-                    Get Members Benefit. <a href="#">Sign Up</a>
+                    <input type="email" class="inputs" name="email" id="email" placeholder="abcd@gmail.com" formControlName="email">
                 </div>
-            </div>
+                <div class="input-div">
+                    <div>
+                        <i class="fa-solid fa-key"></i>
+                        <label for="password" class="input-label">Password</label>
+                        <span class="error-message" *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">
+                            [Password length should be more than 8 characters]
+                        </span>
+                    </div>
+                    <input type="password" name="password" id="password" class="inputs" placeholder="password" formControlName="password">
+                </div>
+                <div class="option-div">
+                    <p class="options"><input type="checkbox" name="" id=""> Remember Me</p>
+                    <p class="options">Forgot Password?</p>
+                </div>
+                <div class="submit-div">
+                    <button type="submit" class="submit-btn" [disabled]="!loginForm.valid">Login</button>
+                </div>
+                <div class="form-footer">
+                    <p>New User? SignUp and be a part of us.</p>
+                    <button type="button" routerLink="/register" class="register-btn">Register</button>
+                </div>
+            </form>
         </div>
-    </div>  
-</div>  
+    </section>
+</main>

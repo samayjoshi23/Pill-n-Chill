@@ -15,9 +15,9 @@
     --primary-font : 'Poppins', sans-serif;
     --secondary-font: 'Karla', sans-serif;
 
-    --primary-submit-color: #5BB318;    /* Noraml state*/
-    --secondary-submit-color: #2B7A0B;  /* Hover state*/
-    --ternery-submit-color: #7DCE13;    /* Pressed state*/
+    --primary-submit-color: #5BB318;                /* Noraml state*/
+    --secondary-submit-color: #2B7A0B;              /* Hover state*/
+    --ternery-submit-color: #7DCE13;                /* Pressed state*/
 
     --primary-update-color: rgb(255, 230, 0);       /* Noraml state*/
     --secondary-update-color: rgb(227, 209, 46);     /* Hover state*/
@@ -30,6 +30,6 @@
 body{
     font-size: 16px;
     font-family: var(--primary-font);
-    width: 100vw;
+    width: 100%;
     overflow-x: hidden;
 }

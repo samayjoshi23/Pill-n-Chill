@@ -15,13 +15,12 @@ import { ProductListComponent } from './Admin/dash-board/Products/product-list/p
 import { EditProductComponent } from './Admin/dash-board/Products/edit-product/edit-product.component';
 import { AddProductComponent } from './Admin/dash-board/Products/add-product/add-product.component';
 import { EditCategoryComponent } from './Admin/dash-board/Categories/edit-category/edit-category.component';
-import { AddCategoryComponent } from './Admin/dash-board/Categories/add-category/add-category.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { CheckoutPageComponent } from './Client/checkout-page/checkout-page.component';
 import { BillingPageComponent } from './Client/billing-page/billing-page.component';
 import { ProductPageComponent } from './Client/product-page/product-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

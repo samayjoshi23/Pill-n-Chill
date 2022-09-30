@@ -1,35 +1,138 @@
-body{  
-    background: #c9ccd1;   
+main{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-h3{
-    font-family: var(--primary-font);
+main section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    box-shadow: var(--card-box-shadow);
+    padding: 0.5rem;
+    border-radius: 15px;
 }
-.container{
-    margin-top: 4.6rem;
+.login-bg img{
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
 }
-.form-style input{
+.login-header{
+    text-align: center;
+    font-size: 2rem;
     font-family: var(--secondary-font);
-    font-size: 1.2rem;
-    font-weight: 500;
-    border:0;
-    height:3.2rem;  
-    border-radius:0;
-    border-bottom:1px solid #ebebeb;       
+    font-weight: 800;
 }
-.form-style input:focus{
-    border-bottom:1px solid #007bff;
-    box-shadow:none;  
-    outline:0;  
-    background-color:#ebebeb;       
+.login-form{
+    padding: 1rem;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
 }
-button{
-    background-color: var(--primary-submit-color);
-    color: white;  
-    height: 3.2rem;
-    border-radius: 1.2rem;
+.input-div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+.input-div > div{
+    display: flex;
+    align-items: center;
+}
+.input-div div label{
+    margin: 0 0.25rem;
+}
+.inputs{
+    margin: 0.25rem 0 0 1rem;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background-color: rgb(225,225,255);
+    font-size: 1rem;
     font-family: var(--primary-font);
-    font-weight: 500;
+    border: 2px solid transparent;
 }
-button:hover{
-    background-color:  var(--secondary-submit-color);
+.option-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+.options{
+    font-size: 0.9rem;
+}
+.submit-div, .form-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+.submit-btn{
+    padding: 0.5rem 4rem;
+    align-self: center;
+    border: none;
+    outline: none;
+    color:white;
+    border-radius: 8px;
+    font-weight: 500;
+    font-family: var(--primary-font);
+    font-size: 1.25rem;
+    background-color: var(--primary-submit-color);
+}
+.submit-btn i{
+    margin-right: 1rem;
+}
+.submit-btn:hover{
+    background-color: var(--secondary-submit-color);
+}
+.submit-btn:active{
+    background-color: var(--ternery-submit-color);
+}
+
+.form-footer p{
+    border-top: 2px solid rgb(150, 150, 150);
+    color: rgb(100, 100, 100);
+    padding-top: 0.5rem;
+}
+.register-btn{
+    padding: 0.25rem 2rem;
+    align-self: center;
+    border: none;
+    outline: none;
+    color:black;
+    border-radius: 8px;
+    font-weight: 400;
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    background-color: var(--primary-update-color);
+}
+.submit-btn i{
+    margin-right: 1rem;
+}
+.submit-btn:disabled{
+    background-color: rgb(187, 255, 187);
+    color:rgb(150, 150, 150);
+    cursor:default;
+}
+.register-btn:hover{
+    background-color: var(--secondary-update-color);
+}
+.register-btn:active{
+    background-color: var(--ternery-update-color);
+}
+
+
+/* ======================= validations ================ */
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+input.ng-valid.ng-touched{
+    border: 2px solid rgb(3, 187, 0);
+}
+.error-message{
+    font-size: 0.75rem;
+    color: red;
 }
