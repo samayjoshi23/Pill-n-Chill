@@ -1,1 +1,99 @@
-<p>billing-page works!</p>
+<main>
+    <div id="header-container">
+        <h1 id="main-heading">Billing</h1>
+        <p id="main-description">Enter Details for Payment</p>
+        <div id="bill-container">
+            <p class="bill-description"><span>Billing For : </span> Product Name</p>
+            <p class="bill-description"><span>Total payment : </span> &#x20B9; 149.45</p>
+        </div>
+    </div>
+    <form id="input-container" #form="ngForm" (ngSubmit)="purchase()">
+        <section class="data-type-sections">
+            <div class="section-header">
+                <i class="fa fa-duotone fa-credit-card"></i>
+                <h3 class="section-count">Details Here</h3>
+            </div>
+            <div class="section-data" *ngIf="cardType=='credit-card' || cardType=='debit-card'">
+                <div class="section-name">{{paymentMethod}}</div>
+                <div class="section-inputs">
+                    <div class="input-divs">
+                        <label for="cardNumber" class="input-labels">Card Number</label>
+                        <input type="number" name="cardNumber" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX"
+                            class="input-fields" [(ngModel)]="cardData.cardNumber">
+                    </div>
+                    <div class="input-divs">
+                        <label for="cardHolder" class="input-labels">Card Holder's Name</label>
+                        <input type="text" name="cardHolder" id="cardHolder" placeholder="Last Name" class="input-fields" [(ngModel)]="cardData.cardHolder">
+                    </div>
+                    <div class="input-divs">
+                        <label for="expDate" class="input-labels">Expiry Date</label>
+                        <div class="expiry-date">
+                            <select name="month" id="month" class="input-fields">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <select name="year" id="year" class="input-fields">
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                                <option value="2031">2031</option>
+                                <option value="2032">2032</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-divs">
+                        <label for="cvv" class="input-labels">Phone Number</label>
+                        <input type="number" name="cvv" id="cvv" placeholder="+91 XXXXX - XXXXX" class="input-fields" [(ngModel)]="cardData.cvv">
+                    </div>
+                </div>
+            </div>
+            <div class="section-data" *ngIf="cardType=='UPI'">
+                <div class="section-name">{{paymentMethod}}</div>
+                <div class="section-inputs">
+                    <div class="input-divs">
+                        <label for="" class="input-labels">Phone Number</label>
+                        <input type="number" name="firstName" id="firstName" placeholder="First Name"
+                            class="input-fields" [(ngModel)]="upiData.phone">
+                    </div>
+                    <div class="input-divs">
+                        <label for="" class="input-labels">VPA / UPI address</label>
+                        <input type="text" name="" id="" placeholder="Last Name" class="input-fields" [(ngModel)]="upiData.vpa">
+                    </div>
+                </div>
+            </div>
+            <div class="section-data" *ngIf="cardType=='cod'">
+                <div class="section-name">{{paymentMethod}}</div>
+                <div class="section-inputs">
+                    <div class="agreement-div">
+                        <input type="checkbox" name="agree" id="agree">
+                        <p>I agree all the terms and conditions for the Pill 'n Chill, and the medicine will not be returned even if you don't needed it. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <button class="place-order-btn" type="submit" *ngIf="cardType =='cod'">
+            <i class="fa fa-duotone fa-circle-check"></i> Confirm Order
+        </button>
+
+        <button class="place-order-btn" type="submit" *ngIf="cardType !='cod'">
+            <i class="fa fa-duotone fa-lock"></i> Pay Securely
+        </button>
+    </form>
+</main>
