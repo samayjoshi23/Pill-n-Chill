@@ -54,13 +54,14 @@
 .search-bar button{
     outline: none;
     border: none;
-    padding: 1.25rem 1.25rem 1rem 0;
+    padding: 1.5rem 1.5rem 1rem 0;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     background-color: rgb(240, 240, 240);
     cursor: pointer;
 }
 .search-text{
+    font-size: 1rem;
     width: 20rem;
     background-color: rgb(240, 240, 240);
     padding: 1rem 0 1rem 1rem;
@@ -76,7 +77,7 @@
 
 /* ==================== Frequent Product Section ==================== */
 .sub-sections{
-    padding: 1rem 5rem;
+    padding: 1rem 5rem 5rem 3rem;
 }
 .freq-prod{
     background-color: rgba(0, 0, 0, 0.02);

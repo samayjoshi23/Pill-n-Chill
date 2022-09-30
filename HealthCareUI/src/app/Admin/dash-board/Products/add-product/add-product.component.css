@@ -40,6 +40,11 @@ form {
     background-color: #e8eeef;
     margin-bottom: 30px;
 }
+.date-selectors{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
 .form-footer{
     display: flex;
     margin-top: 1rem;

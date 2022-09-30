@@ -28,7 +28,7 @@
                     <div class="input-divs">
                         <label for="expDate" class="input-labels">Expiry Date</label>
                         <div class="expiry-date">
-                            <select name="month" id="month" class="input-fields">
+                            <select name="month" id="month" class="input-fields" [(ngModel)]="month">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -42,7 +42,7 @@
                                 <option value="11">11</option>
                                 <option value="12">12</option>
                             </select>
-                            <select name="year" id="year" class="input-fields">
+                            <select name="year" id="year" class="input-fields" [(ngModel)]="year">
                                 <option value="2022">2022</option>
                                 <option value="2023">2023</option>
                                 <option value="2024">2024</option>

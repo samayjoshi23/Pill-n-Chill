@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -11,6 +12,10 @@ export class BillingPageComponent implements OnInit {
   cardType: string = '';
   paymentMethod: string = '';
 
+  month: number = 1;
+  year: number = 2022;
+  cardExpDate: string = '';
+
   cardData : any = {
     cardNumber: 0,
     cardHolder: '',
@@ -21,7 +26,6 @@ export class BillingPageComponent implements OnInit {
     phone: 0,
     vpa: ''
   }
-
 
   constructor(private router: ActivatedRoute) { }
 
@@ -41,6 +45,6 @@ export class BillingPageComponent implements OnInit {
     }
   }
   purchase(){
-    
+    this.cardExpDate = `${this.month}/${this.year}`;
   }
 }
