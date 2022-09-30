@@ -15,13 +15,17 @@ import { CheckoutPageComponent } from './Client/checkout-page/checkout-page.comp
 import { LandingPageComponent } from './Client/landing-page/landing-page.component';
 import { ListPageComponent } from './Client/list-page/list-page.component';
 import { ProductPageComponent } from './Client/product-page/product-page.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 import { ErrorPageComponent } from './Utility/error-page/error-page.component';
 
 const routes: Routes = [
   {
     title: "Pill 'n Chill - Home",
     path: '',
-    component: LandingPageComponent,
+    // component: LandingPageComponent,
+    // component: LoginFormComponent
+    component: RegisterFormComponent
   },
   {
     title: "Pill 'n Chill - Products",
