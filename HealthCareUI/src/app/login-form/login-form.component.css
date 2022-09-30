@@ -1,0 +1,35 @@
+body{  
+    background: #c9ccd1;   
+}
+h3{
+    font-family: var(--primary-font);
+}
+.container{
+    margin-top: 4.6rem;
+}
+.form-style input{
+    font-family: var(--secondary-font);
+    font-size: 1.2rem;
+    font-weight: 500;
+    border:0;
+    height:3.2rem;  
+    border-radius:0;
+    border-bottom:1px solid #ebebeb;       
+}
+.form-style input:focus{
+    border-bottom:1px solid #007bff;
+    box-shadow:none;  
+    outline:0;  
+    background-color:#ebebeb;       
+}
+button{
+    background-color: var(--primary-submit-color);
+    color: white;  
+    height: 3.2rem;
+    border-radius: 1.2rem;
+    font-family: var(--primary-font);
+    font-weight: 500;
+}
+button:hover{
+    background-color:  var(--secondary-submit-color);
+}

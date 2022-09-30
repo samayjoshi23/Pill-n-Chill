@@ -15,6 +15,8 @@ import { EditProductComponent } from './Admin/dash-board/Products/edit-product/e
 import { AddProductComponent } from './Admin/dash-board/Products/add-product/add-product.component';
 import { EditCategoryComponent } from './Admin/dash-board/Categories/edit-category/edit-category.component';
 import { AddCategoryComponent } from './Admin/dash-board/Categories/add-category/add-category.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { AddCategoryComponent } from './Admin/dash-board/Categories/add-category
     AddProductComponent,
     EditCategoryComponent,
     AddCategoryComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
   ],
   imports: [
     BrowserModule,
