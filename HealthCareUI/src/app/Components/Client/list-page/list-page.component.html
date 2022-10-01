@@ -1,0 +1,78 @@
+<main>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class="fa fa-duotone fa-sliders"></i>
+            <h1 class="sidebar-title">Filters</h1>
+        </div>
+        <div class="sidebar-items">
+            <form class="searchName">
+                <div class="side-item">
+                    <p class="item-header">Search By Name</p>
+                    <input type="text" class="item-input" placeholder="Medicine Name" name="name">
+                </div>
+                <button type="submit" class="go-btn">Go</button>
+            </form>
+
+            <form class="searchFilter">
+                <div class="side-item">
+                    <p class="item-header">Type</p>
+                    <select name="type" class="item-input">
+                        <option value="all">All</option>
+                        <option value="tablets">Tablets</option>
+                        <option value="syrups">Syrups</option>
+                        <option value="injections">Injections</option>
+                        <option value="sprays">Sprays</option>
+                    </select>
+                </div>
+                <div class="side-item">
+                    <p class="item-header">Category</p>
+                    <select name="category" class="item-input">
+                        <option value="all">All</option>
+                        <option value="bone">bone</option>
+                        <option value="thyroid">thyroid</option>
+                        <option value="cold&flu">cold&flu</option>
+                        <option value="anti-allergic">anti-allergic</option>
+                        <option value="anti-biotics">anti-biotics</option>
+                        <option value="anti-depressants">anti-depressants</option>
+                    </select>
+                </div>
+                <button type="submit" class="go-btn">Go</button>
+            </form>
+            <form>
+                <div class="side-item">
+                    <p class="item-header">Search by Disease</p>
+                    <input type="text" class="item-input" placeholder="Diease" name="disease">
+                </div>
+                <button type="submit" class="go-btn">Go</button>
+            </form>
+        </div>
+    </aside>
+
+
+    <!-- Product List Section  -->
+    <section class="product-list-container">
+        <div class="section-header">
+            <i class="fa fa-duotone fa-magnifying-glass"></i>
+            <h1 class="section-title">Here are Your Searched Results</h1>
+        </div>
+        <div class="product-container">
+            <button class="product-card" routerLink="/products/{{medicine.medicineId}}" type="button" *ngFor="let medicine of medicineList">
+                <div class="product-data">
+                    <img src="assets/MedicineDb/{{medicine.url}}" alt="medi-img" class="product-img">
+                    <div class="product-details">
+                        <h3 class="product-name">{{medicine.name}}</h3>
+                        <h4 class="product-detail"><span>By :</span> {{medicine.brandName}}</h4>
+                        <h4 class="product-detail"><span>Seller :</span> {{medicine.seller}}</h4>
+                        <h5 class="product-quantity" *ngIf="medicine.qty < 5">Hurry up! Only {{medicine.qty}} pieces are left.</h5>
+                        <h5 class="product-sold" *ngIf="medicine.qty == 0">SOLD OUT</h5>
+                    </div>
+                </div>
+                <div class="product-price-info">
+                    <h2 class="product-price"><span>&#x20B9; </span>{{medicine.price.toFixed(2)}}</h2>
+                    <p class="product-mrp"><span>MRP : </span>&#x20B9; {{(medicine.price*(1.10)).toFixed(2)}}</p>
+                    <p class="discount"><i class="fa-solid fa-tag"></i> Extra 10% on <br> selected cards</p>
+                </div>
+            </button>
+        </div>
+    </section>
+</main>
