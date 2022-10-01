@@ -4,10 +4,13 @@
         <h1 class="section-title">Add new Medicine</h1>
     </div>
     
-    <form class="MedicineFrom">
+    <form class="MedicineFrom" [formGroup]="addProductForm" (ngSubmit)="createProduct()">
         <div class="input-sections">
-            <label for="" class="input-labels">Medicine Name</label>
-            <input type="text" class="inputs" placeholder="Medicine Name">
+            <label for="medicineName" class="input-labels">Medicine Name</label>
+            <span class="error-message" *ngIf="!addProductForm.get('medicineName')?.valid && addProductForm.get('medicineName')?.touched">
+                [length should be more than 3 characters]
+            </span>
+            <input type="text" class="inputs" placeholder="Medicine Name" formControlName="medicineName">
         </div>
         <div class="input-sections">
             <label for="" class="input-labels">Chemical Name</label>
@@ -82,12 +85,12 @@
                     <option value="12">12</option>
                 </select>
                 <select name="exp-year" id="exp-year" class="inputs">
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
+                    <option value="2017">2022</option>
+                    <option value="2018">2023</option>
+                    <option value="2019">2024</option>
+                    <option value="2020">2025</option>
+                    <option value="2021">2026</option>
+                    <option value="2022">2027</option>
                 </select>
             </div>
         </div>
@@ -106,7 +109,7 @@
 
         <div class="form-footer">
             <button type="button" class="cancel-btn" routerLink="/admin/products"><i class="fa fa-duotone fa-arrow-left"></i> Cancel</button>
-            <button type="submit" class="add-btn">Create <i class="fa fa-duotone fa-plus"></i></button>
+            <button type="submit" class="add-btn" [disabled]="!addProductForm.valid">Create <i class="fa fa-duotone fa-plus"></i></button>
         </div>
     </form>
 </div>
