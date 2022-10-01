@@ -1,6 +1,6 @@
 /* Add padding to container elements */
 .container {
-    margin-top: 5rem;
+    margin-top: 10rem;
     padding: 20px;
     width:34rem;
     position: absolute;
@@ -23,7 +23,7 @@ label{
     font-weight: 500;
 }
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email], input[type=date], input[type=phone] {
+input[type=text], input[type=number], input[type=password], input[type=email], input[type=date], input[type=phone] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -78,4 +78,16 @@ button {
 button:hover{
     background-color: var(--secondary-submit-color);
     opacity: 1;
+}
+
+/* ======================= validations ================ */
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+input.ng-valid.ng-touched{
+    border: 2px solid rgb(3, 187, 0);
+}
+.error-message{
+    font-size: 0.75rem;
+    color: red;
 }
