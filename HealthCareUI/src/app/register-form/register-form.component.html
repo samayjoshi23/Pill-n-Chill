@@ -1,30 +1,63 @@
 <section>
-    <form>
+    <form [formGroup]="registerForm" (ngSubmit)="submitRegister()">
         <div class="container">
             <h1>Sign Up</h1>
             <p>Please fill this form to create an account.</p>
             <br>
-            <label for="text">First Name</label>
-            <input type="text" name="username" placeholder="Enter First Name" required>
-            <label for="text">Last Name</label>
-            <input type="text" name="username" placeholder="Enter Last Name" required>
-            <label for="email">Email</label>
-            <input type="email" placeholder="Enter Email" name="email" required>
-            <label for="dob">D.O.B</label>
-            <input type="date" placeholder="Enter DOB" name="dob" required>
-            <label for="email">Phone Number</label>
-            <br>
-            <select name="phoneCode" required>
-                <option selected hidden value="">Code</option>
-                <option value="66">+91</option>
-                <option value="66">+99</option>
-                <option value="66">+90</option>
-                <option value="66">+66</option>
-            </select>
-            <input type="phone" name="phone" placeholder="8123456785" required>
+            <div>
+                <label for="fName">First Name</label>
+                <span class="error-message" *ngIf="!registerForm.get('fName')?.valid && registerForm.get('fName')?.touched">
+                    [Name length should be minimum 3 characters]
+                </span>
+                <input type="text" name="username" placeholder="Enter First Name" formControlName="fName">
+            </div>
+            <div>
+                <label for="lName">Last Name</label>
+                <span class="error-message" *ngIf="!registerForm.get('lName')?.valid && registerForm.get('lName')?.touched">
+                    [Name length should be minimum 3 characters]
+                </span>
+                <input type="text" name="username" placeholder="Enter Last Name" formControlName="lName">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <span class="error-message" *ngIf="!registerForm.get('email')?.valid && registerForm.get('email')?.touched">
+                    [Please Enter a valid Email address]
+                </span>
+                <input type="email" placeholder="Enter Email" name="email" formControlName="email">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <span class="error-message" *ngIf="!registerForm.get('password')?.valid && registerForm.get('password')?.touched">
+                    [Password must contains min 8 characters with 1 small case, 1 UPPER case and 1 digit]
+                </span>
+                <input type="password" placeholder="Create Password" name="password" formControlName="password">
+            </div>
+            <div>
+                <label for="age">Age</label>
+                <span class="error-message" *ngIf="!registerForm.get('age')?.valid && registerForm.get('age')?.touched">
+                    [Please Enter your Age]
+                </span>
+                <input type="number" placeholder="Enter Age" name="age" formControlName="age" required>
+            </div>
+            <div>
+                <label for="phone">Phone Number</label>
+                <span class="error-message" *ngIf="!registerForm.get('phone')?.valid && registerForm.get('phone')?.touched">
+                    [Please Enter 10 digit Mobile Number]
+                </span>
+                <br>
+                <select name="phoneCode" required>
+                    <option selected hidden value="">Code</option>
+                    <option value="66">+91</option>
+                    <option value="66">+99</option>
+                    <option value="66">+90</option>
+                    <option value="66">+66</option>
+                </select>
+                <input type="phone" name="phone" placeholder="8123456785" formControlName="phone" required>
+            </div>
+            
             <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
             <div class="clearfix">
-                <button type="submit" class="btn">Sign Up</button>
+                <button type="submit" class="btn" [disabled]="!registerForm.valid">Sign Up</button>
             </div>
         </div>
     </form>

@@ -1,0 +1,300 @@
+*****************************Product Details With Categories***************************
+
+1) BABY CARE <====>
+
+i) Johnson'S Baby Powder - 400g
+
+	Name: Johnson'S Baby Powder
+	Chem: Sodium Citrate / Citric Acid
+	Exp:
+	Qty: 5
+	Power: 400 g
+	Type: Powder
+	Description: Johnson's Baby Powder is a specially formulated talcum powder designed for the soft skin of your baby.
+	Seller: JOHNSON'S Store
+	BrandName: JOHNSON'S BABY
+	Price: 200.2
+	url: Powder.jpg
+	Date Created:
+	Date Updated:
+
+ii) Himalaya Baby care - Gift Pack (Set of 7)
+
+	Name: Himalaya Baby care - Gift Pack (Set of 7)
+	Chem: Various Chemicals
+	Exp:
+	Qty: 4
+	Power: 510 g
+	Type: Baby Care Combo
+	Description: The products that are included in the baby gift pack will soothe, nourish and provide gentle care to your baby's skin.
+	Seller: Jain & Brothers
+	BrandName: Himalaya Herbs
+	Price: 495.00
+	url: Baby_Care.jpg
+	Date Created:
+	Date Updated:
+
+iii) Himalaya Guduchi Tablets care - 60'S
+
+	Name: Himalaya Guduchi Tablets
+	Chem: No Chemicals Used
+	Exp: 
+	Qty: 6
+	Power: 250 mg
+	Type: Tablet
+	Description: It is a health supplement and are created to be effective against fevers and other infective conditions, backed by Ayurveda and modern research.
+	Seller: Jain & Brothers
+	BrandName: Himalaya Pure Herbs
+	Price: 138.6
+	url: Guduchi_tablets.jpg
+	Date Created:
+	Date Updated:
+
+iv) Liveasy Baby Care Feeding Bottle
+
+	Name: Liveasy Baby Care Feeding Bottle
+	Chem: No Chemicals Used
+	Exp: 
+	Qty: 3
+	Power: 250 ml
+	Type: Liquid
+	Description: This bottle is specially designed for the convenience of feeding as evidenced in the slim neck and splendid body which helps with a firm and comfortable grip.
+	Seller: MD Labs
+	BrandName: LivEasy
+	Price: 199
+	url: Feeding_Bottle.jpg
+	Date Created:
+	Date Updated:
+
+v) Merocrit Baby Injection 5 ml
+
+	Name: Merocrit Baby Injection
+	Chem: Meropenem
+	Exp: 
+	Qty: 2
+	Power: 125 mg
+	Type: Injection
+	Description:  It treats infections of various body parts like skin, soft tissues, blood, brain (meningitis), lungs (pneumonia), urinary tract.
+	Seller: Aggarwal Medicose
+	BrandName: Cipla Ltd
+	Price: 154
+	url: injections.jpg
+	Date Created:
+	Date Updated:
+
+vi) Dexolac Special Care Infant Formula
+
+	Name: Dexolac Special Care Infant Formula
+	Chem: Amino Acids
+	Exp: 
+	Qty: 1
+	Power: 400 g
+	Type: Powder
+	Description:  Dexolac Stage 1 Infant Formula is a powdered milk substitute for babies upto 6 months age. It contains nutrients that support overall growth & development.
+	Seller: Aggarwal Medicose
+	BrandName: Nutrica International Pvt Ltd
+	Price: 495
+	url: Dexolac.jpg
+	Date Created:
+	Date Updated:
+================================================================================
+
+2) GENERAL MEDICINES <====>
+
+i) Dolo 650mg Tablet 15'S
+
+	Name: Dolo 650mg Tablet 15'S
+	Chem: Acetaminophen
+	Exp:
+	Qty: 8
+	Power: 650 mg
+	Type: Tablet
+	Description: Dolo is used to reduce fever and treat mild to moderate pain. Also, it is used to relieve headache, migraine, toothache, period pain, back pain, muscle pain and rheumatic pains.
+	Seller: Aarx Pharmacy
+	BrandName: Micro Labs Ltd
+	Price: 27
+	url: Dolo.jpg
+	Date Created:
+	Date Updated:
+
+ii) Vomikind Fast Strip 4mg
+
+	Name: Vomikind Fast Strip 4mg
+	Chem: Ondansetron
+	Exp:
+	Qty: 5
+	Power: 4 mg
+	Type: Tablet
+	Description: Vomikind Fast Orally Disintegrating Strip is used to prevent and manage nausea and vomiting induced due to chemotherapy and radiotherapy.
+	Seller: Aarx Pharmacy
+	BrandName: Mankind Pharma Pvd Ltd
+	Price: 12
+	url: Vomikind.jpg
+	Date Created:
+	Date Updated:
+
+iii) Patanjali Balm 10 gm
+
+	Name: Patanjali Balm 10 gm
+	Chem: No Chemicals Used
+	Exp:
+	Qty: 3
+	Power: 10 g
+	Type: Gel
+	Description: Patanjali Ayurveda Balm contains Gandhpurataila, Pudina satva and Neelgiritaila. Patanjali Balm provides relief from head aches and pains..
+	Seller: Yadav Medical Store
+	BrandName: Patanjali Ayurved Ltd
+	Price: 24.50
+	url: Balm.jpg
+	Date Created:
+	Date Updated:
+
+iv) Moov Spray Pain Relief Specialist 80 gm
+
+	Name: Moov Spray Pain Relief Specialist 80 gm
+	Chem: No Chemicals Used
+	Exp:
+	Qty: 5
+	Power: 80 g
+	Type: Spray/Ointment
+	Description: It provides you fast and long lasting relief from muscle pain, neck pain and backache, inflammation, sprain, myositis, fibrositis and sciatica. It's a fast pain relief spray for frozen shoulder and body ache.
+	Seller: Yadav Medical Store
+	BrandName: Patanjali Ayurved Ltd
+	Price: 232
+	url: Moov.jpg
+	Date Created:
+	Date Updated:
+
+v) Buscogast Tablet 10's
+
+	Name: Buscogast Tablet 10's
+	Chem: Hyoscine Butylbromide
+	Exp:
+	Qty: 5
+	Power: 10 mg
+	Type: Tablet
+	Description: Buscogast 10 mg Tablet is also used to treat symptoms such as abdominal pain, bloating, indigestion, stomach cramps, diarrhoea, etc.
+	Seller: Om Medical Agency
+	BrandName: Sanofi India Limited
+	Price: 34.88
+	url: Buscogast.jpg
+	Date Created:
+	Date Updated:
+
+vi) Torex Cough Syrup 100ml
+
+	Name: Torex Cough Syrup 100ml
+	Chem: Ammonium Chloride
+	Exp:
+	Qty: 5
+	Power: 100 ml
+	Type: Syrup
+	Description: Torex Cough Syrup is a combination medicine used to treat cough. It thins the mucus in the nose and windpipe, making it easier to cough out.
+	Seller: Om Medical Agency
+	BrandName: Torque Pharmaceuticals Pvt Ltd
+	Price: 94.40
+	url: Torex.jpg
+	Date Created:
+	Date Updated:
+==============================================================================================
+
+3) SKIN CARE <====>
+
+i) Dermadew Soap, 75 gm
+
+	Name: Dermadew Soap, 75 gm
+	Chem: Sodium Chloride, Titanium Dioxide
+	Exp:
+	Qty: 4
+	Power: 75 g
+	Type: Soap
+	Description: Dermadew soap moisturizers the skin and also be used to prevent or reduce acne, dermatitis, itching or dry skin. It effectively removes dead skin cells and dirt away from the body.
+	Seller: Fortis Healthworld Store
+	BrandName: Hegde & Hegde Pharmaceutica Llp
+	Price: 128
+	url: Soap.jpg
+	Date Created:
+	Date Updated:
+
+ii) Betadine 10% Ointment
+
+	Name: Betadine 10% Ointment
+	Chem: Povidone Iodine
+	Exp:
+	Qty: 3
+	Power: 20 g
+	Type: Ointment
+	Description:  It is used for the treatment and prevention of infections in wounds and cuts. It kills the harmful microbes and controls their growth, thereby preventing infections in the affected area.
+	Seller: Fortis Healthworld Store
+	BrandName: Win-Medicare Pvt Ltd
+	Price: 113
+	url: Betadine.jpg
+	Date Created:
+	Date Updated:
+
+iii) Himalaya Purifying Neem Face Pack 100 gm
+
+	Name: Himalaya Purifying Neem Face Pack 100 gm
+	Chem: No Chemicals Used
+	Exp:
+	Qty: 5
+	Power: 100 g
+	Type: Cream
+	Description: Himalaya's Purifying Neem Pack brings together the goodness of Neem, Fuller's Earth and Turmeric, which work together to regulate excess oil secretion, clean clogged pores and prevent the recurrence of pimples.
+	Seller: Divine Pharmacy
+	BrandName: Himalaya Herbs
+	Price: 91.80
+	url: Facewash.jpg
+	Date Created:
+	Date Updated:
+
+iv) Ring Out Dusting Powder 65gm
+
+	Name: Ring Out Dusting Powder 65gm
+	Chem: Clotrimazole
+	Exp:
+	Qty: 4
+	Power: 65 g
+	Type: Powder
+	Description: Ring Out Dusting Powder is a topical antifungal medicine that is used to prevent or treat fungal infections of the skin. It helps in relieving associated symptoms like rashes, itching in intimate bod parts, etc. 
+	Seller: Divine Pharmacy
+	BrandName: Mankind Pharmaceuticals Ltd
+	Price: 69.50
+	url: Ring-Out.jpg
+	Date Created:
+	Date Updated:
+
+v) Everherb Neem - Immunity Booster - Skin & Body Detoxifier - Bottle Of 60
+
+	Name: Everherb Neem - Immunity Booster
+	Chem: No Chemicals Used
+	Exp: 30/03/2024
+	Qty: 7
+	Power: 250 mg
+	Type: Capsule
+	Description: It is an excellent blood purifier. It removes toxins from the body and cleanses the blood which supports healthy skin. 
+	Seller: Ambika Medicose
+	BrandName: EverHerb
+	Price: 455.24
+	url: Neem.jpg
+	Date Created:
+	Date Updated:
+
+vi) Wash Proof Adhesive Bandages, 8 Count
+
+	Name: Wash Proof Adhesive Bandages, 8 Count
+	Chem: Benzalkonium Chloride
+	Exp:
+	Qty: 12
+	Power: 8 s
+	Type: Bandage
+	Description: Adhesive Bandages is designed to protect the Wound and Scab from Friction, Bacteria, Damage, and Dirt. This making the healing process of the wound fast and safe. 
+	Seller: Ambika Medicose
+	BrandName: Apollo Hospitals Enterprise Ltd
+	Price: 20
+	url: Bandage.jpg
+	Date Created:
+	Date Updated:
+
+
+*******************************************************************************************************************************************************

@@ -21,7 +21,7 @@
                         <i class="fa-solid fa-key"></i>
                         <label for="password" class="input-label">Password</label>
                         <span class="error-message" *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">
-                            [Password length should be more than 8 characters]
+                            [Password length should be minimum 8 characters]
                         </span>
                     </div>
                     <input type="password" name="password" id="password" class="inputs" placeholder="password" formControlName="password">

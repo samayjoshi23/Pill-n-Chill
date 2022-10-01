@@ -81,3 +81,15 @@ form {
 .add-btn:active{
     background-color: var(--ternery-submit-color);
 }
+
+/* ======================= validations ================ */
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+input.ng-valid.ng-touched{
+    border: 2px solid rgb(3, 187, 0);
+}
+.error-message{
+    font-size: 0.75rem;
+    color: red;
+}
