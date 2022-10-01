@@ -8,17 +8,23 @@
         <div class="input-sections">
             <label for="medicineName" class="input-labels">Medicine Name</label>
             <span class="error-message" *ngIf="!addProductForm.get('medicineName')?.valid && addProductForm.get('medicineName')?.touched">
-                [length should be more than 3 characters]
+                [Name length should be minimum 3 characters]
             </span>
             <input type="text" class="inputs" placeholder="Medicine Name" formControlName="medicineName">
         </div>
         <div class="input-sections">
-            <label for="" class="input-labels">Chemical Name</label>
-            <input type="text" class="inputs" placeholder="Chemical Name">
+            <label for="chemicalName" class="input-labels">Chemical Name</label>
+            <span class="error-message" *ngIf="!addProductForm.get('chemicalName')?.valid && addProductForm.get('chemicalName')?.touched">
+                [Name length should be minimum 3 characters]
+            </span>
+            <input type="text" class="inputs" placeholder="Chemical Name" formControlName="chemicalName">
         </div>
         <div class="input-sections">
-            <label for="" class="input-labels">Brand Name</label>
-            <input type="text" class="inputs" placeholder="Brand Name">
+            <label for="brandName" class="input-labels">Brand Name</label>
+            <span class="error-message" *ngIf="!addProductForm.get('brandName')?.valid && addProductForm.get('brandName')?.touched">
+                [Name length should be minimum 3 characters]
+            </span>
+            <input type="text" class="inputs" placeholder="Brand Name" formControlName="brandName">
         </div>
         <div class="input-sections">
             <label for="category" class="input-labels">Category</label>
@@ -95,21 +101,30 @@
             </div>
         </div>
         <div class="input-sections">
-            <label for="" class="input-labels">Photo</label>
-            <input type="file" class="inputs">
+            <label for="photo" class="input-labels">Photo</label>
+            <span class="error-message" *ngIf="!addProductForm.get('photo')?.valid && addProductForm.get('photo')?.touched">
+                [Please upload the photo]
+            </span>
+            <input type="file" class="inputs" formControlName="photo">
         </div>
         <div class="input-sections">
-            <label for="" class="input-labels">Price</label>
-            <input type="number" class="inputs" placeholder="Price">
+            <label for="price" class="input-labels">Price</label>
+            <span class="error-message" *ngIf="!addProductForm.get('price')?.valid && addProductForm.get('price')?.touched">
+                [Please enter valid price value]
+            </span>
+            <input type="number" class="inputs" placeholder="Price" formControlName="price">
         </div>
         <div class="input-sections">
-            <label for="" class="input-labels">Seller Name</label>
-            <input type="text" class="inputs" placeholder="Seller Name">
+            <label for="sellerName" class="input-labels">Seller Name</label>
+            <span class="error-message" *ngIf="!addProductForm.get('sellerName')?.valid && addProductForm.get('sellerName')?.touched">
+                [Name length should be minimum 3 characters]
+            </span>
+            <input type="text" class="inputs" placeholder="Seller Name" formControlName="sellerName">
         </div>
 
         <div class="form-footer">
             <button type="button" class="cancel-btn" routerLink="/admin/products"><i class="fa fa-duotone fa-arrow-left"></i> Cancel</button>
-            <button type="submit" class="add-btn" [disabled]="!addProductForm.valid">Create <i class="fa fa-duotone fa-plus"></i></button>
+            <button type="submit" class="add-btn submit-btn" [disabled]="!addProductForm.valid">Create <i class="fa fa-duotone fa-plus"></i></button>
         </div>
     </form>
 </div>
