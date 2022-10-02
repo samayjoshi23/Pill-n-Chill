@@ -13,8 +13,11 @@ main section{
     padding: 0.5rem;
     border-radius: 15px;
 }
+.login-bg{
+    align-self: flex-start;    
+}
 .login-bg img{
-    height: 100%;
+    width: 100%;
     aspect-ratio: 1/1;
     border-radius: 10px;
 }
@@ -25,15 +28,15 @@ main section{
     font-weight: 800;
 }
 .login-form{
-    padding: 1rem;
-    margin: 2rem auto;
+    padding: 0.5rem;
+    margin: 1rem auto;
     display: flex;
     flex-direction: column;
 }
 .input-div{
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 .input-div > div{
     display: flex;

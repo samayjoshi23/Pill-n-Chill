@@ -1,6 +1,6 @@
 .hero-section{
     height: 89vh;
-    background-image: url('../../../assets/LandingPage/Admin_Bg.jpg');
+    background-image: url('../../../../assets/LandingPage/Admin_Bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

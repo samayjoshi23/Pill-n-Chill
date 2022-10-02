@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('../../../assets/Logo/topography.svg'),
+    background-image: url('../../../../assets/Logo/topography.svg'),
                 linear-gradient(to right, 
                 rgba(9, 221, 90, 0.25),
                 rgba(30, 30, 205, 0.25)
