@@ -4,25 +4,31 @@
         <h1 class="section-title">Category Details are Here [Edit / View]</h1>
     </div>
     
-    <form class="CategoryForm">
+    <form class="CategoryForm" [formGroup]="addCategoryForm" (ngSubmit)="editCategory()">
         <div class="input-sections">
             <label for="" class="input-labels">Category ID : </label>
             <input type="text" class="inputs" placeholder="125ca-8965Ac-12vlcvf-k0cka" readonly>
         </div>
         <div class="input-sections">
-            <label for="" class="input-labels">Category Name</label>
-            <input type="text" class="inputs" placeholder="Category Name">
+            <label for="catName" class="input-labels">Category Name</label>
+            <span class="error-message" *ngIf="!addCategoryForm.get('catName')?.valid && addCategoryForm.get('catName')?.touched">
+                [Please enter category name]
+            </span>
+            <input type="text" class="inputs" placeholder="Category Name" formControlName="catName">
         </div>
         <div class="input-sections">
-            <label for="" class="input-labels">Category Img</label>
-            <input type="file" class="inputs">
+            <label for="photo" class="input-labels">Category Img</label>
+            <span class="error-message" *ngIf="!addCategoryForm.get('photo')?.valid && addCategoryForm.get('photo')?.touched">
+                [Please upload photo]
+            </span>
+            <input type="file" class="inputs" formControlName="photo">
         </div>
         
         <div class="form-footer">
             <button type="button" class="cancel-btn" routerLink="/admin/categories">
                 <i class="fa fa-duotone fa-arrow-left"></i> Cancel
             </button>
-            <button type="submit" class="update-btn">
+            <button type="submit" class="update-btn submit-btn" [disabled]="!addCategoryForm.valid">
                 <i class="fa fa-duotone fa-pen"></i> Update
             </button>
         </div>
