@@ -13,27 +13,17 @@
                 <button type="submit" class="go-btn">Go</button>
             </form>
 
-            <form class="searchFilter">
+            <form class="searchFilter" #Form="ngForm" (submit)="typeAndCategory()">
                 <div class="side-item">
-                    <p class="item-header">Type</p>
-                    <select name="type" class="item-input">
-                        <option value="all">All</option>
-                        <option value="tablets">Tablets</option>
-                        <option value="syrups">Syrups</option>
-                        <option value="injections">Injections</option>
-                        <option value="sprays">Sprays</option>
+                    <p class="item-header">Category</p>
+                    <select name="category" class="item-input" [(ngModel)]="filters.category">
+                        <option *ngFor="let category of categories" value="{{category.urlName}}" [selected]="category.urlName == filters.category">{{category.categoryName}}</option>
                     </select>
                 </div>
                 <div class="side-item">
-                    <p class="item-header">Category</p>
-                    <select name="category" class="item-input">
-                        <option value="all">All</option>
-                        <option value="bone">bone</option>
-                        <option value="thyroid">thyroid</option>
-                        <option value="cold&flu">cold&flu</option>
-                        <option value="anti-allergic">anti-allergic</option>
-                        <option value="anti-biotics">anti-biotics</option>
-                        <option value="anti-depressants">anti-depressants</option>
+                    <p class="item-header">Type</p>
+                    <select name="type" class="item-input" [(ngModel)]="filters.type">
+                        <option *ngFor="let type of types" value="{{type.value}}" [selected]="type.value == filters.type">{{type.name}}</option>
                     </select>
                 </div>
                 <button type="submit" class="go-btn">Go</button>
@@ -48,15 +38,18 @@
         </div>
     </aside>
 
-
     <!-- Product List Section  -->
     <section class="product-list-container">
-        <div class="section-header">
+        <div class="section-header" *ngIf="medicineList.length === 0">
+            <i class="fa fa-duotone fa-magnifying-glass"></i>
+            <h1 class="section-title">No Product Found</h1>
+        </div>
+        <div class="section-header" *ngIf="medicineList.length > 0">
             <i class="fa fa-duotone fa-magnifying-glass"></i>
             <h1 class="section-title">Here are Your Searched Results</h1>
         </div>
         <div class="product-container">
-            <button class="product-card" routerLink="/products/{{medicine.medicineId}}" type="button" *ngFor="let medicine of medicineList">
+            <button class="product-card" routerLink="/products/{{medicine.category}}/{{medicine.type}}/{{medicine.medicineId}}" type="button" *ngFor="let medicine of medicineList">
                 <div class="product-data">
                     <img src="assets/MedicineDb/{{medicine.url}}" alt="medi-img" class="product-img">
                     <div class="product-details">
