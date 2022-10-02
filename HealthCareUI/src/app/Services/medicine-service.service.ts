@@ -12,7 +12,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 5,
     power: '400 g',
-    type: 'Powder',
+    type: 'powder',
     description: "Johnson's Baby Powder is a specially formulated talcum powder designed for the soft skin of your baby.",
     seller: "JOHNSON'S Store",
     brandName: "JOHNSON'S BABY",
@@ -30,7 +30,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 4,
     power: '510 g',
-    type: 'Baby Care Combo',
+    type: 'combo',
     description: "The products that are included in the baby gift pack will soothe, nourish and provide gentle care to your baby's skin.",
     seller: 'Jain & Brothers',
     brandName: 'Himalaya Herbs',
@@ -48,7 +48,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 6,
     power: '250 mg',
-    type: 'Tablet',
+    type: 'tablet',
     description: 'It is a health supplement and are created to be effective against fevers and other infective conditions, backed by Ayurveda and modern research.',
     seller: 'Jain & Brothers',
     brandName: 'Himalaya Pure Herbs',
@@ -66,7 +66,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 3,
     power: '250 ml',
-    type: 'Liquid',
+    type: 'syrup',
     description: 'This bottle is specially designed for the convenience of feeding as evidenced in the slim neck and splendid body which helps with a firm and comfortable grip.',
     seller: 'MD Labs',
     brandName: 'LivEasy',
@@ -84,12 +84,12 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 2,
     power: '125 mg',
-    type: 'Injection',
+    type: 'injection',
     description: ' It treats infections of various body parts like skin, soft tissues, blood, brain (meningitis), lungs (pneumonia), urinary tract.',
     seller: 'Aggarwal Medicose',
     brandName: 'Cipla Ltd',
     price: 154,
-    url: 'injections.jpg',
+    url: 'merocrit-injection.jpg',
     dateCreated:"NO Date",
     dateUpdated:"No Date",
     category: 'baby',
@@ -102,7 +102,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 1,
     power: '400 g',
-    type: 'Powder',
+    type: 'powder',
     description: ' Dexolac Stage 1 Infant Formula is a powdered milk substitute for babies upto 6 months age. It contains nutrients that support overall growth & development.',
     seller: 'Aggarwal Medicose',
     brandName: 'Nutrica International Pvt Ltd',
@@ -120,7 +120,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 8,
     power: '650 mg',
-    type: 'Tablet',
+    type: 'tablet',
     description: 'Dolo is used to reduce fever and treat mild to moderate pain. Also, it is used to relieve headache, migraine, toothache, period pain, back pain, muscle pain and rheumatic pains.',
     seller: 'Aarx Pharmacy',
     brandName: 'Micro Labs Ltd',
@@ -138,7 +138,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 5,
     power: '4 mg',
-    type: 'Tablet',
+    type: 'tablet',
     description: 'Vomikind Fast Orally Disintegrating Strip is used to prevent and manage nausea and vomiting induced due to chemotherapy and radiotherapy.',
     seller: 'Aarx Pharmacy',
     brandName: 'Mankind Pharma Pvd Ltd',
@@ -174,7 +174,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 5,
     power: '80 g',
-    type: 'Spray/Ointment',
+    type: 'spray',
     description: 'It provides you fast and long lasting relief from muscle pain, neck pain and backache, inflammation, sprain, myositis, fibrositis and sciatica. It is a fast pain relief spray for frozen shoulder and body ache.',
     seller: 'Yadav Medical Store',
     brandName: 'Patanjali Ayurved Ltd',
@@ -192,7 +192,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 5,
     power: '10 mg',
-    type: 'Tablet',
+    type: 'tablet',
     description: 'Buscogast 10 mg Tablet is also used to treat symptoms such as abdominal pain, bloating, indigestion, stomach cramps, diarrhoea, etc.',
     seller: 'Om Medical Agency',
     brandName: 'Sanofi India Limited',
@@ -210,7 +210,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 5,
     power: '100 ml',
-    type: 'Syrup',
+    type: 'syrup',
     description: 'Torex Cough Syrup is a combination medicine used to treat cough. It thins the mucus in the nose and windpipe, making it easier to cough out.',
     seller: 'Om Medical Agency',
     brandName: 'Torque Pharmaceuticals Pvt Ltd',
@@ -228,7 +228,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 4,
     power: '75 g',
-    type: 'Soap',
+    type: 'soap',
     description: 'Dermadew soap moisturizers the skin and also be used to prevent or reduce acne, dermatitis, itching or dry skin. It effectively removes dead skin cells and dirt away from the body.',
     seller: 'Fortis Healthworld Store',
     brandName: 'Hegde & Hegde Pharmaceutica Llp',
@@ -246,7 +246,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 3,
     power: '20 g',
-    type: 'Ointment',
+    type: 'gel',
     description: ' It is used for the treatment and prevention of infections in wounds and cuts. It kills the harmful microbes and controls their growth, thereby preventing infections in the affected area.',
     seller: 'Fortis Healthworld Store',
     brandName: 'Win-Medicare Pvt Ltd',
@@ -264,7 +264,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 5,
     power: '100 g',
-    type: 'Cream',
+    type: 'cream',
     description: "Himalaya's Purifying Neem Pack brings together the goodness of Neem, Fuller's Earth and Turmeric, which work together to regulate excess oil secretion, clean clogged pores and prevent the recurrence of pimples.",
     seller: 'Divine Pharmacy',
     brandName: 'Himalaya Herbs',
@@ -282,7 +282,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 4,
     power: '65 g',
-    type: 'Powder',
+    type: 'powder',
     description: 'Ring Out Dusting Powder is a topical antifungal medicine that is used to prevent or treat fungal infections of the skin. It helps in relieving associated symptoms like rashes, itching in intimate bod parts, etc. ',
     seller: 'Divine Pharmacy',
     brandName: 'Mankind Pharmaceuticals Ltd',
@@ -300,7 +300,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 7,
     power: '250 mg',
-    type: 'Capsule',
+    type: 'capsule',
     description: 'It is an excellent blood purifier. It removes toxins from the body and cleanses the blood which supports healthy skin. ',
     seller: 'Ambika Medicose',
     brandName: 'EverHerb',
@@ -543,7 +543,7 @@ export class MedicineServiceService {
     exp: '07/2022',
     qty: 12,
     power: '8 s',
-    type: 'Bandage',
+    type: 'surgical',
     description: 'Adhesive Bandages is designed to protect the Wound and Scab from Friction, Bacteria, Damage, and Dirt. This making the healing process of the wound fast and safe. ',
     seller: 'Ambika Medicose',
     brandName: 'Apollo Hospitals Enterprise Ltd',
@@ -551,11 +551,15 @@ export class MedicineServiceService {
     url: 'Bandage.jpg',
     dateCreated:"NO Date",
     dateUpdated:"No Date",
+<<<<<<< HEAD
+    category: 'surgical',
+    categoryName: 'Surgical Items',
+=======
     category: 'skin',
     categoryName: 'Skin Care',
     
+>>>>>>> main
   }];
-
   medicineObj:Medicine = {
     medicineId: 0,
     name: '',
@@ -575,10 +579,48 @@ export class MedicineServiceService {
     categoryName: '',
   };
 
+
+  medicineFilterList: Medicine[] = [];
   constructor() { }
 
-  getMedicineList(){
+  getAllMedicines(){
     return this.medicineList;
+  }
+  
+  getTop6(){
+    this.medicineFilterList = [];
+    for(let i = 0; i< 6 ; i++){
+      this.medicineFilterList.push(this.medicineList[i]);
+    }
+
+    return this.medicineFilterList;
+  }
+
+  GetMedicines(category: string, type: string){
+    this.medicineFilterList = [];
+
+    if(category.toLowerCase() === 'all'){
+      this.medicineList.forEach(medicine => {
+        if(medicine.type == type){
+          this.medicineFilterList.push(medicine);
+        }
+      })
+    }
+    else if(type.toLowerCase() === 'all'){
+      this.medicineList.forEach(medicine => {
+        if(medicine.category === category){
+          this.medicineFilterList.push(medicine);
+        }
+      })
+    }
+    else{
+      this.medicineList.forEach(medicine => {
+        if(medicine.category === category && medicine.type == type){
+          this.medicineFilterList.push(medicine);
+        }
+      })
+    }
+    return this.medicineFilterList;
   }
 
   getMedicine(id: number){

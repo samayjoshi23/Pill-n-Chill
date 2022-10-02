@@ -44,12 +44,9 @@ const routes: Routes = [
     path: 'products',
     children: [
       {
-        path: ':id',
-        component: ProductPageComponent
-      },
-      {
-        path: 'category/:id',
-        component: ListPageComponent
+        title: "Pill 'n Chill - Billing",
+        path: 'billing/:cardType',
+        component: BillingPageComponent
       },
       {
         title: "Pill 'n Chill - Checkout",
@@ -57,9 +54,17 @@ const routes: Routes = [
         component: CheckoutPageComponent
       },
       {
-        title: "Pill 'n Chill - Billing",
-        path: 'billing/:cardType',
-        component: BillingPageComponent
+        path: ':type/:category',
+        component: ListPageComponent
+      },
+      {
+        path: ':type/:category',
+        children: [
+          {
+            path: ':id',
+            component: ProductPageComponent
+          }
+        ]
       },
     ]
   },

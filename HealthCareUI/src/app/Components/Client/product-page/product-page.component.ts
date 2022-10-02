@@ -39,7 +39,7 @@ export class ProductPageComponent implements OnInit {
   }
 
   increaseCount() {
-    if (this.quantity === 15) {
+    if (this.quantity === 15 || this.quantity === this.medicine.qty) {
       return;
     }
     this.quantity++;
