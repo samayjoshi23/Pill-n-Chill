@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminLandingPageComponent } from './Admin/admin-landing-page/admin-landing-page.component';
-import { AddCategoryComponent } from './Admin/dash-board/Categories/add-category/add-category.component';
-import { CategoryListComponent } from './Admin/dash-board/Categories/category-list/category-list.component';
-import { EditCategoryComponent } from './Admin/dash-board/Categories/edit-category/edit-category.component';
-import { DashBoardComponent } from './Admin/dash-board/dash-board.component';
-import { OrderListComponent } from './Admin/dash-board/Orders/order-list/order-list.component';
-import { AddProductComponent } from './Admin/dash-board/Products/add-product/add-product.component';
-import { EditProductComponent } from './Admin/dash-board/Products/edit-product/edit-product.component';
-import { ProductListComponent } from './Admin/dash-board/Products/product-list/product-list.component';
-import { UserListComponent } from './Admin/dash-board/Users/user-list/user-list.component';
-import { BillingPageComponent } from './Client/billing-page/billing-page.component';
-import { CheckoutPageComponent } from './Client/checkout-page/checkout-page.component';
-import { LandingPageComponent } from './Client/landing-page/landing-page.component';
-import { ListPageComponent } from './Client/list-page/list-page.component';
-import { ProductPageComponent } from './Client/product-page/product-page.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
-import { ErrorPageComponent } from './Utility/error-page/error-page.component';
+import { AdminLandingPageComponent } from './Components/Admin/admin-landing-page/admin-landing-page.component';
+import { AddCategoryComponent } from './Components/Admin/dash-board/Categories/add-category/add-category.component';
+import { CategoryListComponent } from './Components/Admin/dash-board/Categories/category-list/category-list.component';
+import { EditCategoryComponent } from './Components/Admin/dash-board/Categories/edit-category/edit-category.component';
+import { DashBoardComponent } from './Components/Admin/dash-board/dash-board.component';
+import { OrderListComponent } from './Components/Admin/dash-board/Orders/order-list/order-list.component';
+import { AddProductComponent } from './Components/Admin/dash-board/Products/add-product/add-product.component';
+import { EditProductComponent } from './Components/Admin/dash-board/Products/edit-product/edit-product.component';
+import { ProductListComponent } from './Components/Admin/dash-board/Products/product-list/product-list.component';
+import { UserListComponent } from './Components/Admin/dash-board/Users/user-list/user-list.component';
+import { BillingPageComponent } from './Components/Client/billing-page/billing-page.component';
+import { CheckoutPageComponent } from './Components/Client/checkout-page/checkout-page.component';
+import { LandingPageComponent } from './Components/Client/landing-page/landing-page.component';
+import { ListPageComponent } from './Components/Client/list-page/list-page.component';
+import { ProductPageComponent } from './Components/Client/product-page/product-page.component';
+import { LoginFormComponent } from './Components/Login/login-form.component';
+import { RegisterFormComponent } from './Components/Signup/register-form.component';
+import { ErrorPageComponent } from './Components/Utility/error-page/error-page.component';
 
 const routes: Routes = [
   {

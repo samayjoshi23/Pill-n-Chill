@@ -29,17 +29,17 @@
         <div id="main-product">
             <div id="product-data-header">
                 <div class="product-img">
-                    <img src="assets/LandingPage/demoMedicineImages/ctz.jpg" alt="product-image">
+                    <img src="assets/MedicineDb/{{medicine.url}}" alt="product-image">
                 </div>
                 <div class="product-data">
                     <div>
-                        <h2 class="procuct-name">Product Name Goes Here</h2>
-                        <h4 class="product-power">(500mg)</h4>
-                        <h3 class="product-chemical">Here is the name of the chemical</h3>
+                        <h2 class="procuct-name">{{medicine.name}}</h2>
+                        <h4 class="product-power">{{medicine.power}}</h4>
+                        <h3 class="product-chemical">{{medicine.chemical}}</h3>
                     </div>
                     <div>
-                        <h4 class="product-price"><span>&#x20B9; </span> 499.50</h4>
-                        <p class="product-mrp"><span>MRP : </span>&#x20B9;  550.00</p>
+                        <h4 class="product-price"><span>&#x20B9; </span> {{medicine.price.toFixed(2)}}</h4>
+                        <p class="product-mrp"><span>MRP : </span>&#x20B9;  {{(medicine.price*1.1).toFixed(2)}}</p>
                         <div class="product-quantity-selector">
                             <p>Select Qualtity : </p>
                             <div class="counter-buttons">
@@ -48,7 +48,7 @@
                                 <button class="counters" (click)="increaseCount()">+</button>
                             </div>
                         </div>
-                        <p class="product-quantity">Hurry Up... Only <strong>8</strong> are left in stock.</p>
+                        <p class="product-quantity">Hurry Up... Only <strong>{{medicine.qty}}</strong> are left in stock.</p>
                     </div>
                     <button class="buy-btn" routerLink="/products/checkout/abcd1234">Place Order</button>
                 </div>
@@ -56,16 +56,16 @@
             <div class="product-description-data">
                 <div class="production-description">
                     <h2 class="description-header">Medicine Description</h2>
-                    <p class="description-data"><span>Name : </span>Mox Tablets</p>
-                    <p class="description-data"><span>Chemical Name : </span>Amoxycillin</p>
-                    <p class="description-data"><span>Medicine Type: </span>Tablet</p>
-                    <p class="description-data"><span>Category: </span>Anti-Allergic / Anti-fungal</p>
-                    <p class="description-data"><span>Power/Weight/Volume : </span>500mg</p>
-                    <p class="description-data"><span>Brand : </span>Cipla</p>
-                    <p class="description-data"><span>MFG Date : </span>10/10/2022</p>
-                    <p class="description-data"><span>Exp Date : </span>28/06/2024</p>
-                    <p class="description-data"><span>Price : </span>Rs. 42.59</p>
-                    <p class="description-data"><span>Seller : </span>Paplu Medicose</p>
+                    <p class="description-data"><span>Name : </span>{{medicine.name}}</p>
+                    <p class="description-data"><span>Seller : </span>{{medicine.seller}}</p>
+                    <p class="description-data"><span>Description : </span>{{medicine.description}}</p>
+                    <p class="description-data"><span>Chemical Name : </span>{{medicine.chemical}}</p>
+                    <p class="description-data"><span>Medicine Type: </span>{{medicine.type}}</p>
+                    <p class="description-data"><span>Category: </span>{{medicine.category}}</p>
+                    <p class="description-data"><span>Power/Weight/Volume : </span>{{medicine.power}}</p>
+                    <p class="description-data"><span>Brand : </span>{{medicine.brandName}}</p>
+                    <p class="description-data"><span>MFG Date : </span>{{medicine.exp}}</p>
+                    <p class="description-data"><span>Exp Date : </span>{{medicine.exp}}</p>
                 </div>
                 <div class="product-qr">
                     <img src="assets/Logo/qr_code_barcode.jpg" alt="">
