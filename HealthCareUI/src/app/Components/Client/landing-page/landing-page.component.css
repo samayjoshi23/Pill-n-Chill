@@ -1,7 +1,7 @@
 .hero-section{
     width: 100vw;
     height: 100vh;
-    background-image: url('../../../assets/LandingPage/Hero_Bg.jpg');
+    background-image: url('../../../../assets/LandingPage/Hero_Bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -182,16 +182,16 @@
     justify-content: space-between;
 }
 .serv-card-1{
-    background-image: url('../../../assets/LandingPage/Services/prescription.jpg');
+    background-image: url('../../../../assets/LandingPage/Services/prescription.jpg');
 }
 .serv-card-2{
-    background-image: url('../../../assets/LandingPage/Services/consultation.jpg');
+    background-image: url('../../../../assets/LandingPage/Services/consultation.jpg');
 }
 .serv-card-3{
-    background-image: url('../../../assets/LandingPage/Services/delivery.jpg');
+    background-image: url('../../../../assets/LandingPage/Services/delivery.jpg');
 }
 .serv-card-4{
-    background-image: url('../../../assets/LandingPage/Services/chat.jpg');
+    background-image: url('../../../../assets/LandingPage/Services/chat.jpg');
 }
 
 .service-title{
