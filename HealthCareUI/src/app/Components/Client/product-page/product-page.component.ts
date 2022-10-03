@@ -14,6 +14,7 @@ export class ProductPageComponent implements OnInit {
     name: '',
     chemical: '',
     exp: '',
+    mfg: '',
     qty: 0,
     power: '',
     type: '',

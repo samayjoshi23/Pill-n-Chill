@@ -6,64 +6,18 @@
     </div>
     
     <div class="category-container">
-        <div class="category-card" routerlink="/abc" type="button">
+        <div class="category-card" type="button" *ngFor="let category of categories">
             <div class="category-data">
-                <i class="fa-solid fa-baby"></i>
+                <i class="{{category.url}}"></i>
                 <div class="category-details">
-                    <h3 class="category-name">Baby Care</h3>
+                    <h3 class="category-name">{{category.categoryName}}</h3>
+                    <h3 class="category-desc">{{category.urlName}}</h3>
+                    <h3 class="category-desc">"{{category.url}}"</h3>
                 </div>
             </div>
             <div class="category-info">
-                <button type="button" class="view-btn" routerLink="/admin/categories/form">Edit / View</button>
-                <button type="button" class="delete-btn" routerlink="">Delete</button>
-            </div>
-        </div>
-        <div class="category-card" routerlink="/abc" type="button">
-            <div class="category-data">
-                <i class="fa fa-light fa-capsules"></i>
-                <div class="category-details">
-                    <h3 class="category-name">General Medicines</h3>
-                </div>
-            </div>
-            <div class="category-info">
-                <button type="button" class="view-btn" routerLink="/admin/categories/form">Edit / View</button>
-                <button type="button" class="delete-btn" routerlink="">Delete</button>
-            </div>
-        </div>
-        <div class="category-card" routerlink="/abc" type="button">
-            <div class="category-data">
-                <i class="fa fa-duotone fa-child-reaching"></i>
-                <div class="category-details">
-                    <h3 class="category-name">Skin Care</h3>
-                </div>
-            </div>
-            <div class="category-info">
-                <button type="button" class="view-btn" routerLink="/admin/categories/form">Edit / View</button>
-                <button type="button" class="delete-btn" routerlink="">Delete</button>
-            </div>
-        </div>
-        <div class="category-card" routerlink="/abc" type="button">
-            <div class="category-data">
-                <i class="fa fa-solid fa-mask-face"></i>
-                <div class="category-details">
-                    <h3 class="category-name">Surgical Items</h3>
-                </div>
-            </div>
-            <div class="category-info">
-                <button type="button" class="view-btn" routerLink="/admin/categories/form">Edit / View</button>
-                <button type="button" class="delete-btn" routerlink="">Delete</button>
-            </div>
-        </div>
-        <div class="category-card" routerlink="/abc" type="button">
-            <div class="category-data">
-                <i class="fa-solid fa-prescription-bottle-medical"></i>
-                <div class="category-details">
-                    <h3 class="category-name">Vitamins</h3>
-                </div>
-            </div>
-            <div class="category-info">
-                <button type="button" class="view-btn" routerLink="/admin/categories/form">Edit / View</button>
-                <button type="button" class="delete-btn" routerlink="">Delete</button>
+                <button type="button" class="view-btn" routerLink="/admin/categories/{{category.categoryId}}">Edit / View</button>
+                <button type="button" class="delete-btn" (click)="removeCategory(category.categoryId)">Delete</button>
             </div>
         </div>
     </div>
