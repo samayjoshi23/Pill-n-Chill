@@ -40,14 +40,13 @@
     font-family: var(--primary-font);
     text-align: start;
 }
-/* .category-detail{
+.category-desc{
     font-size: 0.9rem;
     font-weight: 500;
     font-family: var(--primary-font);
     color: rgb(75, 75, 75);
     text-align: start;
-} */
-
+}
 .category-info{
     display: flex;
     flex-direction: column;

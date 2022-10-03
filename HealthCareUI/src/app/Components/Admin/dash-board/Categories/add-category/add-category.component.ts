@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Category } from 'src/app/Models/CategoryModel';
 
 @Component({
   selector: 'app-add-category',
@@ -8,9 +9,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddCategoryComponent implements OnInit {
 
+  category: Category = {
+    categoryId: 108,
+    urlName: '',
+	  categoryName: '',
+    url: ''
+  }
+
+
   addCategoryForm : FormGroup = new FormGroup({
-    catName: new FormControl('', [Validators.required]),
-    photo: new FormControl('', [Validators.required])
+    categoryName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    urlName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    url: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    // photo: new FormControl('', [Validators.required])
   });
 
   constructor() { }
