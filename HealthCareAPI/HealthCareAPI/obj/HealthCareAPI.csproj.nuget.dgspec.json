@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\samsc\\OneDrive\\Desktop\\Healthare\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj": {}
+    "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\samsc\\OneDrive\\Desktop\\Healthare\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj": {
+    "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\samsc\\OneDrive\\Desktop\\Healthare\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
         "projectName": "HealthCareAPI",
-        "projectPath": "C:\\Users\\samsc\\OneDrive\\Desktop\\Healthare\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
-        "packagesPath": "C:\\Users\\samsc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\samsc\\OneDrive\\Desktop\\Healthare\\HealthCareAPI\\HealthCareAPI\\obj\\",
+        "projectPath": "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
+        "packagesPath": "C:\\Users\\Nikhil\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\samsc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nikhil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -67,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
