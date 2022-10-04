@@ -551,14 +551,9 @@ export class MedicineServiceService {
     url: 'Bandage.jpg',
     dateCreated:"NO Date",
     dateUpdated:"No Date",
-<<<<<<< HEAD
-    category: 'surgical',
-    categoryName: 'Surgical Items',
-=======
     category: 'skin',
     categoryName: 'Skin Care',
     
->>>>>>> main
   }];
   medicineObj:Medicine = {
     medicineId: 0,

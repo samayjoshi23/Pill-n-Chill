@@ -10,6 +10,7 @@ import { AddProductComponent } from './Components/Admin/dash-board/Products/add-
 import { EditProductComponent } from './Components/Admin/dash-board/Products/edit-product/edit-product.component';
 import { ProductListComponent } from './Components/Admin/dash-board/Products/product-list/product-list.component';
 import { UserListComponent } from './Components/Admin/dash-board/Users/user-list/user-list.component';
+import { AccountPageComponent } from './Components/Client/account-page/account-page.component';
 import { BillingPageComponent } from './Components/Client/billing-page/billing-page.component';
 import { CheckoutPageComponent } from './Components/Client/checkout-page/checkout-page.component';
 import { LandingPageComponent } from './Components/Client/landing-page/landing-page.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
     title: "Pill 'n Chill - Home",
     path: '',
     component: LandingPageComponent,
+    // component: AccountPageComponent
   },
   {
     title: "Pill 'n Chill - Login",
