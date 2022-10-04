@@ -3,6 +3,7 @@ export interface Medicine{
     name: string,
 	chemical: string,
 	exp: string,
+	mfg: string,
 	qty: number,
 	power: string,
 	type: string,

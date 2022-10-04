@@ -18,7 +18,7 @@ export class CategoryTypeServiceService {
       categoryId: 1003,
       urlName: 'baby',
       categoryName: 'Baby Care',
-      url: 'fa-solid fa-baby',
+      url: 'fa fa-solid fa-baby',
     },
     {
       categoryId: 1004,
@@ -39,6 +39,14 @@ export class CategoryTypeServiceService {
       url: 'fa-solid fa-prescription-bottle-medical',
     },
   ];
+
+  category: Category = {
+    categoryId: 0,
+    urlName: '',
+	  categoryName: '',
+    url: ''
+  }
+
   types: MedicineType[] = [
     { typeId: 2001, value: 'all', name: 'All' },
     { typeId: 2002, value: 'tablet', name: 'Tablets' },
@@ -62,4 +70,12 @@ export class CategoryTypeServiceService {
     return this.categories;
   }
 
+  getOneCategory(id: number){
+    this.categories.forEach(category => {
+      if(category.categoryId === id){
+        this.category = category;
+      }
+    });
+    return this.category;
+  }
 }

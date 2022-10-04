@@ -10,100 +10,74 @@
             <span class="error-message" *ngIf="!addProductForm.get('medicineName')?.valid && addProductForm.get('medicineName')?.touched">
                 [Name length should be minimum 3 characters]
             </span>
-            <input type="text" class="inputs" placeholder="Medicine Name" formControlName="medicineName">
+            <input type="text" class="inputs" formControlName="medicineName">
         </div>
         <div class="input-sections">
             <label for="chemicalName" class="input-labels">Chemical Name</label>
             <span class="error-message" *ngIf="!addProductForm.get('chemicalName')?.valid && addProductForm.get('chemicalName')?.touched">
                 [Name length should be minimum 3 characters]
             </span>
-            <input type="text" class="inputs" placeholder="Chemical Name" formControlName="chemicalName">
+            <input type="text" class="inputs" formControlName="chemicalName">
         </div>
         <div class="input-sections">
             <label for="brandName" class="input-labels">Brand Name</label>
             <span class="error-message" *ngIf="!addProductForm.get('brandName')?.valid && addProductForm.get('brandName')?.touched">
                 [Name length should be minimum 3 characters]
             </span>
-            <input type="text" class="inputs" placeholder="Brand Name" formControlName="brandName">
+            <input type="text" class="inputs" formControlName="brandName">
+        </div>
+        <div class="input-sections">
+            <label for="quantity" class="input-labels">Quantity</label>
+            <span class="error-message" *ngIf="!addProductForm.get('quantity')?.valid && addProductForm.get('quantity')?.touched">
+                [Max quantity can be 100]
+            </span>
+            <input type="number" class="inputs" placeholder="Quantity" formControlName="quantity">
+        </div>
+        <div class="input-sections">
+            <label for="power" class="input-labels">Power/ Volume/ Weight (with unit)</label>
+            <span class="error-message" *ngIf="!addProductForm.get('power')?.valid && addProductForm.get('power')?.touched">
+                [Power for capsules/ Volume for liquids...]
+            </span>
+            <input type="text" class="inputs" placeholder="150mg / 300ml / 40g ..." formControlName="power">
         </div>
         <div class="input-sections">
             <label for="category" class="input-labels">Category</label>
-            <select name="category" class="inputs" id="category">
-                <option value="bone">Bone</option>
-                <option value="thyroid">Thyroid</option>
-                <option value="cold&flu">Cold and Flu</option>
-                <option value="anti-allergic">Anti-Allergic</option>
-                <option value="anti-biotics">Anti-Biotics</option>
-                <option value="anti-depressants">Anti-Depressants</option>
+            <select name="category" class="inputs" id="category" formControlName="category">
+                <option *ngFor="let category of categories" value="{{category.urlName}}" [selected]="category.urlName == medicine.category">{{category.categoryName}}</option>  
             </select>
         </div>
         <div class="input-sections">
             <label for="type" class="input-labels">Type</label>
-            <select name="type" class="inputs" id="type">
-                <option value="tablets">Tablets</option>
-                <option value="syrups">Syrups</option>
-                <option value="injections">Injections</option>
-                <option value="sprays">Sprays</option>
+            <select name="type" class="inputs" id="type" formControlName="type">
+                <option *ngFor="let type of types" value="{{type.value}}" [selected]="type.value == medicine.type">{{type.name}}</option>
             </select>
         </div>
         <div class="input-sections">
             <label for="" class="input-labels">MFG Date</label>
             <div class="date-selectors">
-                <select name="mfg-month" id="mfg-month" class="inputs">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
+                <select name="mfgMonth" id="mfg-month" class="inputs" formControlName="mfgMonth">
+                    <option value="{{month}}" [selected]="month ==  addProductForm.value.mfgMonth" *ngFor="let month of monthArr">{{month}}</option>
                 </select>
-                <select name="mfg-year" id="mfg-year" class="inputs">
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
+                <select name="mfgYear" id="mfg-year" class="inputs" formControlName="mfgYear">
+                    <option *ngFor="let year of yearArr" value="{{year}}" [selected]="year == addProductForm.value.mfgYear">{{year}}</option>
                 </select>
             </div>
         </div>
         <div class="input-sections">
-            <label for="" class="input-labels">EXP Date</label>
+            <label for="exp-month" class="input-labels">EXP Date</label>
             <div class="date-selectors">
-                <select name="exp-month" id="exp-month" class="inputs">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
+                <select name="expMonth" id="exp-month" class="inputs" formControlName="expMonth">
+                    <option value="{{month}}" [selected]="month == addProductForm.value.expMonth" *ngFor="let month of monthArr">{{month}}</option>
                 </select>
-                <select name="exp-year" id="exp-year" class="inputs">
-                    <option value="2017">2022</option>
-                    <option value="2018">2023</option>
-                    <option value="2019">2024</option>
-                    <option value="2020">2025</option>
-                    <option value="2021">2026</option>
-                    <option value="2022">2027</option>
+                <select name="" id="exp-year" class="inputs" formControlName="expYear">
+                    <option value="{{year}}" [selected]="year == addProductForm.value.expYear" *ngFor="let year of yearArr">{{year}}</option>
                 </select>
             </div>
         </div>
         <div class="input-sections">
             <label for="photo" class="input-labels">Photo</label>
             <span class="error-message" *ngIf="!addProductForm.get('photo')?.valid && addProductForm.get('photo')?.touched">
-                [Please upload the photo]
+                [Please upload the photo first]
             </span>
             <input type="file" class="inputs" formControlName="photo">
         </div>
@@ -120,6 +94,13 @@
                 [Name length should be minimum 3 characters]
             </span>
             <input type="text" class="inputs" placeholder="Seller Name" formControlName="sellerName">
+        </div>
+        <div class="input-sections">
+            <label for="description" class="input-labels">Description</label>
+            <span class="error-message" *ngIf="!addProductForm.get('description')?.valid && addProductForm.get('description')?.touched">
+                [Name length should be minimum 10 characters long]
+            </span>
+            <textarea type="text" class="inputs" placeholder="Description Here" formControlName="description"></textarea>
         </div>
 
         <div class="form-footer">

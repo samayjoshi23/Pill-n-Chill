@@ -22,4 +22,7 @@ export class ProductListComponent implements OnInit {
     this.medicineList = this.MedicineService.getAllMedicines();
   }
 
+  removeMedicine(id : number){
+    console.log(id);
+  }
 }
