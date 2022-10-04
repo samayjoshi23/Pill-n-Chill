@@ -1,0 +1,39 @@
+<main>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class="fa fa-duotone fa-bars"></i>
+            <h1 class="sidebar-title">Admin Menu</h1>
+        </div>
+        <div class="sidebar-items">
+            <button class="side-item" [routerLink]="'users'">
+                <i class="fa icon fa-duotone fa-user"></i>
+                <span>Manage Users</span>
+                <i class="fa fa-duotone fa-arrow-right arrow"></i>
+            </button>
+            <button class="side-item" [routerLink]="'products'">
+                <i class="fa icon fa-duotone fa-store"></i>
+                <span>Manage Products</span>
+                <i class="fa fa-duotone fa-arrow-right arrow"></i>
+            </button>
+            <button class="side-item" [routerLink]="'categories'">
+                <i class="fa icon fa-duotone fa-sitemap"></i>
+                <span>Manage Categories</span>
+                <i class="fa fa-duotone fa-arrow-right arrow"></i>
+            </button>
+            <button class="side-item" [routerLink]="'orders'">
+                <i class="fa icon fa-duotone fa-cart-shopping"></i>
+                <span>Manage Orders</span>
+                <i class="fa fa-duotone fa-arrow-right arrow"></i>
+            </button>
+            <button class="side-item">
+                <i class="fa icon fa-duotone fa-users"></i>
+                <span>Manage Sellers</span>
+                <i class="fa fa-duotone fa-arrow-right arrow"></i>
+            </button>
+        </div>
+    </aside>
+    
+    <section class="product-list-container">
+        <router-outlet></router-outlet>
+    </section>
+</main>

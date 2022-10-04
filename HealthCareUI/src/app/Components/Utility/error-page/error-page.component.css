@@ -1,0 +1,50 @@
+/*======================
+    404 page
+=======================*/
+.container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 3.5rem;
+}
+.page_404 {
+    padding: 40px 0;
+    background: #fff;
+    font-family: "Arvo", serif;
+}
+.page_404 img {
+    width: 100%;
+}
+
+.four_zero_four_bg {
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    background-repeat: no-repeat;
+    height: 60vh;
+    background-position: center;
+}
+
+.four_zero_four_bg h1 {
+    font-size: 5rem;
+}
+.contant_box_404 h3 {
+    font-size: 1.8rem;
+    font-family: var(--primary-font);
+}
+
+p{
+    font-family: var(--secondary-font);
+    font-size: 1.2rem;
+}
+
+.link_404 {
+    color: #fff !important;
+    border-radius: 1rem;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;
+}
+.contant_box_404 {
+    margin-top: -50px;
+}

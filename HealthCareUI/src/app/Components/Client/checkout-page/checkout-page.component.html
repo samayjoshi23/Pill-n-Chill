@@ -1,0 +1,126 @@
+<main>
+    <div id="header-container">
+        <h1 id="main-heading">Checkout</h1>
+        <p id="main-description">Enter Your Details</p>
+    </div>
+    <form id="input-container" [formGroup]="checkoutForm" (ngSubmit)="proceedToBill()">
+        <section class="data-type-sections" formGroupName="personalDetails">
+            <div class="section-header">
+                <i class="fa fa-duotone fa-user"></i>
+                <h3 class="section-count">01</h3>
+            </div>
+            <div class="section-data">
+                <div class="section-name">Personal Details</div>
+                <div class="section-inputs">
+                    <div class="input-divs">
+                        <div>
+                            <label for="" class="input-labels">First Name</label>
+                            <span class="error-message" *ngIf="!checkoutForm.get('personalDetails.firstName')?.valid && checkoutForm.get('personalDetails.firstName')?.touched">Atleast 2 character long.</span>
+                        </div>
+                        <input type="text" name="firstName" id="firstName" placeholder="First Name" class="input-fields" formControlName="firstName">
+                    </div>
+                    <div class="input-divs">
+                        <div>
+                            <label for="" class="input-labels">Last Name</label>
+                            <span class="error-message" *ngIf="!checkoutForm.get('personalDetails.lastName')?.valid && checkoutForm.get('personalDetails.lastName')?.touched">Atleast 2 character long.</span>
+                        </div>
+                        <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="input-fields" formControlName="lastName">
+                    </div>
+                    <div class="input-divs">
+                        <div>
+                            <label for="" class="input-labels">Email</label>
+                            <span class="error-message" *ngIf="!checkoutForm.get('personalDetails.email')?.valid && checkoutForm.get('personalDetails.email')?.touched">Provide email in correct format</span>
+                        </div>
+                        <input type="email" name="email" id="email" placeholder="Email" class="input-fields" formControlName="email">
+                    </div>
+                    <div class="input-divs">
+                        <div>
+                            <label for="contact" class="input-labels">Phone Number</label>
+                            <span class="error-message" *ngIf="!checkoutForm.get('personalDetails.phone')?.valid && checkoutForm.get('personalDetails.phone')?.touched">Incorrect Phone Number</span>
+                        </div>
+                        <input type="tel" name="contact" id="" placeholder="+91 XXXXX - XXXXX" class="input-fields" formControlName="phone">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="data-type-sections" formGroupName="shippingDetails">
+            <div class="section-header">
+                <i class="fa fa-duotone fa-truck-fast"></i>
+                <h3 class="section-count">02</h3>
+            </div>
+            <div class="section-data">
+                <div class="section-name">Shipping Details</div>
+                <div class="section-inputs">
+                    <div class="input-divs full-line">
+                        <div>
+                            <label for="street" class="input-labels">Street Address</label>
+                            <span class="error-message" *ngIf="!checkoutForm.get('shippingDetails.street')?.valid && checkoutForm.get('shippingDetails.street')?.touched">Street Adderess should be complete.</span>
+                        </div>
+                        <input type="text" name="street" id="street" placeholder="Street Address" class="input-fields" formControlName="street">
+                    </div>
+                    <div class="input-divs">
+                        <div>
+                            <label for="city" class="input-labels">City</label>
+                            <span class="error-message" *ngIf="!checkoutForm.get('shippingDetails.city')?.valid && checkoutForm.get('shippingDetails.city')?.touched">Minimum 3 letters needed</span>
+                        </div>
+                        <input type="text" name="city" id="city" placeholder="City" class="input-fields" formControlName="city">
+                    </div>
+                    <div class="input-divs">
+                        <div>
+                            <label for="state" class="input-labels">State / Province</label>
+                            <span class="error-message" *ngIf="!checkoutForm.get('shippingDetails.state')?.valid && checkoutForm.get('shippingDetails.state')?.touched">Minimum 5 letters needed</span>
+                        </div>
+                        <input type="text" name="state" id="state" placeholder="State" class="input-fields" formControlName="state">
+                    </div>
+                    <div class="input-divs">
+                        <div>
+                            <label for="country" class="input-labels">Country</label>
+                            <span class="error-message" *ngIf="!checkoutForm.get('shippingDetails.country')?.valid && checkoutForm.get('shippingDetails.country')?.touched">Minimum 5 letters needed</span>
+                        </div>
+                        <input type="text" name="country" id="country" placeholder="Country" class="input-fields" formControlName="country">
+                    </div>
+                    <div class="input-divs">
+                        <div>
+                            <label for="zip" class="input-labels">Zip Code</label>
+                            <span class="error-message" *ngIf="!checkoutForm.get('shippingDetails.zip')?.valid && checkoutForm.get('shippingDetails.zip')?.touched">Invalid Zip code</span>
+                        </div>
+                        <input type="text" name="zip" id="zip" placeholder="Zip code" class="input-fields" formControlName="zip">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="data-type-sections">
+            <div class="section-header">
+                <i class="fa fa-duotone fa-credit-card"></i>
+                <h3 class="section-count">03</h3>
+            </div>
+            <div class="section-data">
+                <div class="section-name">Payment Method</div>
+                <div class="card-options">
+                    <div type="button" class="payment-card">
+                        <label for="cc">Credit Card</label>
+                        <input type="radio" name="paymentMethod" id="cc" class="input-fields" value="credit-card" formControlName="paymentMethod">
+                    </div>
+                    <div type="button" class="payment-card">
+                        <label for="dc">Debit Card</label>
+                        <input type="radio" name="paymentMethod" id="dc" class="input-fields" value="debit-card" formControlName="paymentMethod">
+                    </div>
+                    <div type="button" class="payment-card">
+                        <label for="cod">Cash On Delivery</label>
+                        <input type="radio" name="paymentMethod" id="cod" class="input-fields" value="cod" formControlName="paymentMethod">
+                    </div>
+                    <div type="button" class="payment-card">
+                        <label for="upi">UPI (Accepts any UPI)</label>
+                        <input type="radio" name="paymentMethod" id="upi" class="input-fields" value="UPI" formControlName="paymentMethod">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <button class="place-order-btn" type="submit" routerLink="/products/billing/{{checkoutForm.value.paymentMethod}}" [disabled]="!checkoutForm.valid">
+            <i class="fa fa-duotone fa-bag-shopping"></i> Checkout
+        </button>
+    </form>
+</main>

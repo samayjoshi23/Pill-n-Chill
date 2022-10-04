@@ -1,0 +1,43 @@
+<main>
+    <section>
+        <div class="login-bg">
+            <img src="assets/login-signup/login.jpg" alt="login-img">
+        </div>
+        <div class="login-container">
+            <h2 class="login-header">Login</h2>
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+                <div class="input-div">
+                    <div>
+                        <i class="fa-solid fa-user"></i>
+                        <label for="email" class="input-label">User Email</label>
+                        <span class="error-message" *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched">
+                            [Please Enter a valid Email address]
+                        </span>
+                    </div>
+                    <input type="email" class="inputs" name="email" id="email" placeholder="abcd@gmail.com" formControlName="email">
+                </div>
+                <div class="input-div">
+                    <div>
+                        <i class="fa-solid fa-key"></i>
+                        <label for="password" class="input-label">Password</label>
+                        <span class="error-message" *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">
+                            [Password length should be minimum 8 characters]
+                        </span>
+                    </div>
+                    <input type="password" name="password" id="password" class="inputs" placeholder="password" formControlName="password">
+                </div>
+                <div class="option-div">
+                    <p class="options"><input type="checkbox" name="" id=""> Remember Me</p>
+                    <p class="options">Forgot Password?</p>
+                </div>
+                <div class="submit-div">
+                    <button type="submit" class="submit-btn" [disabled]="!loginForm.valid">Login</button>
+                </div>
+                <div class="form-footer">
+                    <p>New User? SignUp and be a part of us.</p>
+                    <button type="button" routerLink="/register" class="register-btn">Register</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>

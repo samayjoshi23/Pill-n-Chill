@@ -1,0 +1,44 @@
+<div class="from-section">
+    <div class="section-header">
+        <i class="fa fa-duotone fa-plus"></i>
+        <h1 class="section-title">Add new Category</h1>
+    </div>
+    
+    <form class="CategoryForm" [formGroup]="addCategoryForm" (ngSubmit)="addCategory()">
+        <div class="input-sections">
+            <label for="categoryName" class="input-labels">Category Name</label>
+            <span class="error-message" *ngIf="!addCategoryForm.get('categoryName')?.valid && addCategoryForm.get('categoryName')?.touched">
+                [Name should have minimum 3 characters]
+            </span>
+            <input type="text" class="inputs" placeholder="Category Name" formControlName="categoryName">
+        </div>
+        <div class="input-sections">
+            <label for="urlName" class="input-labels">Category Name for Url</label>
+            <span class="error-message" *ngIf="!addCategoryForm.get('urlName')?.valid && addCategoryForm.get('urlName')?.touched">
+                [Please enter category name]
+            </span>
+            <input type="text" class="inputs" placeholder="For URLs" formControlName="urlName">
+        </div>
+
+        <div class="input-sections">
+            <label for="url" class="input-labels">Category Class Names</label>
+            <span class="error-message" *ngIf="!addCategoryForm.get('url')?.valid && addCategoryForm.get('url')?.touched">
+                [Please enter category name]
+            </span>
+            <input type="text" class="inputs" placeholder="class1 class2 class3 ...." formControlName="url">
+        </div>
+
+        <!-- <div class="input-sections">
+            <label for="photo" class="input-labels">Category Img</label>
+            <span class="error-message" *ngIf="!addCategoryForm.get('photo')?.valid && addCategoryForm.get('photo')?.touched">
+                [Please upload photo]
+            </span>
+            <input type="file" class="inputs" formControlName="photo">
+        </div> -->
+        
+        <div class="form-footer">
+            <button type="button" class="cancel-btn" routerLink="/admin/categories"><i class="fa fa-duotone fa-arrow-left"></i> Cancel</button>
+            <button type="submit" class="add-btn submit-btn" [disabled]="!addCategoryForm.valid">Create <i class="fa fa-duotone fa-plus"></i></button>
+        </div>
+    </form>
+</div>

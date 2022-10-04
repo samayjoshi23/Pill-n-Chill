@@ -1,0 +1,111 @@
+<div class="from-section">
+    <div class="section-header">
+        <i class="fa fa-duotone fa-plus"></i>
+        <h1 class="section-title">Add new Medicine</h1>
+    </div>
+    
+    <form class="MedicineFrom" [formGroup]="addProductForm" (ngSubmit)="createProduct()">
+        <div class="input-sections">
+            <label for="medicineName" class="input-labels">Medicine Name</label>
+            <span class="error-message" *ngIf="!addProductForm.get('medicineName')?.valid && addProductForm.get('medicineName')?.touched">
+                [Name length should be minimum 3 characters]
+            </span>
+            <input type="text" class="inputs" formControlName="medicineName">
+        </div>
+        <div class="input-sections">
+            <label for="chemicalName" class="input-labels">Chemical Name</label>
+            <span class="error-message" *ngIf="!addProductForm.get('chemicalName')?.valid && addProductForm.get('chemicalName')?.touched">
+                [Name length should be minimum 3 characters]
+            </span>
+            <input type="text" class="inputs" formControlName="chemicalName">
+        </div>
+        <div class="input-sections">
+            <label for="brandName" class="input-labels">Brand Name</label>
+            <span class="error-message" *ngIf="!addProductForm.get('brandName')?.valid && addProductForm.get('brandName')?.touched">
+                [Name length should be minimum 3 characters]
+            </span>
+            <input type="text" class="inputs" formControlName="brandName">
+        </div>
+        <div class="input-sections">
+            <label for="quantity" class="input-labels">Quantity</label>
+            <span class="error-message" *ngIf="!addProductForm.get('quantity')?.valid && addProductForm.get('quantity')?.touched">
+                [Max quantity can be 100]
+            </span>
+            <input type="number" class="inputs" placeholder="Quantity" formControlName="quantity">
+        </div>
+        <div class="input-sections">
+            <label for="power" class="input-labels">Power/ Volume/ Weight (with unit)</label>
+            <span class="error-message" *ngIf="!addProductForm.get('power')?.valid && addProductForm.get('power')?.touched">
+                [Power for capsules/ Volume for liquids...]
+            </span>
+            <input type="text" class="inputs" placeholder="150mg / 300ml / 40g ..." formControlName="power">
+        </div>
+        <div class="input-sections">
+            <label for="category" class="input-labels">Category</label>
+            <select name="category" class="inputs" id="category" formControlName="category">
+                <option *ngFor="let category of categories" value="{{category.urlName}}" [selected]="category.urlName == medicine.category">{{category.categoryName}}</option>  
+            </select>
+        </div>
+        <div class="input-sections">
+            <label for="type" class="input-labels">Type</label>
+            <select name="type" class="inputs" id="type" formControlName="type">
+                <option *ngFor="let type of types" value="{{type.value}}" [selected]="type.value == medicine.type">{{type.name}}</option>
+            </select>
+        </div>
+        <div class="input-sections">
+            <label for="" class="input-labels">MFG Date</label>
+            <div class="date-selectors">
+                <select name="mfgMonth" id="mfg-month" class="inputs" formControlName="mfgMonth">
+                    <option value="{{month}}" [selected]="month ==  addProductForm.value.mfgMonth" *ngFor="let month of monthArr">{{month}}</option>
+                </select>
+                <select name="mfgYear" id="mfg-year" class="inputs" formControlName="mfgYear">
+                    <option *ngFor="let year of yearArr" value="{{year}}" [selected]="year == addProductForm.value.mfgYear">{{year}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-sections">
+            <label for="exp-month" class="input-labels">EXP Date</label>
+            <div class="date-selectors">
+                <select name="expMonth" id="exp-month" class="inputs" formControlName="expMonth">
+                    <option value="{{month}}" [selected]="month == addProductForm.value.expMonth" *ngFor="let month of monthArr">{{month}}</option>
+                </select>
+                <select name="" id="exp-year" class="inputs" formControlName="expYear">
+                    <option value="{{year}}" [selected]="year == addProductForm.value.expYear" *ngFor="let year of yearArr">{{year}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-sections">
+            <label for="photo" class="input-labels">Photo</label>
+            <span class="error-message" *ngIf="!addProductForm.get('photo')?.valid && addProductForm.get('photo')?.touched">
+                [Please upload the photo first]
+            </span>
+            <input type="file" class="inputs" formControlName="photo">
+        </div>
+        <div class="input-sections">
+            <label for="price" class="input-labels">Price</label>
+            <span class="error-message" *ngIf="!addProductForm.get('price')?.valid && addProductForm.get('price')?.touched">
+                [Please enter valid price value]
+            </span>
+            <input type="number" class="inputs" placeholder="Price" formControlName="price">
+        </div>
+        <div class="input-sections">
+            <label for="sellerName" class="input-labels">Seller Name</label>
+            <span class="error-message" *ngIf="!addProductForm.get('sellerName')?.valid && addProductForm.get('sellerName')?.touched">
+                [Name length should be minimum 3 characters]
+            </span>
+            <input type="text" class="inputs" placeholder="Seller Name" formControlName="sellerName">
+        </div>
+        <div class="input-sections">
+            <label for="description" class="input-labels">Description</label>
+            <span class="error-message" *ngIf="!addProductForm.get('description')?.valid && addProductForm.get('description')?.touched">
+                [Name length should be minimum 10 characters long]
+            </span>
+            <textarea type="text" class="inputs" placeholder="Description Here" formControlName="description"></textarea>
+        </div>
+
+        <div class="form-footer">
+            <button type="button" class="cancel-btn" routerLink="/admin/products"><i class="fa fa-duotone fa-arrow-left"></i> Cancel</button>
+            <button type="submit" class="add-btn submit-btn" [disabled]="!addProductForm.valid">Create <i class="fa fa-duotone fa-plus"></i></button>
+        </div>
+    </form>
+</div>

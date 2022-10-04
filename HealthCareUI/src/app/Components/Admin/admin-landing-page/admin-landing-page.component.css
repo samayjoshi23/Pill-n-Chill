@@ -1,0 +1,44 @@
+.hero-section{
+    height: 89vh;
+    background-image: url('../../../../assets/LandingPage/Admin_Bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.hero-title{
+    margin-left: 1.5rem;
+}
+.hero-title-text{
+    font-weight: bold;
+    font-family: 'Karla', sans-serif;
+    font-size: 3rem;
+    line-height: 3.5rem;
+    color: var(--secondary-color);
+    letter-spacing: -0.25rem;
+}
+.hero-subtitle-text{
+    margin-top: 1rem;
+    font-weight: bold;
+    font-family: 'Karla', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    color: var(--ternery-color);
+    margin-left: 0.25rem;
+}
+.hero-description{
+    margin-top: 1rem;
+    margin-left: 2.5rem;
+}
+.desc{
+    color: rgb(163, 163, 163);
+    list-style: none;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+.check-icon{
+    color: var(--ternery-color);
+    margin-right: 0.75rem;
+}

@@ -1,0 +1,23 @@
+<div class="section-header">
+    <h1 class="section-title">Here is the list of all the products</h1>
+    <button type="submit" class="add-btn" routerLink="/admin/products/add"><i class="fa fa-duotone fa-plus"></i> Add New Product </button>
+</div>
+<div class="product-container">
+    <div class="product-card" type="button" *ngFor="let medicine of medicineList">
+        <div class="product-data">
+            <img src="assets/MedicineDb/{{medicine.url}}" alt="medi-img" class="product-img">
+            <div class="product-details">
+                <h3 class="product-name">{{medicine.name}}</h3>
+                <h4 class="product-detail"><span>By :</span> {{medicine.brandName)</h4>
+                <h4 class="product-detail"><span>Seller :</span> ABC {{medicine.seller}}</h4>
+                <h4 class="product-detail"><span>Quantity :</span> {{medicine.qty}}</h4>
+                <h2 class="product-detail"><span>Price : </span>&#x20B9; {{medicine.price}}</h2>
+                <p class="product-detail"><span>MRP : </span>&#x20B9; {{(medicine.price*1.1).toFixed(2)}}</p>
+            </div>
+        </div>
+        <div class="product-price-info">
+            <button type="button" class="view-btn" routerLink="/admin/products/{{medicine.medicineId}}">Edit / View</button>
+            <button type="button" class="delete-btn" (click)="removeMedicine(medicine.medicineId)">Delete</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<main>
+    <div class="section-header">
+        <h1 class="section-title">Here is the list of all the categories</h1>
+        <button type="submit" class="add-btn" routerLink="/admin/categories/add"><i class="fa fa-duotone fa-plus"></i> Add
+            New Category </button>
+    </div>
+    
+    <div class="category-container">
+        <div class="category-card" type="button" *ngFor="let category of categories">
+            <div class="category-data">
+                <i class="{{category.url}}"></i>
+                <div class="category-details">
+                    <h3 class="category-name">{{category.categoryName}}</h3>
+                    <h3 class="category-desc">{{category.urlName}}</h3>
+                    <h3 class="category-desc">"{{category.url}}"</h3>
+                </div>
+            </div>
+            <div class="category-info">
+                <button type="button" class="view-btn" routerLink="/admin/categories/{{category.categoryId}}">Edit / View</button>
+                <button type="button" class="delete-btn" (click)="removeCategory(category.categoryId)">Delete</button>
+            </div>
+        </div>
+    </div>
+</main>
