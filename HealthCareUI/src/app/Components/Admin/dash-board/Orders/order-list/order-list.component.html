@@ -1,1 +1,32 @@
-<p>order-list works!</p>
+<div class="section-header">
+    <h1 class="section-title">Here is the list of all the products</h1>
+    <button type="submit" class="add-btn" routerLink="/admin/products/add"><i class="fa fa-duotone fa-plus"></i> Add New Product </button>
+</div>
+<div class="product-container">
+    <div class="product-card">
+        <div class="product-details">
+            <h3 class="product-name">Product Name</h3>
+            <h4 class="product-detail"><span>OrderID :</span> abcd-12345-cmgkass-12334m-acbahd</h4>
+            <h4 class="product-detail"><span>UserId :</span> abcd-12345-cmgkass-12334m-acbahd</h4>
+            <h4 class="product-detail"><span>ProductId :</span> abcd-12345-cmgkass-12334m-acbahd</h4>
+            <h4 class="product-detail"><span>Name :</span> firstName + lastName</h4>
+            <h4 class="product-detail"><span>contact :</span> contact</h4>
+            <h4 class="product-detail"><span>Address :</span> street + city + state + country + zip</h4>
+            <h4 class="product-detail"><span>Quantity :</span> quantity</h4>
+            <h4 class="product-detail"><span>Total :</span> &#x20B9;total</h4>
+            <h4 class="product-detail"><span>Order Date :</span> orderDate</h4>
+            <h4 class="product-detail"><span>Order Status :</span> orderStatus</h4>
+            <h4 class="product-detail"><span>Payment Status :</span> paymentStatus</h4>
+            <h4 class="product-detail"><span>Payment Mode :</span> paymentMode</h4>
+        </div>
+        <div class="order-operations">
+            <select name="role" id="role" class="role-selector">
+                <option value="placed">Order Placed</option>
+                <option value="shipped">Shipped</option>
+                <option value="delivered">Delivered</option>
+                <option value="cancelled">Cancelled</option>
+            </select>
+            <button type="button" class="update-btn" routerlink="">Update</button>
+        </div>
+    </div>
+</div>
