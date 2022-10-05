@@ -5,7 +5,7 @@
     </div>
     
     <form class="CategoryForm" [formGroup]="addCategoryForm" (ngSubmit)="editCategory()">
-        <div class="input-sections">
+        <div class="input-sections"
             <label for="" class="input-labels">Category ID : </label>
             <input type="text" class="inputs" readonly  formControlName="categoryId">
         </div>
@@ -27,7 +27,7 @@
         <div class="input-sections">
             <label for="url" class="input-labels">Category Class Names</label>
             <span class="error-message" *ngIf="!addCategoryForm.get('url')?.valid && addCategoryForm.get('url')?.touched">
-                [Please enter category name]
+                [Please enter category class name]
             </span>
             <input type="text" class="inputs" placeholder="class1 class2 class3 ...." formControlName="url">
         </div>
