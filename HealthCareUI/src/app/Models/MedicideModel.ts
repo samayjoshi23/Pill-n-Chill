@@ -12,8 +12,6 @@ export interface Medicine{
 	brandName: string,
 	price: number,
 	url: string,
-	dateCreated: string,
-	dateUpdated: string,
 	category: string,
 	categoryName: string,
 }

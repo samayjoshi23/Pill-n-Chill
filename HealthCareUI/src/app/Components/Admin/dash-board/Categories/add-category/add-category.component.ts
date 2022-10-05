@@ -16,7 +16,6 @@ export class AddCategoryComponent implements OnInit {
     url: ''
   }
 
-
   addCategoryForm : FormGroup = new FormGroup({
     categoryName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     urlName: new FormControl('', [Validators.required, Validators.minLength(3)]),

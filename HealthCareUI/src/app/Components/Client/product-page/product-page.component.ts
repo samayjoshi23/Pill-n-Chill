@@ -23,8 +23,6 @@ export class ProductPageComponent implements OnInit {
     brandName: '',
     price: 0,
     url: '',
-    dateCreated: '',
-    dateUpdated: '',
     category: '',
     categoryName: '',
   };

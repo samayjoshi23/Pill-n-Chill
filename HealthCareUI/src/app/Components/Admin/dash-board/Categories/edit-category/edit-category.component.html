@@ -5,9 +5,9 @@
     </div>
     
     <form class="CategoryForm" [formGroup]="addCategoryForm" (ngSubmit)="editCategory()">
-        <div class="input-sections">
-            <label for="categoryId" class="input-labels">Category ID : </label>
-            <input type="text" class="inputs" readonly disabled>
+        <div class="input-sections"
+            <label for="" class="input-labels">Category ID : </label>
+            <input type="text" class="inputs" readonly  formControlName="categoryId">
         </div>
         <div class="input-sections">
             <label for="categoryName" class="input-labels">Category Name</label>
