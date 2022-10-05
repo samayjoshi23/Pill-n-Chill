@@ -9,8 +9,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class EditCategoryComponent implements OnInit {
 
   addCategoryForm : FormGroup = new FormGroup({
-    catName: new FormControl('', [Validators.required]),
-    photo: new FormControl('', [Validators.required])
+    categoryName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    // photo: new FormControl('', [Validators.required]),
+    urlName: new FormControl('', [Validators.required]),
+    url: new FormControl('', [Validators.required]),
   });
 
   constructor() { }
