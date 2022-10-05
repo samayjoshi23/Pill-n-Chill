@@ -30,8 +30,6 @@ export class EditProductComponent implements OnInit {
     brandName: '',
     price: 0,
     url: '',
-    dateCreated: '',
-    dateUpdated: '',
     category: '',
     categoryName: '',
   };
