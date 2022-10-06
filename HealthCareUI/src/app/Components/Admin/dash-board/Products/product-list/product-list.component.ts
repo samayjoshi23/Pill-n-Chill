@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit {
   constructor(private MedicineService: MedicineServiceService) { }
 
   ngOnInit(): void {
-    this.medicineList = this.MedicineService.getAllMedicines();
+
   }
 
   removeMedicine(id : number){

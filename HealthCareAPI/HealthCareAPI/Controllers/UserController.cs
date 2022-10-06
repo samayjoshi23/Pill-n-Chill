@@ -16,11 +16,13 @@ namespace HealthCareAPI.Controllers
         public UserController(FullStackDbContext fullStackDbContext)
         {
             _fullStackDbContext = fullStackDbContext;
-
         }
+
+
         [HttpGet]
-        [Route("admin/users"), Authorize(Roles = "admin,user")]
-        public async Task<ActionResult<List<User>>> getUsers()
+        [Route("admin/users")]
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult<List<User>>> GetUsers()
         {
             var user = await _fullStackDbContext.Users.ToListAsync();
             return Ok(user);
@@ -28,8 +30,9 @@ namespace HealthCareAPI.Controllers
 
     
         [HttpGet]
-        [Route("admin/users/{Id}"), Authorize(Roles = "admin,user")]
-        public async Task<ActionResult<List<User>>> getSingleUser(Guid Id)
+        [Route("admin/users/{Id}")]
+        [Authorize(Roles = "admin,user")]
+        public async Task<ActionResult<List<User>>> GetSingleUser(Guid Id)
         {
             var user = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId==Id);
             if (user==null)
@@ -38,30 +41,60 @@ namespace HealthCareAPI.Controllers
             }
             return Ok(user);
         }
-        [HttpPut]
-        [Route("admin/ChangeRole/{Id}"),Authorize(Roles ="admin")]
 
-        public async Task<ActionResult<string>> changerole(Guid Id,string newRole)
+
+        [HttpPut]
+        [Route("admin/users/{Id}")]
+        [Authorize(Roles ="admin")]
+        public async Task<ActionResult<string>> ChangeRole(Guid Id,string newRole)
         {
 
             var user = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId==Id);
+            
+            if (user == null)
+                return NotFound();
+            
             user.Role= newRole;
             await _fullStackDbContext.SaveChangesAsync();
             return Ok();
-
         }
+
+        [HttpPut]
+        [Route("user/users/{Id}")]
+        [Authorize(Roles ="user")]
+
+        public async Task<ActionResult<string>> UpdateUserData(Guid Id, User newUserData)
+        {
+            var ExistingUserData = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId==Id);
+
+            if (ExistingUserData == null)
+                return NotFound();
+
+
+            ExistingUserData.FirstName = newUserData.FirstName;
+            ExistingUserData.LastName = newUserData.LastName;
+            ExistingUserData.Phone = newUserData.Phone;
+
+            await _fullStackDbContext.SaveChangesAsync();
+            return Ok();
+        }
+
+
         [HttpDelete]
-        [Route("admin/DeleteUser/{Id}"), Authorize(Roles = "admin")]
+        [Route("admin/users/{Id}")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<string>> DeleteUser(Guid Id)
         {
 
             var user = await _fullStackDbContext.Users.FindAsync(Id);
-           
+
+            if (user == null)
+                return NotFound();
+
+
            _fullStackDbContext.Users.Remove(user);
             await _fullStackDbContext.SaveChangesAsync();   
             return Ok();
-
         }
-
     }
 }

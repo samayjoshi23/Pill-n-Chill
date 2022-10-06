@@ -1,19 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
-        "projectName": "HealthCareAPI",
-        "projectPath": "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
-        "packagesPath": "C:\\Users\\Nikhil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nikhil\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\obj\\",
-=======
     "C:\\Users\\samsc\\OneDrive\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj": {}
   },
   "projects": {
@@ -25,7 +12,6 @@
         "projectPath": "C:\\Users\\samsc\\OneDrive\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\HealthCareAPI.csproj",
         "packagesPath": "C:\\Users\\samsc\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\samsc\\OneDrive\\Desktop\\Pill-n-Chill\\HealthCareAPI\\HealthCareAPI\\obj\\",
->>>>>>> 16e75ec481133e15abf53ed8f39b9a125af2a6f9
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

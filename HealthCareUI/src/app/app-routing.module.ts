@@ -25,9 +25,17 @@ const routes: Routes = [
   {
     title: "Pill 'n Chill - Home",
     path: '',
-    // component: LandingPageComponent
-    // component: AccountPageComponent
-    component: OrderPageComponent
+    component: LandingPageComponent
+  },
+  {
+    title: "Pill 'n Chill - MyAccount",
+    path: '',
+    component: AccountPageComponent
+  },
+  {
+    title: "Pill 'n Chill - MyOrders",
+    path: '',
+    component: AccountPageComponent
   },
   {
     title: "Pill 'n Chill - Login",

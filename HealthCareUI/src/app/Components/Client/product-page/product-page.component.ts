@@ -33,8 +33,15 @@ export class ProductPageComponent implements OnInit {
   constructor(private MedicineService: MedicineServiceService, private router: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.paramId = this.router.snapshot.params['id'];
-    this.medicine = this.MedicineService.getMedicine(this.paramId);
+    this.paramId = this.router.snapshot.params['id'].toString();
+    this.MedicineService.getMedicine(this.paramId).subscribe({
+      next: (result) => {
+        this.medicine = result;
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    });
   }
 
   increaseCount() {

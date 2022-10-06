@@ -8,18 +8,18 @@
             <div>
                 <i class="fa-solid fa-user"></i>
                 <label for="fName"> First Name</label>
-                <span class="error-message" *ngIf="!registerForm.get('fName')?.valid && registerForm.get('fName')?.touched">
-                    [Please enter your first name]
+                <span class="error-message" *ngIf="!registerForm.get('firstName')?.valid && registerForm.get('firstName')?.touched">
+                    [First name can not be blank]
                 </span>
-                <input type="text" name="username" placeholder="Enter First Name" formControlName="fName">
+                <input type="text" name="firstName" placeholder="Enter First Name" formControlName="firstName">
             </div>
             <div>
                 <i class="fa-solid fa-user"></i>
                 <label for="lName"> Last Name</label>
-                <span class="error-message" *ngIf="!registerForm.get('lName')?.valid && registerForm.get('lName')?.touched">
-                    [Please enter your last name]
+                <span class="error-message" *ngIf="!registerForm.get('lastName')?.valid && registerForm.get('lastName')?.touched">
+                    [Last Name can not be blank]
                 </span>
-                <input type="text" name="username" placeholder="Enter Last Name" formControlName="lName">
+                <input type="text" name="lastName" placeholder="Enter Last Name" formControlName="lastName">
             </div>
             <div>
                 <i class="fa-solid fa-envelope"></i>

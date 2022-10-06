@@ -19,7 +19,9 @@ namespace HealthCareAPI.Controllers
             _fullStackDbContext = fullStackDbContext;
 
         }
-        [HttpPost("addCategory")]
+
+
+        [HttpPost("categories/add")]
         public async Task<ActionResult<Category>> AddCategory(categorydto request)
         {
             category.CategoryName=request.CategoryName;
@@ -29,8 +31,10 @@ namespace HealthCareAPI.Controllers
             await _fullStackDbContext.SaveChangesAsync();
             return Ok(category);
         }
+
+
         [HttpPut]
-        [Route("UpdateCategory/{Id}")]
+        [Route("categories/{Id}")]
         public async Task<ActionResult<Category>> updateCategory(int Id,categorydto request)
         {
             var category = await _fullStackDbContext.Categories.FirstOrDefaultAsync(category => category.CategoryId==Id);
@@ -40,8 +44,10 @@ namespace HealthCareAPI.Controllers
             await _fullStackDbContext.SaveChangesAsync();
             return Ok(category);
         }
+
+
         [HttpDelete]
-        [Route("deleteCategory/{Id}")]
+        [Route("categories/{Id}")]
         public async Task<ActionResult<string>> Deletecategory(int Id)
         {
 
@@ -53,8 +59,9 @@ namespace HealthCareAPI.Controllers
 
         }
 
+
         [HttpGet]
-        [Route("singleCategory/{Id}")]
+        [Route("categories/{Id}")]
         public async Task<ActionResult<List<Category>>> getSinglecategory(int Id)
         {
             var category = await _fullStackDbContext.Categories.FirstOrDefaultAsync(category => category.CategoryId ==Id);
@@ -64,6 +71,8 @@ namespace HealthCareAPI.Controllers
             }
             return Ok(category);
         }
+
+
         [HttpGet]
         [Route("Categories")]
         public async Task<ActionResult<List<Category>>> getAllCategories()
@@ -71,17 +80,20 @@ namespace HealthCareAPI.Controllers
             var category = await _fullStackDbContext.Categories.ToListAsync();
             return Ok(category);
         }
-        [HttpGet]
-        [Route("ProductByCategory/{Id}")]
-        public async Task<ActionResult<List<Product>>> ProductByCategory(int Id)
-        {
-            var product = await _fullStackDbContext.Products.FirstOrDefaultAsync(product => product.CategoryId ==Id);
-            if (product==null)
-            {
-                return NotFound("Product Not Found");
-            }
-            return Ok(product);
-        }
+
+        //[HttpGet]
+        //[Route("ProductByCategory/{Id}")]
+        //public async Task<ActionResult<List<Product>>> ProductByCategory(int Id)
+        //{
+            //var product = await _fullStackDbContext.Products.FirstOrDefaultAsync(product => product.CategoryId ==Id);
+            //if (product==null)
+            //{
+            //    return NotFound("Product Not Found");
+            //}
+            //return Ok(product);
+        //}
+
+
         [HttpGet]
         [Route("products/{Type}/{Category}")]
         public async Task<ActionResult<List<Product>>> getProductByType(string Type,string Category)
@@ -90,8 +102,6 @@ namespace HealthCareAPI.Controllers
              IQueryable<Product> Medicine = product.AsQueryable()
                          .Where(product=> product.Type == Type && product.CategoryName==Category);
            
-            
-
             
             if (Medicine==null)
             {

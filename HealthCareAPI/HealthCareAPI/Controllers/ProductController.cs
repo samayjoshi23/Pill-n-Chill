@@ -8,7 +8,7 @@ using System.Data;
 
 namespace HealthCareAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -17,55 +17,110 @@ namespace HealthCareAPI.Controllers
         public ProductController(FullStackDbContext fullStackDbContext)
         {
             _fullStackDbContext = fullStackDbContext;
-
         }
 
-        [HttpPost("addproduct")]
-        public async Task<ActionResult<Product>> RegisterProducts(Productdto request)
+
+        [HttpGet]
+        [Route("admin/products")]
+        public async Task<ActionResult<List<Product>>> getProductByName([FromQuery] string productName)
         {
-            product.name=request.ProductName;
-            product.chemical=request.Chemicals;
-            product.Seller=request.Seller;
-            product.Power=request.Power;
-            product.Price=request.Price;
-            product.BrandName=request.BrandName;
-            product.CategoryName=request.CategoryName;
-            product.Description=request.Description;
-            product.mfg=request.Mfg;
-            product.Url=request.Url;
-            product.exp=request.Exp;
-            product.qty=request.Quantity;
-            product.Type=request.Type;
+            var products = await _fullStackDbContext.Products.ToListAsync();
+            if (products==null)
+            {
+                return NotFound();
+            }
+            return Ok(products);
+        }
+
+
+        [HttpGet]
+        [Route("products")]
+        public async Task<ActionResult<List<Product>>> getProducts([FromQuery] string category, [FromQuery] string type)
+        {
+            if(category == "all")
+            {
+                var productList = await (from p in _fullStackDbContext.Products where p.Type == type select p).ToListAsync();
+                return Ok(productList);
+            }
+            if(type == "all")
+            {
+                var productList = await (from p in _fullStackDbContext.Products where p.Category == category select p).ToListAsync();
+                return Ok(productList);
+            }
+            if(category != "all" && type != "all")
+            {
+                var productList = await (from p in _fullStackDbContext.Products where p.Type == type && p.Category == category select p).ToListAsync();
+                return Ok(productList);
+            }
+
+            return NotFound();
+        }
+
+
+        [HttpGet]
+        [Route("products/popular")]
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult<List<Product>>> getTopProducts()
+        {
+            var products = await (from p in _fullStackDbContext.Products select p).Take(6).ToListAsync();
+
+            return Ok(products);
+        }
+
+
+        [HttpGet]
+        [Route("products/{Id}")]
+        public async Task<ActionResult<List<Product>>> getSingleProduct([FromRoute] Guid Id)
+        {
+            var product = await _fullStackDbContext.Products.FirstOrDefaultAsync(product => product.MedicineId == Id);
+
+            if (product==null)
+            {
+                return NotFound("Product Not Found");
+            }
+            return Ok(product);
+        }
+
+
+        [HttpPost("admin/products/product")]
+        public async Task<ActionResult<Product>> RegisterProducts([FromBody] Product newProducts)
+        {
+            product.MedicineId = new Guid();
+
             await _fullStackDbContext.Products.AddAsync(product);
             await _fullStackDbContext.SaveChangesAsync();
-            return Ok(product);
-
-
+            return Ok();
         }
+
+
         [HttpPut]
-        [Route("UpdateProduct/{Id}")]
-        public async Task<ActionResult<Product>> updateProduct(Guid Id,Productdto request)
+        [Route("admin/products/{Id}")]
+        public async Task<ActionResult<Product>> updateProduct([FromRoute] Guid Id, [FromBody] Product request)
         {
-            var product = await _fullStackDbContext.Products.FirstOrDefaultAsync(product => product.medicineId==Id);
-            product.name=request.ProductName;
-            product.chemical=request.Chemicals;
-            product.Seller=request.Seller;
-            product.Power=request.Power;
-            product.Price=request.Price;
-            product.BrandName=request.BrandName;
-            product.CategoryId=request.CategoryId;
-            product.Description=request.Description;
-            product.mfg=request.Mfg;
-            product.Url=request.Url;
-            product.exp=request.Exp;
-            product.qty=request.Quantity;
-            product.Type=request.Type;
+            var product = await _fullStackDbContext.Products.FirstOrDefaultAsync(product => product.MedicineId==Id);
+            product.Name = request.Name;
+            product.Chemical = request.Chemical;
+            product.Seller = request.Seller;
+            product.Power = request.Power;
+            product.Price = request.Price;
+            product.BrandName = request.BrandName;
+            product.Category = request.Category;
+            product.Description = request.Description;
+            product.Mfg = request.Mfg;
+            product.Url = request.Url;
+            product.Exp = request.Exp;
+            product.Qty = request.Qty;
+            product.Type = request.Type;
+
+
             await _fullStackDbContext.SaveChangesAsync();
             return Ok(product);
         }
+
+
         [HttpDelete]
-        [Route("deleteProduct/{Id}")]
-        public async Task<ActionResult<string>> DeleteProduct(Guid Id)
+        [Route("admin/products/{Id}")]
+        public async Task<ActionResult<string>> DeleteProduct([FromRoute] Guid Id)
         {
 
             var product = await _fullStackDbContext.Products.FindAsync(Id);
@@ -74,46 +129,6 @@ namespace HealthCareAPI.Controllers
             await _fullStackDbContext.SaveChangesAsync();
             return Ok();
 
-        }
-
-        [HttpGet]
-        [Route("singleProduct/{Id}")]
-        public async Task<ActionResult<List<Product>>> getSingleProduct(Guid Id)
-        {
-            var product = await _fullStackDbContext.Products.FirstOrDefaultAsync(product =>product.medicineId ==Id);
-            if (product==null)
-            {
-                return NotFound("Product Not Found");
-            }
-            return Ok(product);
-        }
-        [HttpGet]
-        [Route("productByName/{productName}")]
-        public async Task<ActionResult<List<Product>>> getProductByName(string productName)
-        {
-            var product = await _fullStackDbContext.Products.FirstOrDefaultAsync(product => product.name ==productName);
-            if (product==null)
-            {
-                return NotFound("Product Not Found");
-            }
-            return Ok(product);
-        }
-        [HttpGet]
-        [Route("Products")]
-        public async Task<ActionResult<List<Product>>> getProducts()
-        {
-            var product = await _fullStackDbContext.Products.ToListAsync();
-            return Ok(product);
-        }
-        [HttpGet]
-        [Route("TopProducts")]
-        public async Task<ActionResult<List<Product>>> getTopProducts()
-        {
-            var product = await _fullStackDbContext.Products.ToListAsync();
-            IQueryable<Product> Medicine = product.AsQueryable()
-                        .Where(product=>product.qty==0);
-            var category= await _fullStackDbContext.Categories.ToListAsync();
-            return Ok(new { Medicine,category});
         }
 
     }

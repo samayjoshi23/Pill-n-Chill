@@ -13,11 +13,22 @@ export class LandingPageComponent implements OnInit {
 
   categories: Category[] = [];
   topProducts: Medicine[] = [];
-  constructor(private CategoryService: CategoryTypeServiceService, private medicineService: MedicineServiceService) { }
+
+
+  constructor(private CategoryService: CategoryTypeServiceService, private MedicineService: MedicineServiceService) { }
 
   ngOnInit(): void {
+    
     this.categories = this.CategoryService.getCategories();
-    this.topProducts = this.medicineService.getTop6();
+
+    this.MedicineService.getTop6().subscribe({
+      next: (result) => {
+        this.topProducts = result;
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    })
 
     
     if(this.categories[0].urlName === 'all'){
