@@ -23,6 +23,7 @@ import { ProductPageComponent } from './Components/Client/product-page/product-p
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListPageComponent } from './Components/Client/list-page/list-page.component';
 import { AccountPageComponent} from './Components/Client/account-page/account-page.component'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AccountPageComponent} from './Components/Client/account-page/account-pa
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

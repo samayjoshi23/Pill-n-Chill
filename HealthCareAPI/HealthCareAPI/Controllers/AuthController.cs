@@ -75,10 +75,10 @@ namespace HealthCareAPI.Controllers
             string token = CreateToken(user);
             var newRefreshToken = GenerateRefreshToken();
             SetRefreshToken(newRefreshToken);
-            return Ok(new{token});
-
-
+            return Ok(new { token });
         }
+
+
         [HttpPost("refresh-token")]
         public async Task<ActionResult<string>> RefreshToken()
         {
@@ -99,6 +99,8 @@ namespace HealthCareAPI.Controllers
 
             return Ok(token);
         }
+
+
         private RefreshToken GenerateRefreshToken()
         {
             var refreshToken = new RefreshToken
@@ -110,6 +112,7 @@ namespace HealthCareAPI.Controllers
 
             return refreshToken;
         }
+
 
         private void SetRefreshToken(RefreshToken newRefreshToken)
         {
@@ -124,6 +127,7 @@ namespace HealthCareAPI.Controllers
             user.TokenCreated = newRefreshToken.Created;
             user.TokenExpires = newRefreshToken.Expires;
         }
+
 
         private string CreateToken(User user)
         {
@@ -142,11 +146,6 @@ namespace HealthCareAPI.Controllers
                 signingCredentials: cred);
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
             return jwt;
-
-            {
-
-            };
-
         }
 
 
@@ -156,9 +155,10 @@ namespace HealthCareAPI.Controllers
             {
                 passwordSalt=hmac.Key;
                 passwordHash=hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-
             }
         }
+
+
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
             using (var hmac = new HMACSHA512(passwordSalt))
@@ -167,6 +167,5 @@ namespace HealthCareAPI.Controllers
                 return computedHash.SequenceEqual(passwordHash);
             }
         }
-       
     }
 }
