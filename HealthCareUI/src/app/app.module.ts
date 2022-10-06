@@ -22,8 +22,13 @@ import { BillingPageComponent } from './Components/Client/billing-page/billing-p
 import { ProductPageComponent } from './Components/Client/product-page/product-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListPageComponent } from './Components/Client/list-page/list-page.component';
+<<<<<<< HEAD
 import { AccountPageComponent} from './Components/Client/account-page/account-page.component'
 import { HttpClientModule } from '@angular/common/http';
+=======
+import { AccountPageComponent} from './Components/Client/account-page/account-page.component';
+import { OrderPageComponent } from './Components/Client/order-page/order-page.component'
+>>>>>>> main
 
 @NgModule({
   declarations: [
@@ -46,7 +51,8 @@ import { HttpClientModule } from '@angular/common/http';
     BillingPageComponent,
     ProductPageComponent,
     ListPageComponent,
-    AccountPageComponent
+    AccountPageComponent,
+    OrderPageComponent
   ],
   imports: [
     BrowserModule,

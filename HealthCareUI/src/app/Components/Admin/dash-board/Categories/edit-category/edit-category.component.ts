@@ -18,8 +18,7 @@ export class EditCategoryComponent implements OnInit {
     url: ''
   }
   paramId:number = 0;
-
-
+  
   constructor(private CategoryTypeService: CategoryTypeServiceService, private router: ActivatedRoute) {}
 
   ngOnInit(): void {

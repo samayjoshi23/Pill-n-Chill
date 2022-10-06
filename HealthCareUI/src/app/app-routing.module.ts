@@ -15,6 +15,7 @@ import { BillingPageComponent } from './Components/Client/billing-page/billing-p
 import { CheckoutPageComponent } from './Components/Client/checkout-page/checkout-page.component';
 import { LandingPageComponent } from './Components/Client/landing-page/landing-page.component';
 import { ListPageComponent } from './Components/Client/list-page/list-page.component';
+import { OrderPageComponent } from './Components/Client/order-page/order-page.component';
 import { ProductPageComponent } from './Components/Client/product-page/product-page.component';
 import { LoginFormComponent } from './Components/Login/login-form.component';
 import { RegisterFormComponent } from './Components/Signup/register-form.component';
@@ -24,8 +25,9 @@ const routes: Routes = [
   {
     title: "Pill 'n Chill - Home",
     path: '',
-    component: LandingPageComponent,
+    // component: LandingPageComponent
     // component: AccountPageComponent
+    component: OrderPageComponent
   },
   {
     title: "Pill 'n Chill - Login",

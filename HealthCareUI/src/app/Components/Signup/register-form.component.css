@@ -1,3 +1,12 @@
+/* Image styling */
+img{
+    object-fit: cover;
+    object-position: center;
+    margin-top: 4.2rem;
+    width: 100vw;
+    height: 110vh;
+    filter: blur(2px);
+}
 /* Add padding to container elements */
 .container {
     margin-top: 8rem;
@@ -92,4 +101,7 @@ input.ng-valid.ng-touched{
     background-color: rgb(187, 255, 187);
     color:rgb(150, 150, 150);
     cursor:not-allowed;
+}
+a:link{
+    visibility:unset;
 }
