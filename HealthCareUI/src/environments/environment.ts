@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  medicineApiUrl: 'https://localhost:7105/api/products/'
+  medicineApiUrl: 'https://localhost:7105/api/products'
 };
 
 /*

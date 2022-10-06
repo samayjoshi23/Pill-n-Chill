@@ -36,6 +36,7 @@ export class ListPageComponent implements OnInit {
     this.ActRouter.paramMap.subscribe((params) => {
       this.filters.category = params.get('category');
       this.filters.type = params.get('type');
+      
       this.MedicineService.GetMedicines(this.filters.category,this.filters.type).subscribe({
         next: (result) => {
           this.medicineList = result;
