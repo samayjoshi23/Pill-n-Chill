@@ -20,17 +20,17 @@ namespace HealthCareAPI.Controllers
         }
 
 
-        //[HttpGet]
-        //[Route("products")]
-        //public async Task<ActionResult<List<Product>>> getProductByName([FromQuery] string productName)
-        //{
-        //    var product = await _fullStackDbContext.Products.FirstOrDefaultAsync(product => product.Name == productName);
-        //    if (product==null)
-        //    {
-        //        return NotFound("Product Not Found");
-        //    }
-        //    return Ok(product);
-        //}
+        [HttpGet]
+        [Route("admin/products")]
+        public async Task<ActionResult<List<Product>>> getProductByName([FromQuery] string productName)
+        {
+            var products = await _fullStackDbContext.Products.ToListAsync();
+            if (products==null)
+            {
+                return NotFound();
+            }
+            return Ok(products);
+        }
 
 
         [HttpGet]
@@ -59,14 +59,11 @@ namespace HealthCareAPI.Controllers
 
         [HttpGet]
         [Route("products/popular")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<List<Product>>> getTopProducts()
         {
             var products = await (from p in _fullStackDbContext.Products select p).Take(6).ToListAsync();
 
-            //IQueryable<Product> Medicine = product.AsQueryable().;
-
-            //var category= await _fullStackDbContext.Categories.ToListAsync();
-            //return Ok(new { Medicine,category});
             return Ok(products);
         }
 
@@ -86,15 +83,12 @@ namespace HealthCareAPI.Controllers
 
 
         [HttpPost("admin/products/product")]
-        public async Task<ActionResult<Product>> RegisterProducts([FromBody] Product[] newProducts)
+        public async Task<ActionResult<Product>> RegisterProducts([FromBody] Product newProducts)
         {
-            foreach (Product product in newProducts)
-            {
-                product.MedicineId = new Guid();
+            product.MedicineId = new Guid();
 
-                await _fullStackDbContext.Products.AddAsync(product);
-                await _fullStackDbContext.SaveChangesAsync();
-            }
+            await _fullStackDbContext.Products.AddAsync(product);
+            await _fullStackDbContext.SaveChangesAsync();
             return Ok();
         }
 

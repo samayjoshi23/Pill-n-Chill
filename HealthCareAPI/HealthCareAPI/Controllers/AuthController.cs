@@ -28,12 +28,7 @@ namespace HealthCareAPI.Controllers
             _fullStackDbContext = fullStackDbContext;
 
         }
-        [HttpGet, Authorize]
-        public ActionResult<string> GetMe()
-        {
-            var userRole = _userService.GetMyData();
-            return Ok(userRole);
-        }
+
 
         [HttpPost("register")]
         public async Task<ActionResult<User>> Register(UserDto request)
@@ -58,6 +53,8 @@ namespace HealthCareAPI.Controllers
             return Ok(user);
 
         }
+
+
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login(Login request)
         {
