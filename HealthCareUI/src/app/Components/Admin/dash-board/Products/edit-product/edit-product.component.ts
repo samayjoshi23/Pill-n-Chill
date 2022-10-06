@@ -48,11 +48,20 @@ export class EditProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.paramId = this.router.snapshot.params['id'];
+    this.paramId = this.router.snapshot.params['id'].toString();
+    
     this.types = this.CategoryTypeService.getTypes();
     this.categories = this.CategoryTypeService.getCategories();
     
-    this.medicine = this.MedicineService.getMedicine(this.paramId);
+    this.MedicineService.getMedicine(this.paramId).subscribe({
+      next: (result) => {
+        this.medicine = result;
+        console.log(result);
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    });
 
     this.addProductForm = new FormGroup({
       medicineId: new FormControl('this.medicine.medicineId'),
