@@ -59,18 +59,30 @@ body{
 }
 .nav-btn{
     padding: 0.5rem 1.25rem;
-    color: white;
     border-radius: 8px;
     border: none;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
-    background-color: #3a609a;
     cursor: pointer;
-    transition: all 300ms ease-out;
+    transition: all 200ms ease-out;
     display: flex;
     align-items: center;
 }
-i.login-btn-icon{
+.nav-btn.login{
+    color: white;
+    background-color: var(--primary-color);
+}
+.nav-btn.logout{
+    color: white;
+    background-color: var(--primary-delete-color);
+}
+.nav-btn.logout:hover{
+    background-color: var(--secondary-delete-color);
+}
+.nav-btn.logout:active{
+    background-color: var(--ternery-delete-color);
+}
+i.btn-icon{
     margin-left: 0.5rem;
 }
 .nav-btn:hover{

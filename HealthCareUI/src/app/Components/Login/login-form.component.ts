@@ -34,9 +34,16 @@ export class LoginFormComponent implements OnInit {
     this.login = this.loginForm.value;
     this.AuthService.login(this.login).subscribe({
       next: (response) => {
-        console.log(response.token);
         localStorage.setItem('authToken', response.token);
-        this.router.navigate(['/']);
+        localStorage.setItem('uid', response.userId);
+        localStorage.setItem('role', response.role);
+        localStorage.setItem('uName', response.firstName);
+        if(response.role == 'admin'){
+          this.router.navigate(['/admin/dashboard']);
+        }
+        else{
+          this.router.navigate(['/']);
+        }
       },
       error: (response) => {
         this.credentialValidity = 'invalid';
@@ -46,7 +53,7 @@ export class LoginFormComponent implements OnInit {
           this.loginForm.value.password = '';
         }
         setTimeout(()=> {
-          this.credentialValidity = 'invalid hide'
+          this.credentialValidity = 'invalid hide';
         }, 3000)
       }
     });

@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLandingPageComponent implements OnInit {
 
+  
+  userName: string = '';
+  
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    this.userName = localStorage.getItem('uName').toUpperCase();
   }
 
 }

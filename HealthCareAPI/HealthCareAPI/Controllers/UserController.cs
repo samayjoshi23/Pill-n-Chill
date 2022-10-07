@@ -34,7 +34,7 @@ namespace HealthCareAPI.Controllers
         [Authorize(Roles = "admin,user")]
         public async Task<ActionResult<List<User>>> GetSingleUser(Guid Id)
         {
-            var user = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId==Id);
+            var user = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId == Id);
             if (user==null)
             {
                 return NotFound("User Not Found");
@@ -46,10 +46,9 @@ namespace HealthCareAPI.Controllers
         [HttpPut]
         [Route("admin/users/{Id}")]
         [Authorize(Roles ="admin")]
-        public async Task<ActionResult<string>> ChangeRole(Guid Id,string newRole)
+        public async Task<ActionResult<string>> ChangeRole(Guid Id, string newRole)
         {
-
-            var user = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId==Id);
+            var user = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId == Id);
             
             if (user == null)
                 return NotFound();
@@ -59,17 +58,16 @@ namespace HealthCareAPI.Controllers
             return Ok();
         }
 
+
         [HttpPut]
         [Route("user/users/{Id}")]
         [Authorize(Roles ="user")]
-
         public async Task<ActionResult<string>> UpdateUserData(Guid Id, User newUserData)
         {
             var ExistingUserData = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId==Id);
 
             if (ExistingUserData == null)
                 return NotFound();
-
 
             ExistingUserData.FirstName = newUserData.FirstName;
             ExistingUserData.LastName = newUserData.LastName;
@@ -83,14 +81,12 @@ namespace HealthCareAPI.Controllers
         [HttpDelete]
         [Route("admin/users/{Id}")]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult<string>> DeleteUser(Guid Id)
+        public async Task<ActionResult> DeleteUser(Guid Id)
         {
-
             var user = await _fullStackDbContext.Users.FindAsync(Id);
 
             if (user == null)
                 return NotFound();
-
 
            _fullStackDbContext.Users.Remove(user);
             await _fullStackDbContext.SaveChangesAsync();   

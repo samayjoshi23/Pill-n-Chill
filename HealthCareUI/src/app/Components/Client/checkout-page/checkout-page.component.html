@@ -4,6 +4,15 @@
         <p id="main-description">Enter Your Details</p>
     </div>
     <form id="input-container" [formGroup]="checkoutForm" (ngSubmit)="proceedToBill()">
+        
+        <section class="error-section" *ngIf="credentialValidity == 'invalid' ">
+            <h3 class="error-message">You are not logged in, login first</h3>
+            <p>Login first to checkout product</p>
+            <button class="nav-btn" routerLink="/">Login 
+                <i class="fa fa-light fa-right-to-bracket login-btn-icon"></i>
+            </button>
+        </section>
+
         <section class="data-type-sections" formGroupName="personalDetails">
             <div class="section-header">
                 <i class="fa fa-duotone fa-user"></i>
@@ -119,7 +128,8 @@
             </div>
         </section>
 
-        <button class="place-order-btn" type="submit" routerLink="/products/billing/{{checkoutForm.value.paymentMethod}}" [disabled]="!checkoutForm.valid">
+
+        <button class="place-order-btn" type="submit" [disabled]="(!checkoutForm.valid) || (isLoggedIn == false)">
             <i class="fa fa-duotone fa-bag-shopping"></i> Checkout
         </button>
     </form>

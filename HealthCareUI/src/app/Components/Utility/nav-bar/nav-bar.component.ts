@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router, ROUTER_CONFIGURATION } from '@angular/router';
+import { AuthServiceService } from 'src/app/Services/auth-service.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,10 +9,11 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthServiceService, private router: Router) { }
 
   navChange : boolean = false;
   nav = document.querySelector('#nav') as HTMLDivElement;
+
 
   ngOnInit(): void {
   }
@@ -20,7 +23,12 @@ export class NavBarComponent implements OnInit {
       this.navChange = true;
     }
     else
-      this.navChange = false;
+    this.navChange = false;
+  }
+  
+  logout(){
+    localStorage.removeItem('authToken');
+    this.router.navigate(['/']);
   }
 
 }

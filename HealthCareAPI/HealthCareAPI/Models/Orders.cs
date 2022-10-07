@@ -19,9 +19,9 @@ namespace HealthCareAPI.Models
         public string ProductName { get; set; }
         public int Quantity { get; set; }
         public int Total { get; set; }
-        public int OrderDate { get; set; }
-        public DateTime OrderStatus { get; set; }
-        public string PaymentStatus { get; set; }
+        public DateTime? OrderDate { get; set; }
+        public string OrderStatus { get; set; }
+        public string PaymentStatus { get; set; }   
         public string PaymentMode { get; set; }
     }
 }

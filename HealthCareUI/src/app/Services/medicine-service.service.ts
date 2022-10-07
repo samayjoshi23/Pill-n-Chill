@@ -25,11 +25,12 @@ export class MedicineServiceService {
   }
 
   getTop6():Observable<Medicine[]> {
-    let token = this.isAuthToken();
-    if(token == "Error"){
-      this.router.navigate(['/login']);
-    }
-    return this.http.get<Medicine[]>(this.MedicineBaseUrl + '/popular', { headers: new HttpHeaders({'Authorization': `Bearer ${token}`} )});    
+    // let token = this.isAuthToken();
+    // if(token == "Error"){
+    //   this.router.navigate(['/login']);
+    // }
+    // return this.http.get<Medicine[]>(this.MedicineBaseUrl + '/popular', { headers: new HttpHeaders({'Authorization': `Bearer ${token}`} )});    
+    return this.http.get<Medicine[]>(this.MedicineBaseUrl + '/popular');    
   }
 
   GetMedicines(category: string, type: string):Observable<Medicine[]> {
