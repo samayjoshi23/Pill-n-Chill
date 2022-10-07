@@ -59,7 +59,6 @@ namespace HealthCareAPI.Controllers
 
         [HttpGet]
         [Route("products/popular")]
-        [Authorize(Roles = "admin")]
         public async Task<ActionResult<List<Product>>> getTopProducts()
         {
             var products = await (from p in _fullStackDbContext.Products select p).Take(6).ToListAsync();

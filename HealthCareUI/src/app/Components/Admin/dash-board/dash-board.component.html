@@ -1,4 +1,17 @@
-<main>
+<main class="no-Admin" *ngIf="isAdmin == false">
+    <h1 class="no-Admin-header">You are not an Authorized Admin</h1>
+    <p id="no-Admin-warning">If you are not an Admin, then don't try to enter in admin panel, else your ID will be banned permanently, <strong>OR</strong><p>
+    <p id="no-Admin-guide">Contact other admins to make you admin then, try again.</p>
+    
+    <div class="redirection-area">
+        <p>Automatically Redirecting you to the user home page in.... {{timer}} Seconds, else</p>
+        
+        <button type="button" class="back-btn" routerLink="/">
+            <i class="fa fa-duotone fa-arrow-left"></i> Go Back
+        </button>
+    </div>
+</main>
+<main *ngIf="isAdmin == true">
     <aside class="sidebar">
         <div class="sidebar-header">
             <i class="fa fa-duotone fa-bars"></i>

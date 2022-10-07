@@ -10,10 +10,11 @@
             <li><a routerLink="" class="nav-links">Our Services</a></li>
             <li><a routerLink="" class="nav-links">Medicines</a></li>
         </ul>
-        <a routerLink="/" class="login-link" routerLink="/login">
-            <button class="nav-btn">Login 
-                <i class="fa fa-light fa-right-to-bracket login-btn-icon"></i>
-            </button>
-        </a>
+        <button type="button" class="nav-btn login" routerLink="/login" *ngIf="auth.isLoggedIn() == false">Login 
+            <i class="fa fa-light fa-right-to-bracket btn-icon"></i>
+        </button>
+        <button class="nav-btn logout" type="button" (click)="logout()" *ngIf="auth.isLoggedIn() == true">Logout 
+            <i class="fa fa-duotone fa-person-running btn-icon"></i>
+        </button>
     </div>
 </nav>

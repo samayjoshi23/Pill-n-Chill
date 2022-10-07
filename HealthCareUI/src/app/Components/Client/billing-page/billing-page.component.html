@@ -3,8 +3,8 @@
         <h1 id="main-heading">Billing</h1>
         <p id="main-description">Enter Details for Payment</p>
         <div id="bill-container">
-            <p class="bill-description"><span>Billing For : </span> Product Name</p>
-            <p class="bill-description"><span>Total payment : </span> &#x20B9; 149.45</p>
+            <p class="bill-description"><span>Billing For : </span> {{ProductDetails.product.name}}</p>
+            <p class="bill-description"><span>Total payment : </span> &#x20B9; {{ProductDetails.order.total}}</p>
         </div>
     </div>
     <form id="input-container" #form="ngForm" (ngSubmit)="purchase()">

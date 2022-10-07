@@ -16,7 +16,7 @@ namespace HealthCareAPI.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        public static User user = new User();
+        public static User user = new();
 
         private readonly IConfiguration _configuration;
         private readonly IUserService _userService;
@@ -51,18 +51,16 @@ namespace HealthCareAPI.Controllers
             await _fullStackDbContext.SaveChangesAsync();
      
             return Ok(user);
-
         }
 
 
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login(Login request)
         {
-            var user =await _fullStackDbContext.Users.FirstOrDefaultAsync(user=>user.Email==request.Email);
-            if (user==null)
+            var user =await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.Email == request.Email);
+            if (user == null)
             {
                 return BadRequest("User Not Found");
-
             }
 
             if (!VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
@@ -72,7 +70,8 @@ namespace HealthCareAPI.Controllers
             string token = CreateToken(user);
             var newRefreshToken = GenerateRefreshToken();
             SetRefreshToken(newRefreshToken);
-            return Ok(new { token });
+
+            return Ok(new { token,  user.userId, user.Role, user.FirstName});
         }
 
 
@@ -128,7 +127,7 @@ namespace HealthCareAPI.Controllers
 
         private string CreateToken(User user)
         {
-            List<Claim> claims = new List<Claim>
+            List<Claim> claims = new()
             {
               /*  new Claim(ClaimTypes.Name, user.Username),*/
                 new Claim(ClaimTypes.Role, user.Role)
@@ -148,11 +147,9 @@ namespace HealthCareAPI.Controllers
 
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
-            using (var hmac = new HMACSHA512())
-            {
-                passwordSalt=hmac.Key;
-                passwordHash=hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-            }
+            using var hmac = new HMACSHA512();
+            passwordSalt = hmac.Key;
+            passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
         }
 
 

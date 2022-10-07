@@ -1,6 +1,6 @@
 export interface Order{
-    orderId: string;
-    userId: string;
+    orderId: string,
+    userId: string,
     productId: string,
     firstName: string,
     lastName: string,
@@ -13,7 +13,7 @@ export interface Order{
     productName: string,
     quantity: number,
     total: number,
-    orderDate: Date,
+    orderDate: Date| null,
     orderStatus: string,
     paymentStatus: string,
     paymentMode: string,

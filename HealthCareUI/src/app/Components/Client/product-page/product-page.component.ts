@@ -30,10 +30,14 @@ export class ProductPageComponent implements OnInit {
   paramId : number = 0;
   quantity: number = 1;
 
-  constructor(private MedicineService: MedicineServiceService, private router: ActivatedRoute) {}
+  constructor(
+    private MedicineService: MedicineServiceService,
+    private ActRouter: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit(): void {
-    this.paramId = this.router.snapshot.params['id'].toString();
+    this.paramId = this.ActRouter.snapshot.params['id'].toString();
+
     this.MedicineService.getMedicine(this.paramId).subscribe({
       next: (result) => {
         this.medicine = result;
@@ -56,4 +60,18 @@ export class ProductPageComponent implements OnInit {
     }
     this.quantity--;
   }
+
+  gotoCheckout(){
+    let productData = {
+      medicineId: this.medicine.medicineId,
+      name: this.medicine.name,
+      qty: this.medicine.qty,
+      price: this.medicine.price
+    }
+
+    localStorage.setItem("productData", JSON.stringify(productData));
+
+    this.router.navigate([`/products/checkout/${this.medicine.medicineId}`]);
+  }
+
 }
