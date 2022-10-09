@@ -10,6 +10,8 @@ import { Register } from '../Models/RegisterModel';
 })
 export class AuthServiceService {
 
+  AuthApiURL: string = 'https://localhost:7105/api/Auth/';
+
   constructor(private http : HttpClient) { }
 
   isLoggedIn(){
@@ -20,12 +22,20 @@ export class AuthServiceService {
     return false;
   }
 
+  isUser(){
+    if(localStorage.getItem('role') === 'user'){
+      return true;
+    }
+
+    return false;
+  }
+
   login(loginData: Login):Observable<any>{
-    return this.http.post<any>('https://localhost:7105/api/Auth/login', loginData);
+    return this.http.post<any>(this.AuthApiURL+'login', loginData);
   }
 
   register(registerData: Register){
-    return this.http.post<any>('https://localhost:7105/api/Auth/register', registerData);
+    return this.http.post<any>(this.AuthApiURL+'register', registerData);
   }
 
 }

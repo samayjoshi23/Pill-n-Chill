@@ -10,10 +10,22 @@
             <li><a routerLink="" class="nav-links">Our Services</a></li>
             <li><a routerLink="" class="nav-links">Medicines</a></li>
         </ul>
-        <button type="button" class="nav-btn login" routerLink="/login" *ngIf="auth.isLoggedIn() == false">Login 
+        
+        <button type="button" class="nav-btn login" routerLink="/login" *ngIf="auth.isLoggedIn() == false">Login
             <i class="fa fa-light fa-right-to-bracket btn-icon"></i>
         </button>
-        <button class="nav-btn logout" type="button" (click)="logout()" *ngIf="auth.isLoggedIn() == true">Logout 
+        <div class="dropdown" *ngIf="auth.isLoggedIn() == true && auth.isUser()">
+            <button class="dropbtn">
+                <p>More</p>
+                <i class="fa-solid fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a routerLink="/account"><i class="fa fa-duotone fa-receipt"></i> My Account</a>
+                <a routerLink="/orders"><i class="fa fa-duotone fa-bag-shopping"></i> My Orders</a>
+                <a routerLink="/"><i class="fa fa-duotone fa-cart-shopping"></i> Cart</a>
+            </div>
+        </div>
+        <button class="nav-btn logout" type="button" (click)="logout()" *ngIf="auth.isLoggedIn() == true">Logout
             <i class="fa fa-duotone fa-person-running btn-icon"></i>
         </button>
     </div>

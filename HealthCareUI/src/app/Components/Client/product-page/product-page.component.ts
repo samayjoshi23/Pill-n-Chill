@@ -10,7 +10,7 @@ import { MedicineServiceService } from 'src/app/Services/medicine-service.servic
 })
 export class ProductPageComponent implements OnInit {
   medicine: Medicine = {
-    medicineId: 0,
+    medicineId: '',
     name: '',
     chemical: '',
     exp: '',
@@ -27,8 +27,8 @@ export class ProductPageComponent implements OnInit {
     categoryName: '',
   };
 
-  paramId : number = 0;
-  quantity: number = 1;
+  paramId : string = '';
+  medQty: number = 1;
 
   constructor(
     private MedicineService: MedicineServiceService,
@@ -49,23 +49,23 @@ export class ProductPageComponent implements OnInit {
   }
 
   increaseCount() {
-    if (this.quantity === 15 || this.quantity === this.medicine.qty) {
+    if (this.medQty === 15 || this.medQty === this.medicine.qty) {
       return;
     }
-    this.quantity++;
+    this.medQty++;
   }
   decreaseCount() {
-    if (this.quantity === 1) {
+    if (this.medQty === 1) {
       return;
     }
-    this.quantity--;
+    this.medQty--;
   }
 
   gotoCheckout(){
     let productData = {
       medicineId: this.medicine.medicineId,
       name: this.medicine.name,
-      qty: this.medicine.qty,
+      qty: this.medQty,
       price: this.medicine.price
     }
 

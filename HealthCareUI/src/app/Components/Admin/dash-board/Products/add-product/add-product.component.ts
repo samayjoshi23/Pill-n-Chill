@@ -16,7 +16,7 @@ export class AddProductComponent implements OnInit {
   types: MedicineType[] = [];
   
   medicine: Medicine = {
-    medicineId: 0,
+    medicineId: '',
     name: '',
     chemical: '',
     exp: '',
@@ -38,12 +38,12 @@ export class AddProductComponent implements OnInit {
 
 
   addProductForm : FormGroup = new FormGroup({
-    medicineName: new FormControl("", [Validators.required,Validators.minLength(3)]),
-    chemicalName: new FormControl("", [Validators.required,Validators.minLength(3)]),
+    name: new FormControl("", [Validators.required,Validators.minLength(3)]),
+    chemical: new FormControl("", [Validators.required,Validators.minLength(3)]),
     brandName: new FormControl("", [Validators.required,Validators.minLength(3)]),
-    quantity: new FormControl("", [Validators.required, Validators.min(1), Validators.max(100)]),
+    qty: new FormControl("", [Validators.required, Validators.min(1), Validators.max(100)]),
     power: new FormControl("", [Validators.required]),
-    photo: new FormControl("", [Validators.required]),
+    url: new FormControl("", [Validators.required]),
     category: new FormControl( "", [Validators.required]),
     type: new FormControl( "", [Validators.required]),
     expMonth: new FormControl( this.monthArr[0],[Validators.required]),
@@ -51,9 +51,11 @@ export class AddProductComponent implements OnInit {
     mfgMonth: new FormControl( this.monthArr[0],[Validators.required]),
     mfgYear: new FormControl( this.yearArr[0],[Validators.required]),
     price: new FormControl("", [Validators.required, Validators.pattern('^[1-9]d{0,7}(?:.d{1,4})?|.d{1,4}$')]),
-    sellerName: new FormControl( "", [ Validators.required, Validators.minLength(3)]),
+    seller: new FormControl( "", [ Validators.required, Validators.minLength(3)]),
     description: new FormControl( "", [Validators.minLength(10)]),
   });
+
+  responseStatus: string = '';
 
   constructor(    
       private MedicineService: MedicineServiceService,
@@ -62,16 +64,62 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.types = this.CategoryTypeService.getTypes();
-    this.categories = this.CategoryTypeService.getCategories();
+    this.CategoryTypeService.getAllCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    });
   }
 
-  createProduct(){
-    this.medicine = this.addProductForm.value;
-    // this.medicine.medicineId = '00000000-0000-0000-0000-000000000000';
-    this.medicine.medicineId = 201;
-    this.medicine.url = this.addProductForm.value.photo.split('\\')[2];
+  goBack(){
+    history.back();
+  }
+
+  bindForm(){
+    this.medicine.medicineId = '00000000-0000-0000-0000-000000000000';
+    this.medicine.name = this.addProductForm.value.name.trim();
+    this.medicine.brandName = this.addProductForm.value.brandName.trim();
+    this.medicine.chemical = this.addProductForm.value.chemical.trim();
+    this.medicine.qty = this.addProductForm.value.qty;
+    this.medicine.power = this.addProductForm.value.power.trim();
+    this.medicine.category = this.addProductForm.value.category;
+    this.medicine.url = this.addProductForm.value.url.split('\\')[2];
+    this.medicine.type = this.addProductForm.value.type;
     this.medicine.exp = `${this.addProductForm.value.expMonth}/${this.addProductForm.value.expYear}`;
     this.medicine.mfg = `${this.addProductForm.value.mfgMonth}/${this.addProductForm.value.mfgYear}`;
-    console.log(this.addProductForm.value);
+    this.medicine.price = this.addProductForm.value.price;
+    this.medicine.seller = this.addProductForm.value.seller.trim();
+    this.medicine.description = this.addProductForm.value.description.trim();
+    this.categories.forEach(category => {
+      if(category.urlName === this.addProductForm.value.category){
+        this.medicine.categoryName = category.categoryName;
+      }
+    });
+  }
+
+
+  createProduct(){
+    this.bindForm();
+
+    this.MedicineService.addMedicine(this.medicine).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.responseStatus = 'ok';
+        setTimeout(() => {
+          history.back();
+        }, 3000)
+      },
+      error: (response) => {
+        if(response.status > 400 && response.status < 500){
+          this.responseStatus = 'error';
+          setTimeout(() => {
+            history.back();
+          }, 3000)
+        }
+      }
+    })
   }
 }

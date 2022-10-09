@@ -4,7 +4,7 @@ export interface Order{
     productId: string,
     firstName: string,
     lastName: string,
-    contact: number,
+    phone: number,
     street: string,
     city: string,
     state: string,

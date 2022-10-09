@@ -12,7 +12,7 @@ namespace HealthCareAPI.Models
         public string Chemical { get; set; }
         public string Exp { get; set; }
         public string Mfg { get; set; }
-        public int Qty{ get; set; }
+        public int Qty { get; set; }
         public string Power { get; set; }
         public string Category { get; set; }
         public string CategoryName { get; set; }

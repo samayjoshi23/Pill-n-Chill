@@ -1,12 +1,6 @@
-body {
-	background: #f9f9f9;
-	font-family: var(--secondary-font);
-	font-size: 1.2rem;
-}
 .pb-5, .py-5 {
     padding-bottom: 3rem!important;
 }
-
 .pt-5, .py-5 {
     padding-top: 3rem!important;
 }
@@ -16,7 +10,6 @@ body {
 .mt-4, .my-4 {
     margin-top: 1.5rem!important;
 }
-
 .container {
     width: 80%;
     padding-right: 15px;
@@ -109,9 +102,6 @@ a {
 	border-radius: 100%;
 	border: 5px solid #fff;
 }
-
-
-
 .form-control {
     display: block;
     width: 100%;

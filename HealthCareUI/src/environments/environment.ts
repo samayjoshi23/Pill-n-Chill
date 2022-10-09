@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  medicineApiUrl: 'https://localhost:7105/api/products'
+  medicineApiUrl: 'https://localhost:7105/api/products',
+  medicineApiUrlAdmin: 'https://localhost:7105/api/admin/products',
+  usersApiUrl_Admin: 'https://localhost:7105/api/admin/users',
+  usersApiUrl_User: 'https://localhost:7105/api/user/users',
+  categoriesApiUrl: 'https://localhost:7105/api/categories/'
 };
 
 /*

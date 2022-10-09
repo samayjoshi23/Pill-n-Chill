@@ -1,4 +1,4 @@
-<main>
+<!-- <main>
     <section>
         <div class="container">
             <div class="table-responsive">
@@ -25,7 +25,7 @@
                         <tbody>
                             <tr>
                                 <td>20eca13a-356d-4676-80fe-8cb00172201c</td>
-                                <td><img src="../../../../assets/MedicineDb/Baby_Care.jpg" class="product-img" alt="product-image" width="100"><br>Baby Combo</td>
+                                <td><img src="../../../../assets/orderDb/Baby_Care.jpg" class="product-img" alt="product-image" width="100"><br>Baby Combo</td>
                                 <td>3</td>
                                 <td>Jun 15, 2017</td>                        
                                 <td><button type="submit" class="submit-btn pending-btn">Pending</button></td>
@@ -34,7 +34,7 @@
                             </tr>
                             <tr>
                                 <td>20eca13a-356d-4676-80fe-8cb00172201c</td>
-                                <td><img src="../../../../assets/MedicineDb/Guduchi_tablets.jpg" class="product-img" alt="" width="100"><br>Guduchi Tablets</td>
+                                <td><img src="../../../../assets/orderDb/Guduchi_tablets.jpg" class="product-img" alt="" width="100"><br>Guduchi Tablets</td>
                                 <td>5</td>                       
                                 <td>Jun 21, 2017</td>
                                 <td><button type="submit" class="submit-btn add-btn">Delivered</button></td>
@@ -43,7 +43,7 @@
                             </tr>
                             <tr>
                                 <td>20eca13a-356d-4676-80fe-8cb00172201c</td>
-                                <td><img src="../../../../assets/MedicineDb/aktiv.jpg" class="product-img" alt="" width="100"><br>aktiv </td>
+                                <td><img src="../../../../assets/orderDb/aktiv.jpg" class="product-img" alt="" width="100"><br>aktiv </td>
                                 <td>4</td>
                                 <td>Jul 04, 2017</td>
                                 <td><button type="submit" class="submit-btn dispatch-btn">Dispatch</button></td>
@@ -52,7 +52,7 @@
                             </tr>
                             <tr>
                                 <td>20eca13a-356d-4676-80fe-8cb00172201c</td>
-                                <td><img src="../../../../assets/MedicineDb/Torex.jpg" class="product-img" alt="" width="100"><br>Torex</td>
+                                <td><img src="../../../../assets/orderDb/Torex.jpg" class="product-img" alt="" width="100"><br>Torex</td>
                                 <td>5</td>
                                 <td>Jul 16, 2017</td>						
                                 <td><button type="submit" class="submit-btn cancel-btn">Cancelled</button></td>
@@ -61,7 +61,7 @@
                             </tr>
                             <tr>
                                 <td>20eca13a-356d-4676-80fe-8cb00172201c</td>
-                                <td><img src="../../../../assets/MedicineDb/Facewash.jpg" class="product-img" alt="" width="100"><br>Facewash</td>
+                                <td><img src="../../../../assets/orderDb/Facewash.jpg" class="product-img" alt="" width="100"><br>Facewash</td>
                                 <td>6</td>
                                 <td>Aug 04, 2017</td>
                                 <td><button type="submit" class="submit-btn add-btn">Delivered</button></td>
@@ -74,4 +74,37 @@
             </div>        
         </div>     
     </section>
+</main> -->
+
+<main>
+    <section class="order-list-container">
+        <div class="section-header" *ngIf="orderList.length === 0">
+            <i class="fa fa-duotone fa-magnifying-glass"></i>
+            <h1 class="section-title">You have no orders</h1>
+        </div>
+        <div class="section-header" *ngIf="orderList.length > 0">
+            <i class="fa fa-duotone fa-magnifying-glass"></i>
+            <h1 class="section-title">Your Order History</h1>
+        </div>
+        <div class="product-container">
+            <button class="product-card" *ngFor="let order of orderList">
+                <div class="product-details">
+                    <h3 class="product-name">{{order.productName}}</h3>
+                    <h4 class="product-detail"><span>ProductId :</span> {{order.orderId}} </h4>
+                    <h4 class="product-detail"><span>Name :</span> {{order.firstName}} {{order.lastName}}</h4>
+                    <h4 class="product-detail"><span>contact :</span> {{order.phone}} </h4>
+                    <h4 class="product-detail"><span>Address :</span> {{order.street}}, {{order.city}}, {{order.state}}, {{order.country}}, {{order.zip}}</h4>
+                    <h4 class="product-detail"><span>Quantity :</span> {{order.quantity}} </h4>
+                    <h4 class="product-detail"><span>Total :</span> &#x20B9;{{order.total}}</h4>
+                    <h4 class="product-detail"><span>Order Date :</span> {{order.orderDate}} </h4>
+                    <h4 class="product-detail"><span>Order Status :</span> {{order.orderStatus}} </h4>
+                </div>
+                <div class="product-price-info">
+                    <h2 class="product-price">{{order.orderStatus}}</h2>
+                    <button type="button" class="delete-btn" (click)="cancelOrder(order.orderId)"><i class="colors fa-solid fa-trash"></i> Cancel Order</button>
+                </div>
+            </button>
+        </div>
+    </section>
+
 </main>

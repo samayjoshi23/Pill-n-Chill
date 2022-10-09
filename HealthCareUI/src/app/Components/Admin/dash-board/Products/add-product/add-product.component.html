@@ -3,21 +3,28 @@
         <i class="fa fa-duotone fa-plus"></i>
         <h1 class="section-title">Add new Medicine</h1>
     </div>
-    
-    <form class="MedicineFrom" [formGroup]="addProductForm" (ngSubmit)="createProduct()">
+    <div class="section-messages" *ngIf="responseStatus != ''">
+        <h1 class="section-success-message" *ngIf="responseStatus == 'ok'">Product Updated</h1>
+        <h1 class="section-error-message" *ngIf="responseStatus == 'error'">Product Not Found!!!</h1>
+        <button type="button" class="cancel-btn" (click)="goBack()">
+            <i class="fa fa-duotone fa-arrow-left"></i> Cancel
+        </button>
+    </div>
+
+    <form class="MedicineFrom" [formGroup]="addProductForm" (ngSubmit)="createProduct()" *ngIf="responseStatus == ''">
         <div class="input-sections">
-            <label for="medicineName" class="input-labels">Medicine Name</label>
-            <span class="error-message" *ngIf="!addProductForm.get('medicineName')?.valid && addProductForm.get('medicineName')?.touched">
+            <label for="name" class="input-labels">Medicine Name</label>
+            <span class="error-message" *ngIf="!addProductForm.get('name')?.valid && addProductForm.get('name')?.touched">
                 [Name length should be minimum 3 characters]
             </span>
-            <input type="text" class="inputs" formControlName="medicineName">
+            <input type="text" class="inputs" formControlName="name">
         </div>
         <div class="input-sections">
-            <label for="chemicalName" class="input-labels">Chemical Name</label>
-            <span class="error-message" *ngIf="!addProductForm.get('chemicalName')?.valid && addProductForm.get('chemicalName')?.touched">
+            <label for="chemical" class="input-labels">Chemical Name</label>
+            <span class="error-message" *ngIf="!addProductForm.get('chemical')?.valid && addProductForm.get('chemical')?.touched">
                 [Name length should be minimum 3 characters]
             </span>
-            <input type="text" class="inputs" formControlName="chemicalName">
+            <input type="text" class="inputs" formControlName="chemical">
         </div>
         <div class="input-sections">
             <label for="brandName" class="input-labels">Brand Name</label>
@@ -27,11 +34,11 @@
             <input type="text" class="inputs" formControlName="brandName">
         </div>
         <div class="input-sections">
-            <label for="quantity" class="input-labels">Quantity</label>
-            <span class="error-message" *ngIf="!addProductForm.get('quantity')?.valid && addProductForm.get('quantity')?.touched">
+            <label for="qty" class="input-labels">Quantity</label>
+            <span class="error-message" *ngIf="!addProductForm.get('qty')?.valid && addProductForm.get('qty')?.touched">
                 [Max quantity can be 100]
             </span>
-            <input type="number" class="inputs" placeholder="Quantity" formControlName="quantity">
+            <input type="number" class="inputs" formControlName="qty">
         </div>
         <div class="input-sections">
             <label for="power" class="input-labels">Power/ Volume/ Weight (with unit)</label>
@@ -75,11 +82,11 @@
             </div>
         </div>
         <div class="input-sections">
-            <label for="photo" class="input-labels">Photo</label>
-            <span class="error-message" *ngIf="!addProductForm.get('photo')?.valid && addProductForm.get('photo')?.touched">
-                [Please upload the photo first]
+            <label for="url" class="input-labels">Meeicine Image</label>
+            <span class="error-message" *ngIf="!addProductForm.get('url')?.valid && addProductForm.get('url')?.touched">
+                [Please upload the Image first]
             </span>
-            <input type="file" class="inputs" formControlName="photo">
+            <input type="file" class="inputs" formControlName="url">
         </div>
         <div class="input-sections">
             <label for="price" class="input-labels">Price</label>
@@ -89,22 +96,22 @@
             <input type="number" class="inputs" placeholder="Price" formControlName="price">
         </div>
         <div class="input-sections">
-            <label for="sellerName" class="input-labels">Seller Name</label>
-            <span class="error-message" *ngIf="!addProductForm.get('sellerName')?.valid && addProductForm.get('sellerName')?.touched">
-                [Name length should be minimum 3 characters]
+            <label for="seller" class="input-labels">Seller Name</label>
+            <span class="error-message" *ngIf="!addProductForm.get('seller')?.valid && addProductForm.get('seller')?.touched">
+                [Seller name should be minimum 3 characters long]
             </span>
-            <input type="text" class="inputs" placeholder="Seller Name" formControlName="sellerName">
+            <input type="text" class="inputs" placeholder="Seller Name" formControlName="seller">
         </div>
         <div class="input-sections">
             <label for="description" class="input-labels">Description</label>
             <span class="error-message" *ngIf="!addProductForm.get('description')?.valid && addProductForm.get('description')?.touched">
-                [Name length should be minimum 10 characters long]
+                [Description length should be minimum 15 characters long]
             </span>
             <textarea type="text" class="inputs" placeholder="Description Here" formControlName="description"></textarea>
         </div>
 
         <div class="form-footer">
-            <button type="button" class="cancel-btn" routerLink="/admin/products"><i class="fa fa-duotone fa-arrow-left"></i> Cancel</button>
+            <button type="button" class="cancel-btn" (click)="goBack()"><i class="fa fa-duotone fa-arrow-left"></i> Cancel</button>
             <button type="submit" class="add-btn submit-btn" [disabled]="!addProductForm.valid">Create <i class="fa fa-duotone fa-plus"></i></button>
         </div>
     </form>

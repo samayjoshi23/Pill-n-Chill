@@ -45,10 +45,7 @@ namespace HealthCareAPI.Controllers
         [HttpPost("categories/add")]
         public async Task<ActionResult<Category>> AddCategory([FromBody]Category request)
         {
-            category.CategoryName=request.CategoryName;
-            category.Url=request.Url;
-            category.UrlName=request.UrlName;
-            await _fullStackDbContext.Categories.AddAsync(category);
+            await _fullStackDbContext.Categories.AddAsync(request);
             await _fullStackDbContext.SaveChangesAsync();
             return Ok(category);
         }
