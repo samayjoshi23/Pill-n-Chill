@@ -1,57 +1,19 @@
 <div class="section-header">
     <h1 class="section-title">Here is the list of all the Users</h1>
+    <h2 class="section-title-{{roleStatus}}">{{roleMessage}}</h2>
 </div>
 <div class="user-container">
-    <div class="user-card" routerlink="/abc" type="button">
+    <div class="user-card" *ngFor="let user of userList">
         <div class="user-data">
-            <h3 class="user-name">User Name will be here</h3>
-            <h4 class="user-detail"><span>Email :</span> User-email</h4>
+            <h3 class="user-name">{{user.firstName}} {{user.lastName}}</h3>
+            <h4 class="user-detail"><span>Email :</span> {{user.email}}</h4>
+            <h4 class="user-detail"><span>Phone :</span> {{user.phone}}</h4>
         </div>
-        <div class="user-info">
-            <select name="role" id="role" class="role-selector">
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
+        <form class="user-info" (submit)="updateRole(user.userId, user.firstName)">
+            <select name="role" id="role" class="role-selector" id="role{{user.userId}}">
+                <option [value]="role.value" *ngFor="let role of roleList" [selected]="user.role==role.value">{{role.name}}</option>
             </select>
-            <button type="button" class="update-btn" routerlink="">Update</button>
-        </div>
-    </div>
-    <div class="user-card" routerlink="/abc" type="button">
-        <div class="user-data">
-            <h3 class="user-name">User Name will be here</h3>
-            <h4 class="user-detail"><span>Email :</span> User-email</h4>
-        </div>
-        <div class="user-info">
-            <select name="role" id="role" class="role-selector">
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
-            </select>
-            <button type="button" class="update-btn" routerlink="">Update</button>
-        </div>
-    </div>
-    <div class="user-card" routerlink="/abc" type="button">
-        <div class="user-data">
-            <h3 class="user-name">User Name will be here</h3>
-            <h4 class="user-detail"><span>Email :</span> User-email</h4>
-        </div>
-        <div class="user-info">
-            <select name="role" id="role" class="role-selector">
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
-            </select>
-            <button type="button" class="update-btn" routerlink="">Update</button>
-        </div>
-    </div>
-    <div class="user-card" routerlink="/abc" type="button">
-        <div class="user-data">
-            <h3 class="user-name">User Name will be here</h3>
-            <h4 class="user-detail"><span>Email :</span> User-email</h4>
-        </div>
-        <div class="user-info">
-            <select name="role" id="role" class="role-selector">
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
-            </select>
-            <button type="button" class="update-btn" routerlink="">Update</button>
-        </div>
+            <button type="submit" class="update-btn">Update</button>
+        </form>
     </div>
 </div>

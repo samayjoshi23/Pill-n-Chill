@@ -3,8 +3,10 @@
         <i class="fa fa-duotone fa-pen-to-square"></i>
         <h1 class="section-title">Category Details are Here [Edit / View]</h1>
     </div>
-    
-    <form class="CategoryForm" [formGroup]="addCategoryForm" (ngSubmit)="editCategory()">
+    <div>
+        <h2 class="section-title-{{roleStatus}}">{{roleMessage}}</h2>
+    </div>
+    <form class="CategoryForm" [formGroup]="addCategoryForm" (ngSubmit)="editCategory()" *ngIf="roleMessage == '' ">
         <div class="input-sections">
             <label for="" class="input-labels">Category ID : </label>
             <input type="text" class="inputs" readonly  formControlName="categoryId">

@@ -9,22 +9,19 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class DashBoardComponent implements OnInit {
   userId: string = localStorage.getItem('uid');
-  isAdmin: boolean = false;
+  isAdmin: boolean | null = null;
   timer: number = 15;
 
   constructor(private UserService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log(this.userId);
     this.UserService.getUser(this.userId).subscribe({
       next: (result) => {
-        console.log(result)
-        console.log(result.role);
         if (result.role !== 'admin') {
-          this.isAdmin == false;
+          console.log('no admin');
+          this.isAdmin = false;
           this.startTimer();
-        }
-        else{
+        } else {
           this.isAdmin = true;
         }
       },
@@ -36,11 +33,11 @@ export class DashBoardComponent implements OnInit {
 
   startTimer() {
     setInterval(() => {
-      if(this.timer > 0) {
+      if (this.timer > 0) {
         this.timer--;
       } else {
         this.router.navigate(['/']);
       }
-    },1000)
+    }, 1000);
   }
 }

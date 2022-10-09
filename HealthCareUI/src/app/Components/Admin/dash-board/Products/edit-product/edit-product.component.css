@@ -8,6 +8,12 @@
     padding: 1rem 0;
     margin-bottom: 1rem;
 }
+.section-success-message{
+    color: green;
+}
+.section-error-message{
+    color: red;
+}
 .section-header i{
     font-weight: 800;
     color: var(--ternery-color);
@@ -100,5 +106,5 @@ input.ng-valid.ng-touched{
     cursor:not-allowed;
 }
 input[type=text][readonly]{
-    cursor: not-allowed;
+    cursor: none;
 }

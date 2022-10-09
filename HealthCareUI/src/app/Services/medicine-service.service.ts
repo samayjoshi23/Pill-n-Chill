@@ -11,25 +11,25 @@ import { Router } from '@angular/router';
 })
 export class MedicineServiceService {
   
-  MedicineBaseUrl: string = environment.medicineApiUrl;
-
+  private MedicineBaseUrl: string = environment.medicineApiUrl;
+  private AdminApiBaseUrl: string = environment.medicineApiUrlAdmin;
 
   constructor(private http : HttpClient, private router: Router){ }
 
+// ========================== Token Authentication ===================
   private isAuthToken(){
     if(!localStorage.getItem('authToken')){
-      return "Error";
+      this.router.navigate(['/login']);
+      return 'error';
     }
-    let token = localStorage.getItem('authToken');
-    return token;
+    return localStorage.getItem('authToken');
   }
 
+
+
+// ========================== User Routes =========================
+
   getTop6():Observable<Medicine[]> {
-    // let token = this.isAuthToken();
-    // if(token == "Error"){
-    //   this.router.navigate(['/login']);
-    // }
-    // return this.http.get<Medicine[]>(this.MedicineBaseUrl + '/popular', { headers: new HttpHeaders({'Authorization': `Bearer ${token}`} )});    
     return this.http.get<Medicine[]>(this.MedicineBaseUrl + '/popular');    
   }
 
@@ -37,8 +37,28 @@ export class MedicineServiceService {
     return this.http.get<Medicine[]>(`${this.MedicineBaseUrl}?category=${category}&type=${type}`);
   }
 
-  getMedicine(id: number):Observable<Medicine> {
+  getMedicine(id: string):Observable<Medicine> {
     return this.http.get<Medicine>(`${this.MedicineBaseUrl}/${id}`);
   }
+
+
+// =============== ADMIN Routes =======================
+
+  getAllMedicines():Observable<Medicine[]>{
+    return this.http.get<Medicine[]>(this.AdminApiBaseUrl, { headers: new HttpHeaders({'Authorization': `Bearer ${this.isAuthToken()}`} )} );
+  }
+
+  addMedicine( medicine: Medicine):Observable<Medicine>{
+    return this.http.post<Medicine>((this.AdminApiBaseUrl + '/product'), medicine, { headers: new HttpHeaders({'Authorization': `Bearer ${this.isAuthToken()}`} )} );
+  }
+
+  updateMedicine(id: string, medicine: Medicine):Observable<Medicine>{
+    return this.http.put<Medicine>((this.AdminApiBaseUrl + `/${id}`), medicine, { headers: new HttpHeaders({'Authorization': `Bearer ${this.isAuthToken()}`} )} );
+  }
+
+  removeMedicine(id: string):Observable<Medicine>{
+    return this.http.delete<Medicine>((this.AdminApiBaseUrl+ `/${id}`), { headers: new HttpHeaders({'Authorization': `Bearer ${this.isAuthToken()}`} )} );
+  }
+
 
 }

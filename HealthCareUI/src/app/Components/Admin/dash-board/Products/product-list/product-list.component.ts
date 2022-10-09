@@ -19,10 +19,25 @@ export class ProductListComponent implements OnInit {
   constructor(private MedicineService: MedicineServiceService) { }
 
   ngOnInit(): void {
-
+    this.MedicineService.getAllMedicines().subscribe({
+      next: (response) => {
+        this.medicineList = response;
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    })
   }
-
-  removeMedicine(id : number){
-    console.log(id);
+  
+  removeMedicine(id : string){
+    this.MedicineService.removeMedicine(id).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.ngOnInit();
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    })
   }
 }

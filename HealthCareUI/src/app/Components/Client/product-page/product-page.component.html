@@ -40,15 +40,15 @@
                     <div>
                         <h4 class="product-price"><span>&#x20B9; </span> {{medicine.price.toFixed(2)}}</h4>
                         <p class="product-mrp"><span>MRP : </span>&#x20B9;  {{(medicine.price*1.1).toFixed(2)}}</p>
-                        <div class="product-quantity-selector">
+                        <div class="product-medQty-selector">
                             <p>Select Qualtity : </p>
                             <div class="counter-buttons">
                                 <button class="counters" (click)="decreaseCount()">-</button>
-                                <button class="counters" type="text">{{quantity}}</button>
+                                <button class="counters" type="text">{{medQty}}</button>
                                 <button class="counters" (click)="increaseCount()">+</button>
                             </div>
                         </div>
-                        <p class="product-quantity">Hurry Up... Only <strong>{{medicine.qty}}</strong> are left in stock.</p>
+                        <p class="product-medQty">Hurry Up... Only <strong>{{medicine.qty}}</strong> are left in stock.</p>
                     </div>
                     <button class="buy-btn" (click)="gotoCheckout()">Place Order</button>
                 </div>

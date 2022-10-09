@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AuthServiceService } from './auth-service.service';
 
 @Injectable({
@@ -9,22 +10,41 @@ import { AuthServiceService } from './auth-service.service';
 })
 export class UserService {
 
+  adminApiUrl: string = environment.usersApiUrl_Admin;
+  userApiUrl: string = environment.usersApiUrl_User;
+
+
   constructor(private http : HttpClient, private router: Router, public auth: AuthServiceService) { }
 
-  
+// ========================== Token Authentication ===================
   private isAuthToken(){
     if(!localStorage.getItem('authToken')){
-      return "Error";
+      this.router.navigate(['/login']);
+      return 'error';
     }
-    let token = localStorage.getItem('authToken');
-    return token;
+    return localStorage.getItem('authToken');
   }
 
+
+// ========================== User Routes ==========================
+
   getUser(id: string):Observable<any>{
-    let token = this.isAuthToken();
-    if(token == "Error"){
-      this.router.navigate(['/login']);
-    }
-    return this.http.get<any>(`https://localhost:7105/api/admin/users/${id}`, { headers: new HttpHeaders({'Authorization': `Bearer ${token}`} )} );
+    return this.http.get<any>((this.adminApiUrl + `/${id}`), { headers: new HttpHeaders({'Authorization': `Bearer ${this.isAuthToken()}`} )} );
+  }
+  
+  updateUserDetails(id: string, user: any):Observable<any>{
+    return this.http.put<any>((this.userApiUrl + `/${id}`), user, { headers: new HttpHeaders({'Authorization': `Bearer ${this.isAuthToken()}`} )} );
+  }
+
+
+// ========================= Admin Routes ==========================
+
+  getAllUsers():Observable<any[]>{
+    return this.http.get<any[]>(this.adminApiUrl, { headers: new HttpHeaders({'Authorization': `Bearer ${this.isAuthToken()}`} )} );
+  }
+  
+  changeUserRole(id: string, role: string):Observable<any>{
+    return this.http.put<any>(`${this.adminApiUrl}/${id}?newRole=${role}`, role, { headers: new HttpHeaders({'Authorization': `Bearer ${this.isAuthToken()}`} )} );
   }
 }
+

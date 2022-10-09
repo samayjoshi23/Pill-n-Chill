@@ -3,8 +3,10 @@
         <i class="fa fa-duotone fa-plus"></i>
         <h1 class="section-title">Add new Category</h1>
     </div>
-    
-    <form class="CategoryForm" [formGroup]="addCategoryForm" (ngSubmit)="addCategory()">
+    <div>
+        <h2 class="section-title-{{roleStatus}}">{{roleMessage}}</h2>
+    </div>
+    <form class="CategoryForm" [formGroup]="addCategoryForm" (ngSubmit)="addCategory()" *ngIf="roleMessage == '' ">
         <div class="input-sections">
             <label for="categoryName" class="input-labels">Category Name</label>
             <span class="error-message" *ngIf="!addCategoryForm.get('categoryName')?.valid && addCategoryForm.get('categoryName')?.touched">

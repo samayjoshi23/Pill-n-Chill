@@ -15,11 +15,18 @@ export class LandingPageComponent implements OnInit {
   topProducts: Medicine[] = [];
 
 
-  constructor(private CategoryService: CategoryTypeServiceService, private MedicineService: MedicineServiceService) { }
+  constructor(private CategoryTypeService: CategoryTypeServiceService, private MedicineService: MedicineServiceService) { }
 
   ngOnInit(): void {
     
-    this.categories = this.CategoryService.getCategories();
+    this.CategoryTypeService.getAllCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    });
 
     this.MedicineService.getTop6().subscribe({
       next: (result) => {
@@ -29,11 +36,6 @@ export class LandingPageComponent implements OnInit {
         console.log(response);
       }
     })
-
-    
-    if(this.categories[0].urlName === 'all'){
-      this.categories.shift();
-    }
   }
 
 }

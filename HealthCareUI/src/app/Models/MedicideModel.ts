@@ -1,5 +1,5 @@
 export interface Medicine{
-    medicineId: number,
+    medicineId: string,
     name: string,
 	chemical: string,
 	exp: string,

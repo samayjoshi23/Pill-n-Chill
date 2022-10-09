@@ -32,7 +32,7 @@ namespace HealthCareAPI.Controllers
         [HttpGet]
         [Route("admin/users/{Id}")]
         [Authorize(Roles = "admin,user")]
-        public async Task<ActionResult<List<User>>> GetSingleUser(Guid Id)
+        public async Task<ActionResult<List<User>>> GetSingleUser([FromRoute] Guid Id)
         {
             var user = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId == Id);
             if (user==null)
@@ -46,7 +46,7 @@ namespace HealthCareAPI.Controllers
         [HttpPut]
         [Route("admin/users/{Id}")]
         [Authorize(Roles ="admin")]
-        public async Task<ActionResult<string>> ChangeRole(Guid Id, string newRole)
+        public async Task<ActionResult<string>> ChangeRole([FromRoute] Guid Id, [FromQuery] string newRole)
         {
             var user = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId == Id);
             
@@ -62,9 +62,9 @@ namespace HealthCareAPI.Controllers
         [HttpPut]
         [Route("user/users/{Id}")]
         [Authorize(Roles ="user")]
-        public async Task<ActionResult<string>> UpdateUserData(Guid Id, User newUserData)
+        public async Task<ActionResult<string>> UpdateUserData([FromRoute] Guid Id, [FromBody] User newUserData)
         {
-            var ExistingUserData = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId==Id);
+            var ExistingUserData = await _fullStackDbContext.Users.FirstOrDefaultAsync(user => user.userId == Id);
 
             if (ExistingUserData == null)
                 return NotFound();
@@ -81,7 +81,7 @@ namespace HealthCareAPI.Controllers
         [HttpDelete]
         [Route("admin/users/{Id}")]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> DeleteUser(Guid Id)
+        public async Task<ActionResult> DeleteUser([FromRoute] Guid Id)
         {
             var user = await _fullStackDbContext.Users.FindAsync(Id);
 

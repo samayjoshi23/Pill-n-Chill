@@ -1,10 +1,13 @@
 <main>
     <div class="section-header">
         <h1 class="section-title">Here is the list of all the categories</h1>
-        <button type="submit" class="add-btn" routerLink="/admin/categories/add"><i class="fa fa-duotone fa-plus"></i> Add
-            New Category </button>
+        <button type="submit" class="add-btn" routerLink="/admin/categories/add">
+            <i class="fa fa-duotone fa-plus"></i> Add New Category
+        </button>
     </div>
-    
+    <div>
+        <h2 class="section-title-{{roleStatus}}">{{roleMessage}}</h2>
+    </div>
     <div class="category-container">
         <div class="category-card" type="button" *ngFor="let category of categories">
             <div class="category-data">

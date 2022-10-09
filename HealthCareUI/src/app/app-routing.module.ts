@@ -29,13 +29,13 @@ const routes: Routes = [
   },
   {
     title: "Pill 'n Chill - MyAccount",
-    path: '',
+    path: 'account',
     component: AccountPageComponent
   },
   {
     title: "Pill 'n Chill - MyOrders",
-    path: '',
-    component: AccountPageComponent
+    path: 'orders',
+    component: OrderPageComponent
   },
   {
     title: "Pill 'n Chill - Login",

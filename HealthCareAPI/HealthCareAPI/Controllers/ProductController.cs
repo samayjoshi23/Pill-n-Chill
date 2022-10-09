@@ -22,6 +22,7 @@ namespace HealthCareAPI.Controllers
 
         [HttpGet]
         [Route("admin/products")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<List<Product>>> getProductByName([FromQuery] string productName)
         {
             var products = await _fullStackDbContext.Products.ToListAsync();
@@ -62,7 +63,6 @@ namespace HealthCareAPI.Controllers
         public async Task<ActionResult<List<Product>>> getTopProducts()
         {
             var products = await (from p in _fullStackDbContext.Products select p).Take(6).ToListAsync();
-
             return Ok(products);
         }
 
@@ -82,11 +82,12 @@ namespace HealthCareAPI.Controllers
 
 
         [HttpPost("admin/products/product")]
-        public async Task<ActionResult<Product>> RegisterProducts([FromBody] Product newProducts)
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult<Product>> RegisterProducts([FromBody] Product newProduct)
         {
-            product.MedicineId = new Guid();
+            newProduct.MedicineId = new Guid();
 
-            await _fullStackDbContext.Products.AddAsync(product);
+            await _fullStackDbContext.Products.AddAsync(newProduct);
             await _fullStackDbContext.SaveChangesAsync();
             return Ok();
         }
@@ -94,6 +95,7 @@ namespace HealthCareAPI.Controllers
 
         [HttpPut]
         [Route("admin/products/{Id}")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<Product>> updateProduct([FromRoute] Guid Id, [FromBody] Product request)
         {
             var product = await _fullStackDbContext.Products.FirstOrDefaultAsync(product => product.MedicineId==Id);
@@ -111,7 +113,6 @@ namespace HealthCareAPI.Controllers
             product.Qty = request.Qty;
             product.Type = request.Type;
 
-
             await _fullStackDbContext.SaveChangesAsync();
             return Ok(product);
         }
@@ -119,9 +120,9 @@ namespace HealthCareAPI.Controllers
 
         [HttpDelete]
         [Route("admin/products/{Id}")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<string>> DeleteProduct([FromRoute] Guid Id)
         {
-
             var product = await _fullStackDbContext.Products.FindAsync(Id);
 
             _fullStackDbContext.Products.Remove(product);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Medicine } from 'src/app/Models/MedicideModel';
 import { Category } from 'src/app/Models/CategoryModel';
 import { MedicineType } from 'src/app/Models/TypesModel';
@@ -31,7 +31,14 @@ export class ListPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.types = this.CategoryTypeService.getTypes();
-    this.categories = this.CategoryTypeService.getCategories();
+    this.CategoryTypeService.getAllCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    });
     
     this.ActRouter.paramMap.subscribe((params) => {
       this.filters.category = params.get('category');

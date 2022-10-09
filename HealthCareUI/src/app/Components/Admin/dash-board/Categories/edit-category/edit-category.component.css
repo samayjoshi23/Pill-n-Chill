@@ -19,6 +19,16 @@
     font-size: 1.5rem;
     font-weight: bold;
 }
+.section-title-success{
+    color: green;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.section-title-error{
+    color: red;
+    font-size: 1rem;
+    font-weight: 500;
+}
 form {
     width: 38rem;
     padding: 1.25rem 1.75rem;
