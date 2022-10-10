@@ -1,3 +1,6 @@
+main{
+    position: relative;
+}
 #header-container{
     height: 40vh;
     display: flex;
@@ -128,4 +131,40 @@
 }
 .place-order-btn:active{
     background-color: var(--ternery-update-color);
+}
+
+
+/* ================================== Popup ========================= */
+.popup-container{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 89;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+}
+.popup-container.show{
+    display: flex;
+}
+.popup-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 22px 4px rgba(0, 0, 0, 0.3);
+}
+.popup-div h1{
+    font-size: 2rem;
+    font-weight: 500;
+    color: green;
+}
+.confirmation-gif{
+    width: 20rem;
 }

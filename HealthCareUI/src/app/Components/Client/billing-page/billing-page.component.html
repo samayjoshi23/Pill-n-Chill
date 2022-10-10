@@ -58,8 +58,8 @@
                         </div>
                     </div>
                     <div class="input-divs">
-                        <label for="cvv" class="input-labels">Phone Number</label>
-                        <input type="number" name="cvv" id="cvv" placeholder="+91 XXXXX - XXXXX" class="input-fields" [(ngModel)]="cardData.cvv">
+                        <label for="cvv" class="input-labels">CVV</label>
+                        <input type="number" name="cvv" id="cvv" placeholder="cvv here" class="input-fields" [(ngModel)]="cardData.cvv">
                     </div>
                 </div>
             </div>
@@ -67,8 +67,8 @@
                 <div class="section-name">{{paymentMethod}}</div>
                 <div class="section-inputs">
                     <div class="input-divs">
-                        <label for="" class="input-labels">Phone Number</label>
-                        <input type="number" name="firstName" id="firstName" placeholder="First Name"
+                        <label for="" class="input-labels">CVV</label>
+                        <input type="number" name="cvv" id="CVV" placeholder="CVV"
                             class="input-fields" [(ngModel)]="upiData.contact">
                     </div>
                     <div class="input-divs">
@@ -96,4 +96,11 @@
             <i class="fa fa-duotone fa-lock"></i> Pay Securely
         </button>
     </form>
+
+    <section [class]="popupClass">
+        <div class="popup-div">
+            <h1>Order Confirmed</h1>
+            <img src="assets/loading/confirm.gif" class="confirmation-gif" alt="orderConfirmed">
+        </div>
+    </section>
 </main>
