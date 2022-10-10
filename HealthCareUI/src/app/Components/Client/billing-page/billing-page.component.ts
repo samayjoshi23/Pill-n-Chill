@@ -77,8 +77,9 @@ export class BillingPageComponent implements OnInit {
     console.log(this.ProductDetails);
   }
 
-  setOrderData(){
+  popupClass: string = 'popup-container hide';
 
+  setOrderData(){
     this.newOrder.orderId = '00000000-0000-0000-0000-000000000000';
     this.newOrder.userId = this.ProductDetails.uid;
     this.newOrder.productId = this.ProductDetails.product.medicineId;
@@ -104,14 +105,21 @@ export class BillingPageComponent implements OnInit {
     }
   }
 
+  confirmOrder(){
+    this.popupClass= 'popup-container show';
+    setTimeout(()=> {
+      this.popupClass= 'popup-container hide';
+      this.router.navigate(['/orders']);
+    }, 3600);
+  }
+
+  
   purchase() {
     this.setOrderData();
-
-    console.log(this.newOrder);
-
     this.orderService.generateNewOrder(this.newOrder).subscribe({
       next: (result) => {
         console.log(result);
+        this.confirmOrder();
       },
       error: (response) => {
         console.log(response);
