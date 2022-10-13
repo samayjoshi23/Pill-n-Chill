@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/Models/OrdersModel';
 import { OrdersService } from 'src/app/Services/orders.service';
@@ -12,20 +13,8 @@ export class BillingPageComponent implements OnInit {
   cardType: string = '';
   paymentMethod: string = '';
 
-  month: number = 1;
-  year: number = 2022;
-  cardExpDate: string = '';
-
-  cardData: any = {
-    cardNumber: 0,
-    cardHolder: '',
-    expDate: '',
-    cvv: 0,
-  };
-  upiData: any = {
-    contact: 0,
-    vpa: '',
-  };
+  monthArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  yearArr = [2022,2023,2024,2025,2026,2027];
 
   ProductDetails: any;
 
@@ -49,6 +38,23 @@ export class BillingPageComponent implements OnInit {
     paymentStatus: "",
     paymentMode: ""
   }
+
+
+  cardBilling: FormGroup = new FormGroup({
+      cardNumber: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(16), Validators.pattern("^[0-9]{16}")]),
+      cardHolder: new FormControl('', [Validators.required,Validators.minLength(5)]),
+      expMonth: new FormControl(this.monthArr[0], [Validators.required]),
+      expYear: new FormControl(this.yearArr[0], [Validators.required]),
+      cvv: new FormControl('', [Validators.required,Validators.maxLength(3),Validators.minLength(3),Validators.pattern("^[0-9]{3}")]),
+    });
+
+  upiBilling: FormGroup = new FormGroup({
+      vpa: new FormControl('', [Validators.required])
+    });
+  
+  codBilling: FormGroup = new FormGroup({
+    check: new FormControl(false, [Validators.required, Validators.pattern('true')])
+  });
 
   constructor(
     private ActRouter: ActivatedRoute,
@@ -78,6 +84,8 @@ export class BillingPageComponent implements OnInit {
   }
 
   popupClass: string = 'popup-container hide';
+  orderProcess: string = 'popup-div';
+  orderConfirmation: string = 'popup-div';
 
   setOrderData(){
     this.newOrder.orderId = '00000000-0000-0000-0000-000000000000';
@@ -105,12 +113,24 @@ export class BillingPageComponent implements OnInit {
     }
   }
 
+
   confirmOrder(){
-    this.popupClass= 'popup-container show';
+    this.popupClass = 'popup-container show';
+    this.orderProcess = 'popup-div hide';
+    this.orderProcess = 'popup-div show';
+    
     setTimeout(()=> {
-      this.popupClass= 'popup-container hide';
-      this.router.navigate(['/orders']);
-    }, 3600);
+      this.orderProcess = 'popup-div hide';
+      this.orderConfirmation = 'popup-div show';
+      
+      setTimeout(()=> {
+        this.orderConfirmation = 'popup-div hide';
+        setTimeout(()=> {
+            this.popupClass= 'popup-container hide';
+            this.router.navigate(['/orders']);
+        }, 250);
+      }, 4000);
+    }, 3000);
   }
 
   

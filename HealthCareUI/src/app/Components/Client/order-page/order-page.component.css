@@ -1,121 +1,3 @@
-/*=========== Table styling ============= */
-/* main {
-    background: #f5f5f5;
-    font-family: var(--secondary-font);
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-.container {
-    max-width: 1200px;
-}
-.container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 4rem;
-    text-align: center;
-}
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
-.column-header{
-    position: relative;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-.table-responsive {
-    margin: 30px 0;
-}
-.table-wrapper {
-    min-width: 1000px;
-    background: #fff;
-    padding: 20px 25px;
-    border-radius: 3px;
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
-}
-.table-title {
-    color: #fff;
-    background: #4b5366;		
-    padding: 16px 25px;
-    margin: -20px -25px 10px;
-    border-radius: 3px 3px 0 0;
-}
-.table-title h2 {
-    margin: 5px 0 0;
-    font-size: 24px;
-}
-table.table tr th, table.table tr td {
-    border-color: #e9e9e9;
-    padding: 12px 15px;
-    vertical-align: middle;
-}
-table.table tr th:first-child {
-    width: 60px;
-}
-table.table tr th:last-child {
-    width: 80px;
-}
-table.table-striped.table-hover tbody tr:hover {
-    box-shadow: var(--card-box-shadow);
-}
-table.table th i {
-    font-size: 13px;
-    margin: 0 5px;
-    cursor: pointer;
-}	
-td{
-    white-space: nowrap;
-} */
-
-/* ======== Status button Styling ========= */
-/* .submit-btn{
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
-    font-family: var(--primary-font);
-    border: none;
-    border-radius: 5px;
-    color: white;
-    width: 100%;
-}
-.add-btn{
-    background-color: var(--primary-submit-color);
-}
-.pending-btn{
-    background-color: var(--primary-update-color);
-}
-.cancel-btn{
-    background-color: var(--primary-delete-color);
-}
-.dispatch-btn{
-    background-color: dimgrey;
-} */
-
-/* ========= Delete Icon Styling ========== */
-/* .colors{
-    color: #de1738;
-}
-.del-button{
-    background-color: white;
-    border: none;
-    border-radius: 16px;
-    padding: 8px 8px;
-    font-size: 1.2rem;
-    cursor: pointer
-}
-.del-button:hover{
-    background-color: #e1d9e1
-}
-.del-button:active {
-        transform: scale(0.98);
-        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-} */
-
 main{
     margin: 10vh auto;
     padding: 2rem 0;
@@ -125,7 +7,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
 }
 .section-header i{
     font-size: 1rem;
@@ -136,10 +18,20 @@ main{
     font-size: 1.5rem;
     font-weight: bold;
 }
+.section-title-success{
+    color: green;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.section-title-error{
+    color: red;
+    font-size: 1rem;
+    font-weight: 500;
+}
 .product-container{
     display: grid;
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     grid-template-columns: 1fr;
     gap: 1rem;
 }
@@ -148,7 +40,6 @@ main{
     border-radius: 10px;
     display: flex;
     padding: 0.5rem;
-    cursor: pointer;
     border: none;
     justify-content: space-between;
     align-items: flex-start;
@@ -188,6 +79,7 @@ main{
 }
 .product-price-info{
     background-color: white;
+    width: 15rem;
     padding: 0.5rem;
     border-radius: 8px;
     height: 100%;
@@ -202,21 +94,45 @@ main{
     font-weight: 800;
     color: var(--ternery-color);
 }
-.product-price span{
-    font-size: 1.25rem;
+.product-price-2{
+    font-family: var(--secondary-font);
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+.product-price-2 span{
+    font-size: 1rem;
     font-weight: 500;
 }
-.delete-btn{
+.delete-btn, .update-btn, .disable-btn{
     padding: 0.5rem 1rem;
     margin: 0.25rem 0;
-    background-color: var(--primary-delete-color);
     font-family: var(--primary-font);
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+.disable-btn{
+    background-color: rgb(202, 202, 202);
+    color: black;
+    cursor: default;
+}
+.delete-btn{
+    background-color: var(--primary-delete-color);
     color: white;
 }
-.delete-btn i{
+.update-btn{
+    color: rgb(0, 0, 0);
+    background-color: var(--primary-update-color);
+}
+.update-btn:hover{
+    background-color: var(--secondary-update-color);
+}
+.update-btn:active{
+    background-color: var(--ternery-update-color);
+    color: black;
+}
+.delete-btn i, .update-btn i{
     margin-right: 0.5rem;
 }
 .delete-btn:hover{
