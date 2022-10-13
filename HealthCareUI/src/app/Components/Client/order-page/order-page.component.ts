@@ -10,6 +10,8 @@ import { OrdersService } from 'src/app/Services/orders.service';
 export class OrderPageComponent implements OnInit {
 
 
+  roleMessage: string = '';
+  roleStatus: string = '';
   orderList: Order[] = [];
 
   constructor(private orderService: OrdersService) { }
@@ -26,14 +28,25 @@ export class OrderPageComponent implements OnInit {
     })
 
   }
+  
+  responseStatus(message: string, status: string){
+    this.roleMessage = message;
+    this.roleStatus = status;
+    
+    setTimeout(() => {
+      this.roleMessage = '';
+      this.roleStatus = '';
+    }, 5000);
+  }
 
   cancelOrder(id: string){
     this.orderService.cancelOrder(id).subscribe({
       next: (result) => {
-        console.log(result);
+        this.responseStatus(`Order Cancelled`, "success");
+        this.ngOnInit();
       },
       error: (response) => {
-        console.log(response);
+        this.responseStatus(`Order could not be cancelled due to some reasons.`, "error");
       }
     });
   }

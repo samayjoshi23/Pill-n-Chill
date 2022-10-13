@@ -7,100 +7,98 @@
             <p class="bill-description"><span>Total payment : </span> &#x20B9; {{ProductDetails.order.total}}</p>
         </div>
     </div>
-    <form id="input-container" #form="ngForm" (ngSubmit)="purchase()">
+    <form class="input-container" [formGroup]="cardBilling" (ngSubmit)="purchase()" *ngIf="cardType=='credit-card' || cardType=='debit-card'">
         <section class="data-type-sections">
             <div class="section-header">
                 <i class="fa fa-duotone fa-credit-card"></i>
                 <h3 class="section-count">Details Here</h3>
             </div>
-            <div class="section-data" *ngIf="cardType=='credit-card' || cardType=='debit-card'">
+            <div class="section-data">
                 <div class="section-name">{{paymentMethod}}</div>
                 <div class="section-inputs">
                     <div class="input-divs">
                         <label for="cardNumber" class="input-labels">Card Number</label>
                         <input type="number" name="cardNumber" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX"
-                            class="input-fields" [(ngModel)]="cardData.cardNumber">
+                            class="input-fields" formControlName="cardNumber">
                     </div>
                     <div class="input-divs">
                         <label for="cardHolder" class="input-labels">Card Holder's Name</label>
-                        <input type="text" name="cardHolder" id="cardHolder" placeholder="Last Name" class="input-fields" [(ngModel)]="cardData.cardHolder">
+                        <input type="text" name="cardHolder" id="cardHolder" placeholder="Card holder's Name" class="input-fields" formControlName="cardHolder">
                     </div>
                     <div class="input-divs">
                         <label for="expDate" class="input-labels">Expiry Date</label>
                         <div class="expiry-date">
-                            <select name="month" id="month" class="input-fields" [(ngModel)]="month">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
+                            <select name="month" id="month" class="input-fields" formControlName="expMonth">
+                                <option value="{{month}}" *ngFor="let month of monthArr">{{month}}</option>
                             </select>
-                            <select name="year" id="year" class="input-fields" [(ngModel)]="year">
-                                <option value="2022">2022</option>
-                                <option value="2023">2023</option>
-                                <option value="2024">2024</option>
-                                <option value="2025">2025</option>
-                                <option value="2026">2026</option>
-                                <option value="2027">2027</option>
-                                <option value="2028">2028</option>
-                                <option value="2029">2029</option>
-                                <option value="2030">2030</option>
-                                <option value="2031">2031</option>
-                                <option value="2032">2032</option>
+                            <select name="year" id="year" class="input-fields" formControlName="expYear">
+                                <option value="{{year}}" *ngFor="let year of yearArr">{{year}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="input-divs">
                         <label for="cvv" class="input-labels">CVV</label>
-                        <input type="number" name="cvv" id="cvv" placeholder="cvv here" class="input-fields" [(ngModel)]="cardData.cvv">
-                    </div>
-                </div>
-            </div>
-            <div class="section-data" *ngIf="cardType=='UPI'">
-                <div class="section-name">{{paymentMethod}}</div>
-                <div class="section-inputs">
-                    <div class="input-divs">
-                        <label for="" class="input-labels">CVV</label>
-                        <input type="number" name="cvv" id="CVV" placeholder="CVV"
-                            class="input-fields" [(ngModel)]="upiData.contact">
-                    </div>
-                    <div class="input-divs">
-                        <label for="" class="input-labels">VPA / UPI address</label>
-                        <input type="text" name="" id="" placeholder="Last Name" class="input-fields" [(ngModel)]="upiData.vpa">
-                    </div>
-                </div>
-            </div>
-            <div class="section-data" *ngIf="cardType=='cod'">
-                <div class="section-name">{{paymentMethod}}</div>
-                <div class="section-inputs">
-                    <div class="agreement-div">
-                        <input type="checkbox" name="agree" id="agree">
-                        <p>I agree all the terms and conditions for the Pill 'n Chill, and the medicine will not be returned even if you don't needed it. </p>
+                        <input type="number" name="cvv" id="cvv" placeholder="CVV" class="input-fields" formControlName="cvv">
                     </div>
                 </div>
             </div>
         </section>
-
-        <button class="place-order-btn" type="submit" *ngIf="cardType =='cod'">
-            <i class="fa fa-duotone fa-circle-check"></i> Confirm Order
-        </button>
-
-        <button class="place-order-btn" type="submit" *ngIf="cardType !='cod'">
+        <button class="place-order-btn" type="submit" [disabled]="(!cardBilling.valid)">
             <i class="fa fa-duotone fa-lock"></i> Pay Securely
         </button>
     </form>
 
+    <form class="input-container" [formGroup]="upiBilling" (ngSubmit)="purchase()" *ngIf="cardType=='UPI'">
+        <section class="data-type-sections">
+            <div class="section-header">
+                <i class="fa fa-duotone fa-credit-card"></i>
+                <h3 class="section-count">Details Here</h3>
+            </div>
+            <div class="section-data">
+                <div class="section-name">{{paymentMethod}}</div>
+                <div class="section-inputs">
+                    <div class="input-divs">
+                        <label for="vpa" class="input-labels">VPA / UPI address</label>
+                        <input type="text" name="vpa" id="vpa" placeholder="UPI address" class="input-fields" formControlName="vpa">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <button class="place-order-btn" type="submit" [disabled]="(!upiBilling.valid)">
+            <i class="fa fa-duotone fa-lock"></i> Pay Securely
+        </button>
+    </form>
+
+    <form class="input-container" [formGroup]="codBilling" (ngSubmit)="purchase()" *ngIf="cardType =='cod'">
+        <section class="data-type-sections">
+            <div class="section-header">
+                <i class="fa fa-duotone fa-credit-card"></i>
+                <h3 class="section-count">Details Here</h3>
+            </div>
+            <div class="section-data">
+                <div class="section-name">{{paymentMethod}}</div>
+                <div class="section-inputs">
+                    <div class="agreement-div">
+                        <input type="checkbox" name="agree" id="agree" formControlName="check">
+                        <p>After purchasing by COD, the return policy will not be applicable on the product.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <button class="place-order-btn" type="submit"[disabled]="(!codBilling.valid)">
+            <i class="fa fa-duotone fa-circle-check"></i> Confirm Order
+        </button>
+    </form>
+
+
     <section [class]="popupClass">
-        <div class="popup-div">
-            <h1>Order Confirmed</h1>
-            <img src="assets/loading/confirm.gif" class="confirmation-gif" alt="orderConfirmed">
+        <div [class]="orderProcess">
+            <h1 class="processingHeading">Processing your request</h1>
+            <img src="assets/loading/orderLoading.gif" class="order-gif1" alt="orderConfirmed1">
+        </div>
+        <div [class]="orderConfirmation">
+            <h1 class="confirmationHeading">Order Confirmed</h1>
+            <img src="assets/loading/confirm.gif" class="order-gif2" alt="orderConfirmed2">
         </div>
     </section>
 </main>

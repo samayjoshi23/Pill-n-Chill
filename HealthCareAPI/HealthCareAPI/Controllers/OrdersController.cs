@@ -22,25 +22,30 @@ namespace HealthCareAPI.Controllers
         [HttpPost("users/order")]
         public async Task<ActionResult<Orders>> RegisterOrders([FromBody] Orders newOrder)
         {
-            Orders order = new Orders();
-            order.OrderId = new Guid();
-            order.OrderDate = DateTime.Now;
-            order.OrderStatus = newOrder.OrderStatus;
-            order.FirstName = newOrder.FirstName;
-            order.LastName = newOrder.LastName;
-            order.UserId = newOrder.UserId;
-            order.Total = newOrder.Total;
-            order.Street = newOrder.Street;
-            order.State = newOrder.State;
-            order.Phone = newOrder.Phone;
-            order.City = newOrder.City;
-            order.Zip= newOrder.Zip;
-            order.PaymentMode = newOrder.PaymentMode;
-            order.PaymentStatus = newOrder.PaymentStatus;
-            order.Country = newOrder.Country;
-            order.Quantity = newOrder.Quantity;
-            order.ProductId = newOrder.ProductId;
-            order.ProductName = newOrder.ProductName;
+            Orders order = new()
+            {
+                OrderId = new Guid(),
+                OrderDate = DateTime.Now,
+                OrderStatus = newOrder.OrderStatus,
+                FirstName = newOrder.FirstName,
+                LastName = newOrder.LastName,
+                UserId = newOrder.UserId,
+                Total = newOrder.Total,
+                Street = newOrder.Street,
+                State = newOrder.State,
+                Phone = newOrder.Phone,
+                City = newOrder.City,
+                Zip = newOrder.Zip,
+                PaymentMode = newOrder.PaymentMode,
+                PaymentStatus = newOrder.PaymentStatus,
+                Country = newOrder.Country,
+                Quantity = newOrder.Quantity,
+                ProductId = newOrder.ProductId,
+                ProductName = newOrder.ProductName
+            };
+
+            var product = await _fullStackDbContext.Products.FirstOrDefaultAsync(prod => prod.MedicineId == order.ProductId);
+            product.Qty -= order.Quantity;
 
             await _fullStackDbContext.Order.AddAsync(order);
             await _fullStackDbContext.SaveChangesAsync();
@@ -74,6 +79,10 @@ namespace HealthCareAPI.Controllers
             var order = await _fullStackDbContext.Order.FindAsync(Id);
             if (order == null)
                 return NotFound();
+
+
+            var product = await _fullStackDbContext.Products.FirstOrDefaultAsync(prod => prod.MedicineId == order.ProductId);
+            product.Qty += order.Quantity;
 
             _fullStackDbContext.Order.Remove(order);
             await _fullStackDbContext.SaveChangesAsync();

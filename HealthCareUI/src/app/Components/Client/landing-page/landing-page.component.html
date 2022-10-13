@@ -20,7 +20,6 @@
         </form>
     </section>
 
-
     <!-- ==================== Frequent Product Section ==================== -->
     <section class="sub-sections freq-prod">
         <h2 class="section-title">Frequently Bought Products</h2>
@@ -39,6 +38,18 @@
                     </button>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ======================= Categories ====================== -->
+    <section class="sub-sections categories-section">
+        <h2 class="section-title">Product Categories and Types</h2>
+        <h5 class="section-subtitle">We provide wide range of product categories</h5>
+        <div class="category-container">
+            <button class="category-card" *ngFor="let category of categories" routerLink="/products/all/{{category.urlName}}">
+                <i [classList]="category.url"></i>
+                <h4>{{category.categoryName}}</h4>
+            </button>
         </div>
     </section>
 
@@ -79,15 +90,4 @@
         </div>
     </section>
 
-    <!-- ======================= Categories ====================== -->
-    <section class="sub-sections categories-section">
-        <h2 class="section-title">Product Categories and Types</h2>
-        <h5 class="section-subtitle">We provide wide range of product categories</h5>
-        <div class="category-container">
-            <button class="category-card" *ngFor="let category of categories" routerLink="/products/all/{{category.urlName}}">
-                <i [classList]="category.url"></i>
-                <h4>{{category.categoryName}}</h4>
-            </button>
-        </div>
-    </section>
 </main>

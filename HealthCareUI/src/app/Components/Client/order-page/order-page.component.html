@@ -8,22 +8,36 @@
             <i class="fa fa-duotone fa-magnifying-glass"></i>
             <h1 class="section-title">Your Order History</h1>
         </div>
+        <div class="section-header">
+            <h2 class="section-title-{{roleStatus}}">{{roleMessage}}</h2>
+        </div>
         <div class="product-container">
             <button class="product-card" *ngFor="let order of orderList">
                 <div class="product-details">
                     <h3 class="product-name">{{order.productName}}</h3>
-                    <h4 class="product-detail"><span>ProductId :</span> {{order.orderId}} </h4>
+                    <h4 class="product-detail"><span>OrderId :</span> {{order.orderId.split('-')[0]}}{{order.orderId.split('-')[1]}}{{order.orderId.split('-')[2]}} </h4>
                     <h4 class="product-detail"><span>Name :</span> {{order.firstName}} {{order.lastName}}</h4>
                     <h4 class="product-detail"><span>contact :</span> {{order.phone}} </h4>
                     <h4 class="product-detail"><span>Address :</span> {{order.street}}, {{order.city}}, {{order.state}}, {{order.country}}, {{order.zip}}</h4>
                     <h4 class="product-detail"><span>Quantity :</span> {{order.quantity}} </h4>
-                    <h4 class="product-detail"><span>Total :</span> &#x20B9;{{order.total}}</h4>
                     <h4 class="product-detail"><span>Order Date :</span> {{order.orderDate}} </h4>
                     <h4 class="product-detail"><span>Order Status :</span> {{order.orderStatus}} </h4>
+                    <h4 class="product-detail"><span>Payment Mode :</span> {{order.paymentMode}} </h4>
                 </div>
                 <div class="product-price-info">
                     <h2 class="product-price">{{order.orderStatus}}</h2>
-                    <button type="button" class="delete-btn" (click)="cancelOrder(order.orderId)"><i class="colors fa-solid fa-trash"></i> Cancel Order</button>
+
+                    <h4 class="product-price-2"><span>&#x20B9;</span>{{order.total}}</h4>
+
+                    <button type="button" class="delete-btn" (click)="cancelOrder(order.orderId)" *ngIf="order.orderStatus != 'Delivered'">
+                        <i class="colors fa-solid fa-trash"></i> Cancel Order
+                    </button>
+                    <button type="button" class="update-btn" *ngIf="order.orderStatus == 'Delivered' && order.paymentMode != 'Cash On Delivery'">
+                        <i class="fa fa-duotone fa-person-walking-arrow-loop-left"></i> Place Return
+                    </button>
+                    <button type="button" class="disable-btn" *ngIf="order.orderStatus == 'Delivered' && order.paymentMode == 'Cash On Delivery'">
+                        Not Replacable
+                    </button>
                 </div>
             </button>
         </div>

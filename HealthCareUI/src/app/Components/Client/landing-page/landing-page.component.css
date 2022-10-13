@@ -167,6 +167,9 @@
     row-gap: 2rem;
     column-gap: 4rem;
 }
+.serv-section{
+    background-color: rgba(0, 0, 0, 0.02);
+}
 .service-card{
     background-color: white;
     height: 16rem;
